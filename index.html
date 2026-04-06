@@ -30,7 +30,7 @@
         /* Header & Navigation */
         header {
             background-color: #161b22;
-            padding: 15px 20px;
+            padding: 12px 20px;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -41,7 +41,7 @@
         }
 
         .logo {
-            font-size: 22px;
+            font-size: 20px;
             font-weight: bold;
             color: #ffffff;
             letter-spacing: 1px;
@@ -51,16 +51,17 @@
             color: #58a6ff;
         }
 
-        /* Mobile Optimized Buttons */
+        /* Adjusted Button for Mobile and Functionality */
         .btn-primary {
             background-color: #238636;
             color: #ffffff;
-            padding: 8px 16px; /* Smaller padding for mobile */
+            padding: 6px 12px; /* Smaller for mobile */
             border-radius: 6px;
-            font-size: 14px; /* Scaled down font */
+            font-size: 13px; /* Scaled down */
             font-weight: 600;
             border: 1px solid rgba(240, 246, 252, 0.1);
             transition: 0.2s ease;
+            display: inline-block;
         }
 
         .btn-primary:hover {
@@ -77,12 +78,12 @@
 
         .hero h1 {
             color: #ffffff;
-            font-size: 32px;
+            font-size: 28px;
             margin-bottom: 15px;
         }
 
         .hero p {
-            font-size: 16px;
+            font-size: 15px;
             color: #8b949e;
             max-width: 600px;
             margin: 0 auto 25px auto;
@@ -97,7 +98,7 @@
 
         .section-title {
             color: #ffffff;
-            font-size: 24px;
+            font-size: 22px;
             border-bottom: 2px solid #58a6ff;
             padding-bottom: 10px;
             margin-bottom: 30px;
@@ -118,7 +119,7 @@
 
         @media (min-width: 1024px) {
             .grid {
-                grid-template-columns: 1fr 1fr 1fr; /* 3 columns for desktop */
+                grid-template-columns: 1fr 1fr 1fr;
             }
         }
 
@@ -137,10 +138,10 @@
             transform: translateY(-5px);
         }
         
-        /* Card Images */
         .card img {
             width: 100%;
-            height: auto;
+            height: 180px;
+            object-fit: cover;
             border-radius: 6px;
             margin-bottom: 15px;
             border: 1px solid #30363d;
@@ -159,7 +160,6 @@
             flex-grow: 1;
         }
 
-        /* Footer */
         footer {
             background-color: #010409;
             text-align: center;
@@ -174,7 +174,7 @@
 
     <header>
         <div class="logo">VLSFO<span>.COM</span></div>
-        <a href="#contact" class="btn-primary">USDT Settlement</a>
+        <a href="https://vlsfo.xyz" target="_blank" class="btn-primary">VLSFO.XYZ</a>
     </header>
 
     <section class="hero">
@@ -189,65 +189,69 @@
         <div class="grid">
             
             <article class="card">
-                <img src="vlsfo2030.jpg" alt="AI in Marine Fuel Trading" onerror="this.style.display='none'">
+                <img src="vlsfo2030.jpg" alt="AI in Marine Fuel Trading">
                 <h3>AI in Bunkering: Predicting VLSFO Price Trends</h3>
-                <p>Artificial Intelligence is revolutionizing the maritime fuel sector. By analyzing vast amounts of historical data, geopolitical events, and shipping routes, <strong>AI algorithms</strong> can predict the <strong>price of bunker fuel</strong> with unprecedented accuracy, allowing fleet managers to hedge risks efficiently.</p>
+                <p>Artificial Intelligence is revolutionizing the maritime fuel sector. By analyzing historical data and geopolitical events, <strong>AI algorithms</strong> predict the <strong>price of bunker fuel</strong> with accuracy.</p>
             </article>
 
             <article class="card">
+                <img src="vlsfo-2.jpg" alt="VLSFO Meaning" onerror="this.style.display='none'">
                 <h3>What is VLSFO? Meaning & Density Explained</h3>
-                <p><strong>VLSFO meaning</strong> refers to Very Low Sulfur Fuel Oil (max 0.50% sulfur). Fleet operators must carefully monitor <strong>VLSFO density</strong> (920 - 970 kg/m³) and viscosity. Incorrect density calculations can lead to separator issues and potential engine failure during ocean transit.</p>
+                <p><strong>VLSFO meaning</strong> refers to fuel with max 0.50% sulfur. Fleet operators must monitor <strong>VLSFO density</strong> (920-970 kg/m³) to ensure correct engine performance and purification.</p>
             </article>
 
             <article class="card">
-                <img src="vlsfo-33.jpg" alt="USDT Blockchain Payments" onerror="this.style.display='none'">
+                <img src="vlsfo-33.jpg" alt="USDT Blockchain Payments">
                 <h3>USDT Settlement: The Future of Bunker Fuel</h3>
-                <p>Traditional banking causes delays in marine operations. <strong>Buying VLSFO with USDT</strong> via blockchain technology allows for instant, 24/7 cross-border settlements. This mitigates weekend banking blackout periods and drastically reduces transaction fees for global suppliers and buyers.</p>
+                <p><strong>Buying VLSFO with USDT</strong> via blockchain technology allows for instant, 24/7 cross-border settlements, mitigating banking delays and high fees.</p>
             </article>
 
             <article class="card">
+                <img src="vlsfo2033.jpg" alt="Smart Contracts" onerror="this.style.display='none'">
                 <h3>Smart Contracts in Marine Energy Trading</h3>
-                <p>Beyond simple USDT transfers, Ethereum and Tron-based smart contracts are automating bunker fuel purchases. Payment is held in escrow and released automatically to the supplier once the BDN (Bunker Delivery Note) is digitally signed, ensuring zero counterparty risk.</p>
+                <p>Blockchain-based smart contracts are automating fuel purchases. Payment is held in escrow and released automatically once the delivery is verified, ensuring zero risk.</p>
             </article>
 
             <article class="card">
+                <img src="vlsfo2027.jpg" alt="Singapore Port" onerror="this.style.display='none'">
                 <h3>Major Hubs: Singapore vs. Rotterdam</h3>
-                <p>Singapore remains the undisputed global leader in bunkering volume, while Rotterdam dictates European pricing. Monitoring the spread between these two hubs helps global shipping companies optimize their voyage planning and fuel lifting strategies.</p>
+                <p>Singapore is the global leader in bunkering volume, while Rotterdam dictates European pricing. Monitoring this spread helps companies optimize voyage planning.</p>
             </article>
 
             <article class="card">
                 <h3>Is VLSFO Diesel? Understanding the Blend</h3>
-                <p><strong>"Is VLSFO diesel?"</strong> No. While Marine Gas Oil (MGO) is similar to diesel, VLSFO is a blended residual oil. It combines heavy residues with low-sulfur distillates to meet environmental regulations while keeping costs lower than pure marine diesel.</p>
+                <p><strong>"Is VLSFO diesel?"</strong> No. While MGO is similar to diesel, VLSFO is a blended residual oil designed to meet environmental regulations cost-effectively.</p>
             </article>
 
             <article class="card">
                 <h3>Fujairah Port: Middle East VLSFO Index</h3>
-                <p>Located strategically in the UAE, the Port of Fujairah is a critical refueling stop for tankers navigating the Persian Gulf. We provide updates on the Fujairah VLSFO premium and storage availability, which directly impacts global energy supply chains.</p>
+                <p>The Port of Fujairah is a critical refueling stop. We provide updates on VLSFO premiums and storage availability, which directly impact global energy supply chains.</p>
             </article>
 
             <article class="card">
+                <img src="vlsfo2028.jpg" alt="Houston Port" onerror="this.style.display='none'">
                 <h3>US Gulf Coast: Houston Bunker Trends</h3>
-                <p>Houston is the primary hub for bunkering in the Americas. With strict ECA (Emission Control Area) regulations nearby, tracking Houston's <strong>low sulfur fuel oil</strong> supply is vital for vessels operating between the US, Latin America, and Europe.</p>
+                <p>Houston is the primary hub for bunkering in the Americas. Tracking <strong>low sulfur fuel oil</strong> supply here is vital for vessels operating in the US and Latin America.</p>
             </article>
 
             <article class="card">
                 <h3>ISO 8217 Standards & Cat Fines</h3>
-                <p>Quality matters as much as price. High levels of catalytic fines (cat fines) in VLSFO can destroy ship engines. We strongly advocate for rigorous testing and strict adherence to the latest ISO 8217 specifications to ensure safe and reliable voyage operations.</p>
+                <p>Quality matters. High levels of catalytic fines (cat fines) can destroy engines. We advocate for strict adherence to ISO 8217 specifications to ensure safe operations.</p>
             </article>
 
             <article class="card">
                 <h3>AI Route Optimization & Fuel Efficiency</h3>
-                <p>Machine learning models are now integrated with onboard vessel systems. By combining weather forecasting, current mapping, and live <strong>VLSFO pricing</strong>, AI determines the most cost-effective speed and refueling ports, saving thousands of dollars per voyage.</p>
+                <p>Machine learning models integrated with onboard systems use live <strong>VLSFO pricing</strong> and weather data to determine the most cost-effective speed and refueling ports.</p>
             </article>
 
             <article class="card">
                 <h3>IMO 2030: Transitioning Beyond VLSFO</h3>
-                <p>While VLSFO solved the IMO 2020 sulfur cap, the industry is looking toward IMO 2030 and 2050 decarbonization goals. We track the transition from low-sulfur oil to next-generation fuels like LNG, Methanol, and green Ammonia.</p>
+                <p>The industry is looking toward IMO 2030 and 2050 goals. We track the transition from low-sulfur oil to next-gen fuels like LNG, Methanol, and green Ammonia.</p>
             </article>
 
             <article class="card">
                 <h3>Securing the Bunker Supply Chain</h3>
-                <p>Fuel contamination and quantity disputes are historically common. By combining AI data tracking and blockchain-backed USDT payments, the entire bunkering supply chain becomes transparent, immutable, and highly secure for all stakeholders involved.</p>
+                <p>By combining AI tracking and USDT payments, the bunkering supply chain becomes transparent, immutable, and highly secure for all stakeholders involved.</p>
             </article>
 
         </div>
@@ -255,7 +259,7 @@
 
     <footer id="contact">
         <p>&copy; 2026 VLSFO.COM - Maritime Intelligence, AI Analytics & Digital Asset Settlements.</p>
-        <p>For inquiries regarding B2B USDT payments and real-time port data, please contact our operations team.</p>
+        <p>Payments and protocol powered by VLSFO.XYZ technology.</p>
     </footer>
 
 </body>
