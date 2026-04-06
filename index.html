@@ -3,7 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VLSFO.com | Web3 Maritime Fuel Intelligence & Price Index</title>
+    <title>VLSFO.com | Global Marine Fuel Intelligence & USDT Price Index</title>
+    <meta name="description" content="The definitive guide to VLSFO (Very Low Sulphur Fuel Oil). Explore real-time prices, IMO 2030 compliance, and Web3 bunker fuel settlement using USDT.">
+    <meta name="keywords" content="VLSFO Price, VLSFO Meaning, Buy VLSFO with USDT, Bunker Fuel 2030, Marine Fuel Index, Rotterdam VLSFO, Singapore Bunkering">
+    
     <style>
         :root {
             --accent: #00f2ff;
@@ -12,294 +15,224 @@
             --sidebar-bg: #0a0e14;
             --card-bg: #0c111a;
             --border-color: #1a2230;
+            --up: #00ff88;
         }
 
         body {
-            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
             background: var(--bg);
             color: var(--text);
             margin: 0;
-            line-height: 1.6;
+            line-height: 1.7;
             overflow-x: hidden;
         }
 
-        /* Header Navigation */
+        /* Smooth Header */
         header {
-            padding: 20px 40px;
+            padding: 20px 5%;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background: rgba(3, 5, 8, 0.95);
+            background: rgba(3, 5, 8, 0.98);
             border-bottom: 1px solid var(--border-color);
             position: sticky;
             top: 0;
             z-index: 1000;
-            backdrop-filter: blur(10px);
+            backdrop-filter: blur(15px);
         }
 
-        .logo { font-size: 1.8rem; font-weight: 900; color: var(--accent); letter-spacing: 2px; }
-        .logo span { color: white; }
+        .logo { font-size: 1.8rem; font-weight: 900; color: white; letter-spacing: 1px; text-decoration: none; }
+        .logo span { color: var(--accent); }
         
         .header-btn {
-            background: var(--accent); color: #000; padding: 12px 25px;
-            border-radius: 8px; text-decoration: none; font-weight: 800;
-            transition: all 0.3s ease; text-transform: uppercase; letter-spacing: 1px;
-            text-align: center;
-            display: inline-block;
+            background: transparent; color: var(--accent); border: 1px solid var(--accent);
+            padding: 10px 22px; border-radius: 6px; text-decoration: none; font-weight: 700;
+            transition: 0.3s; font-size: 0.9rem; text-transform: uppercase;
         }
-        .header-btn:hover { box-shadow: 0 0 20px rgba(0, 242, 255, 0.4); transform: translateY(-2px); }
+        .header-btn:hover { background: var(--accent); color: #000; box-shadow: 0 0 15px rgba(0, 242, 255, 0.3); }
 
-        /* Hero Section */
+        /* Hero Section - SEO H1 focused */
         .hero {
-            height: 60vh;
-            background: linear-gradient(to right, rgba(3,5,8,0.9), rgba(3,5,8,0.4)), url('vlsfo-2027.jpg') center/cover no-repeat;
+            height: 70vh;
+            background: linear-gradient(to bottom, rgba(3,5,8,0.7), var(--bg)), url('vlsfo-2027.jpg') center/cover no-repeat;
             display: flex;
             flex-direction: column;
             justify-content: center;
-            padding: 0 5%;
+            align-items: center;
+            text-align: center;
+            padding: 0 20px;
             border-bottom: 1px solid var(--border-color);
         }
 
-        .hero h1 { font-size: 3.5rem; color: white; margin: 0 0 15px 0; max-width: 800px; line-height: 1.2; }
-        .hero h1 span { color: var(--accent); }
-        .hero p { font-size: 1.2rem; max-width: 600px; color: #aaa; margin-bottom: 30px; }
+        .hero h1 { font-size: 3.8rem; color: white; margin: 0 0 20px 0; max-width: 900px; line-height: 1.1; font-weight: 900; }
+        .hero h1 span { color: var(--accent); text-shadow: 0 0 20px rgba(0, 242, 255, 0.3); }
+        .hero p { font-size: 1.3rem; max-width: 700px; color: #8892b0; margin-bottom: 35px; }
 
-        /* Main Content Grid */
+        /* Grid Layout */
         .container {
-            max-width: 1400px;
-            margin: 50px auto;
+            max-width: 1300px;
+            margin: 60px auto;
             padding: 0 20px;
             display: grid;
-            grid-template-columns: 1fr 380px;
-            gap: 40px;
+            grid-template-columns: 1fr 350px;
+            gap: 50px;
         }
 
-        /* Blog Section */
-        .blog-feed { display: flex; flex-direction: column; gap: 40px; }
-        
+        /* Article Cards */
         .post-card {
             background: var(--card-bg);
             border: 1px solid var(--border-color);
-            border-radius: 12px;
+            border-radius: 16px;
+            margin-bottom: 50px;
             overflow: hidden;
-            transition: transform 0.3s ease;
+            transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
-        .post-card:hover { border-color: rgba(0, 242, 255, 0.3); }
+        .post-card:hover { transform: translateY(-5px); border-color: var(--accent); }
         
-        .post-img { width: 100%; height: 350px; object-fit: cover; border-bottom: 1px solid var(--border-color); }
-        
-        .post-content { padding: 30px; }
-        .post-meta { font-size: 0.85rem; color: var(--accent); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px; display: block; }
-        .post-title { font-size: 1.8rem; margin: 0 0 15px 0; color: white; line-height: 1.3; }
-        .post-excerpt { color: #aaa; margin-bottom: 20px; font-size: 1.05rem; line-height: 1.8; }
-        .read-more { color: var(--accent); text-decoration: none; font-weight: bold; border-bottom: 1px solid transparent; transition: 0.3s; }
-        .read-more:hover { border-bottom: 1px solid var(--accent); }
+        .post-img { width: 100%; height: 400px; object-fit: cover; }
+        .post-content { padding: 40px; }
+        .post-meta { font-size: 0.8rem; color: var(--accent); font-weight: 700; text-transform: uppercase; margin-bottom: 12px; display: block; letter-spacing: 2px; }
+        .post-title { font-size: 2.1rem; margin: 0 0 18px 0; color: white; line-height: 1.2; font-weight: 800; }
+        .post-excerpt { color: #a8b2d1; margin-bottom: 25px; font-size: 1.1rem; line-height: 1.8; }
+        .read-more { color: var(--accent); text-decoration: none; font-weight: 700; display: flex; align-items: center; gap: 8px; }
 
-        /* Sidebar Section */
-        aside {
-            background: var(--sidebar-bg);
-            padding: 30px;
-            border-radius: 12px;
-            border: 1px solid var(--border-color);
-            height: fit-content;
-            position: sticky;
-            top: 100px;
-        }
-
-        aside h3 { color: white; border-bottom: 2px solid var(--border-color); padding-bottom: 15px; margin-top: 0; font-size: 1.3rem; }
+        /* Sidebar Widgets */
+        aside { position: sticky; top: 120px; height: fit-content; }
+        .widget { background: var(--sidebar-bg); padding: 30px; border-radius: 16px; border: 1px solid var(--border-color); margin-bottom: 30px; }
+        .widget h3 { color: white; margin-top: 0; font-size: 1.2rem; border-bottom: 1px solid var(--border-color); padding-bottom: 15px; margin-bottom: 20px; }
         
-        .trending-list { list-style: none; padding: 0; margin: 0 0 40px 0; }
-        .trending-list li { margin-bottom: 15px; border-bottom: 1px solid var(--border-color); padding-bottom: 15px; }
-        .trending-list li:last-child { border-bottom: none; }
-        .trending-list a { color: #ccc; text-decoration: none; font-size: 1rem; transition: color 0.3s; display: block; line-height: 1.5; }
-        .trending-list a:hover { color: var(--accent); }
+        .trending-link { color: #8892b0; text-decoration: none; display: block; margin-bottom: 15px; font-size: 0.95rem; transition: 0.3s; }
+        .trending-link:hover { color: var(--accent); padding-left: 5px; }
 
-        .keyword-tags { display: flex; flex-wrap: wrap; gap: 10px; }
-        .tag { background: #111823; border: 1px solid #222; color: #888; padding: 6px 12px; border-radius: 4px; font-size: 0.8rem; }
-        
-        /* XYZ Promo Banner inside Sidebar */
-        .promo-widget {
-            margin-top: 40px;
-            background: linear-gradient(135deg, rgba(0, 242, 255, 0.1), transparent);
+        .tag-cloud { display: flex; flex-wrap: wrap; gap: 8px; }
+        .tag { background: #161b22; color: #8892b0; padding: 6px 14px; border-radius: 50px; font-size: 0.75rem; border: 1px solid var(--border-color); }
+
+        /* Pricing Promo Widget */
+        .price-widget {
+            background: linear-gradient(135deg, #0c111a 0%, #001a1d 100%);
             border: 1px solid var(--accent);
-            padding: 25px;
-            border-radius: 12px;
+            padding: 30px;
+            border-radius: 16px;
             text-align: center;
         }
-        .promo-widget h4 { color: white; margin-top: 0; font-size: 1.2rem; }
-        .promo-widget p { color: #aaa; font-size: 0.9rem; margin-bottom: 20px; }
+        .live-label { color: var(--up); font-size: 0.7rem; font-weight: 900; letter-spacing: 2px; display: block; margin-bottom: 10px; }
 
-        /* Bottom Full Width CTA */
-        .bottom-cta {
-            background: linear-gradient(to right, #05080d, #0a0e14);
+        /* Footer CTA */
+        .footer-cta {
+            background: #06090f;
+            padding: 100px 20px;
+            text-align: center;
             border-top: 1px solid var(--border-color);
-            padding: 80px 20px;
-            text-align: center;
-            margin-top: 50px;
         }
-        .bottom-cta h2 { font-size: 2.5rem; color: white; margin-bottom: 20px; }
-        
-        /* Dedicated Bottom CTA Button Class */
-        .cta-btn {
-            background: var(--accent);
-            color: #000;
-            padding: 20px 50px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 800;
-            transition: all 0.3s ease;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            font-size: 1.2rem;
-            display: inline-block;
-            box-sizing: border-box;
-            max-width: 100%;
+        .cta-button {
+            background: var(--accent); color: #000; padding: 22px 50px;
+            border-radius: 50px; text-decoration: none; font-weight: 900;
+            display: inline-block; font-size: 1.2rem; letter-spacing: 1px;
+            transition: 0.3s;
         }
-        .cta-btn:hover { box-shadow: 0 0 30px rgba(0, 242, 255, 0.4); transform: scale(1.02); }
+        .cta-button:hover { transform: scale(1.05); box-shadow: 0 0 40px rgba(0,242,255,0.4); }
 
-        footer { text-align: center; padding: 40px 20px; color: #555; font-size: 0.9rem; background: #010203; }
+        footer { text-align: center; padding: 50px; color: #444; font-size: 0.8rem; letter-spacing: 1px; }
 
-        /* Mobile Responsiveness Rules */
+        /* Mobile Fixes */
         @media (max-width: 900px) {
             .container { grid-template-columns: 1fr; }
-        }
-
-        @media (max-width: 600px) {
-            /* Fix Header & Top Button */
-            header { padding: 15px 20px; flex-direction: column; gap: 15px; text-align: center; }
-            .header-btn { padding: 10px 20px; font-size: 0.9rem; width: 100%; box-sizing: border-box; }
-            
-            /* Fix Hero Section */
-            .hero { height: auto; padding: 60px 20px; text-align: center; }
-            .hero h1 { font-size: 2.2rem; line-height: 1.3; }
-            .hero p { font-size: 1rem; }
-
-            /* Fix Blog Cards */
-            .container { margin: 30px auto; gap: 30px; }
-            .post-img { height: 220px; }
-            .post-content { padding: 20px; }
-            .post-title { font-size: 1.4rem; }
-            
-            /* Fix Bottom CTA Button */
-            .bottom-cta { padding: 50px 20px; }
-            .bottom-cta h2 { font-size: 1.8rem; }
-            .cta-btn {
-                padding: 15px 20px;
-                font-size: 1rem;
-                width: 100%;
-                display: block;
-                white-space: normal;
-                line-height: 1.4;
-            }
+            .hero h1 { font-size: 2.5rem; }
+            .post-img { height: 250px; }
         }
     </style>
 </head>
 <body>
 
 <header>
-    <div class="logo">VLSFO<span>.com</span></div>
-    <a href="https://vlsfo.xyz" target="_blank" class="header-btn">Live Terminal ⚡</a>
+    <a href="/" class="logo">VLSFO<span>.com</span></a>
+    <nav>
+        <a href="https://vlsfo.xyz" class="header-btn">Terminal Access ⚡</a>
+    </nav>
 </header>
 
 <section class="hero">
-    <h1>The Web3 Future of <span>Maritime Fuel</span> Energy</h1>
-    <p>Bridging traditional bunkering with blockchain technology. Explore VLSFO prices, IMO 2030 compliance, and USDT settlement protocols for global fleets.</p>
+    <p>The Future of Maritime Energy Intelligence</p>
+    <h1>Global <span>VLSFO Pricing</span> & Web3 Bunkering Protocols</h1>
+    <p>Bridging traditional maritime fuel markets with decentralized settlement for the 2030 decarbonization era.</p>
 </section>
 
 <div class="container">
     
-    <main class="blog-feed">
+    <main>
         <article class="post-card">
-            <img src="vlsfo2030.jpg" alt="VLSFO 2030 Vision" class="post-img">
+            <img src="vlsfo2030.jpg" alt="VLSFO Marine Fuel Vision 2030" class="post-img">
             <div class="post-content">
-                <span class="post-meta">Market Vision • 2030</span>
-                <h2 class="post-title">Maritime Fuel Vision 2030: The Digital Shift to Web3 Bunkering</h2>
-                <p class="post-excerpt">As the global shipping industry approaches 2030, the reliance on traditional fiat banking is becoming a bottleneck. Purchasing VLSFO (Very Low Sulphur Fuel Oil) via decentralized Web3 wallets using USDT is rapidly evolving from a niche concept to a strategic necessity. Discover how smart contracts are eliminating middlemen in Rotterdam and Singapore, ensuring instant settlement and unparalleled transparency for ship owners.</p>
-                <a href="#" class="read-more">Read Full Analysis →</a>
+                <span class="post-meta">Market Analysis • IMO 2030</span>
+                <h2 class="post-title">VLSFO Meaning & Future: Why Web3 is Dominating Bunkering in 2030</h2>
+                <p class="post-excerpt">Understanding the VLSFO meaning in shipping is critical for the next decade. As the industry shifts toward IMO 2030 compliance, the integration of USDT stablecoin payments is revolutionizing how fuel is purchased in major hubs like Rotterdam and Singapore. Learn why decentralized finance is the ultimate solution for transparent bunkering transactions.</p>
+                <a href="#" class="read-more">View Strategic Report →</a>
             </div>
         </article>
 
         <article class="post-card">
-            <img src="vlsfo-2028.jpg" alt="USDT Bunkering Settlement" class="post-img">
+            <img src="vlsfo-2028.jpg" alt="VLSFO Price USDT Settlement" class="post-img">
             <div class="post-content">
-                <span class="post-meta">Digital Assets • Payment Protocols</span>
-                <h2 class="post-title">Buying VLSFO with USDT: The Ultimate Guide for Ship Captains</h2>
-                <p class="post-excerpt">Volatility in global oil markets demands a stable medium of exchange. USDT provides the perfect peg for multi-million dollar bunkering transactions. This comprehensive guide details the architecture of executing a maritime fuel purchase using digital assets, from verifying the VLSFO density and viscosity on the blockchain to finalizing the transaction in under three minutes.</p>
-                <a href="#" class="read-more">Read Full Analysis →</a>
+                <span class="post-meta">Financial Protocols • USDT</span>
+                <h2 class="post-title">VLSFO Price Per Ton: Executing Secure USDT Settlements</h2>
+                <p class="post-excerpt">Tracking the VLSFO price per ton requires more than just a ticker. In the digital age, ship owners are utilizing USDT to hedge against currency volatility. This guide explains the technical workflow of maritime fuel procurement via Web3 wallets, ensuring instant settlement at ports globally.</p>
+                <a href="#" class="read-more">Explore Payment Guides →</a>
             </div>
         </article>
 
         <article class="post-card">
-            <img src="vlsfo-33.jpg" alt="VLSFO Price Rotterdam vs Singapore" class="post-img">
+            <img src="vlsfo-33.jpg" alt="Low Sulphur Fuel Oil Compliance" class="post-img">
             <div class="post-content">
-                <span class="post-meta">Market Data • Pricing</span>
-                <h2 class="post-title">VLSFO Price Arbitrage: Rotterdam vs. Singapore Hubs</h2>
-                <p class="post-excerpt">Understanding the "VLSFO meaning" is only the first step. For maritime investors, tracking the real-time VLSFO price per ton across major global hubs is critical. We analyze the supply chain dynamics affecting fuel oil costs and how adopting blockchain logistics can reduce operational overhead in major ports like Fujairah and Houston.</p>
-                <a href="#" class="read-more">Read Full Analysis →</a>
-            </div>
-        </article>
-
-        <article class="post-card">
-            <img src="vlsfo2033.jpg" alt="Smart Contracts in Maritime" class="post-img">
-            <div class="post-content">
-                <span class="post-meta">Technology • Smart Contracts</span>
-                <h2 class="post-title">Automating Bunkering: How Smart Contracts Secure VLSFO Quality</h2>
-                <p class="post-excerpt">Fuel quality disputes cost the maritime industry millions annually. By integrating VLSFO specifications (such as Sulphur cap compliance and density limits) directly into Ethereum-based smart contracts, suppliers and buyers can automate payments only when digital certificates of quality are verified. Welcome to trustless bunkering.</p>
-                <a href="#" class="read-more">Read Full Analysis →</a>
-            </div>
-        </article>
-
-        <article class="post-card">
-            <img src="vlsfo-2.jpg" alt="Decarbonization and Digital Assets" class="post-img">
-            <div class="post-content">
-                <span class="post-meta">Sustainability • IMO Regulations</span>
-                <h2 class="post-title">Decarbonization Financing: Tokenizing Green Marine Fuels</h2>
-                <p class="post-excerpt">As the transition from standard VLSFO to alternative green fuels (like Ammonia and Methanol) accelerates, capital is required. Learn how digital assets and tokenization are allowing retail and institutional investors to fund the next generation of eco-friendly maritime supply chains.</p>
-                <a href="#" class="read-more">Read Full Analysis →</a>
+                <span class="post-meta">Quality Control • IMO Regulations</span>
+                <h2 class="post-title">Low Sulphur Fuel Oil (LSFO) Standards: 2026 Compliance Update</h2>
+                <p class="post-excerpt">Maintaining VLSFO density and viscosity within international ISO 8217 standards is mandatory. We analyze how blockchain-based Certificates of Quality (CoQ) are preventing fuel disputes and ensuring that every drop of marine gas oil meets strict environmental caps.</p>
+                <a href="#" class="read-more">Check Standards →</a>
             </div>
         </article>
     </main>
 
     <aside>
-        <h3>Trending Intelligence</h3>
-        <ul class="trending-list">
-            <li><a href="#">What is VLSFO Density? A Technical Guide</a></li>
-            <li><a href="#">Low Sulphur Fuel Oil Specs & IMO Compliance</a></li>
-            <li><a href="#">Setting up a Web3 Wallet for Fleet Management</a></li>
-            <li><a href="#">Marine Gas Oil (MGO) vs VLSFO Investment</a></li>
-            <li><a href="#">Top 5 Bunkering Ports Accepting Crypto</a></li>
-        </ul>
-
-        <div class="promo-widget">
-            <h4>Live Market Terminal</h4>
-            <p>Track real-time VLSFO prices globally. Data-driven decisions start here.</p>
-            <a href="https://vlsfo.xyz" target="_blank" class="header-btn" style="width:100%; box-sizing:border-box;">Access VLSFO.XYZ</a>
+        <div class="price-widget">
+            <span class="live-label">● LIVE NETWORK DATA</span>
+            <h3 style="border:none; margin-bottom:10px;">VLSFO/USDT Terminal</h3>
+            <p style="font-size:0.85rem; color:#8892b0;">Real-time pricing for Rotterdam, Singapore, and Fujairah.</p>
+            <a href="https://vlsfo.xyz" class="cta-button" style="padding:15px 30px; font-size:0.9rem; width:100%; box-sizing:border-box;">Launch Terminal</a>
         </div>
 
-        <h3 style="margin-top: 40px;">Search Matrix</h3>
-        <div class="keyword-tags">
-            <span class="tag">Buy VLSFO with USDT</span>
-            <span class="tag">VLSFO Price</span>
-            <span class="tag">Web3 Bunkering</span>
-            <span class="tag">VLSFO Rotterdam</span>
-            <span class="tag">Crypto Maritime</span>
-            <span class="tag">Fuel Oil Meaning</span>
-            <span class="tag">Bunker Market</span>
+        <div class="widget">
+            <h3>Industry Intelligence</h3>
+            <a href="#" class="trending-link">What is VLSFO Density?</a>
+            <a href="#" class="trending-link">Top 10 Bunkering Ports 2026</a>
+            <a href="#" class="trending-link">Marine Fuel Decarbonization</a>
+            <a href="#" class="trending-link">USDT vs Fiat Bunkering</a>
+        </div>
+
+        <div class="widget">
+            <h3>Global Hub Tags</h3>
+            <div class="tag-cloud">
+                <span class="tag">VLSFO Price</span>
+                <span class="tag">Rotterdam Hub</span>
+                <span class="tag">Singapore Port</span>
+                <span class="tag">USDT Payment</span>
+                <span class="tag">Bunker Fuel</span>
+                <span class="tag">IMO 2030</span>
+                <span class="tag">Maritime Web3</span>
+            </div>
         </div>
     </aside>
 
 </div>
 
-<section class="bottom-cta">
-    <h2>Ready to Monitor Global Bunkering Markets?</h2>
-    <p style="color: #aaa; max-width: 600px; margin: 0 auto 30px; font-size: 1.1rem; line-height: 1.6;">
-        Switch to our dedicated pricing terminal for live data across 50+ international maritime hubs.
+<section class="footer-cta">
+    <h2 style="font-size: 2.5rem; color: white; margin-bottom: 20px;">Unlock Real-Time Bunkering Data</h2>
+    <p style="color: #8892b0; max-width: 600px; margin: 0 auto 40px; font-size: 1.1rem;">
+        Join the global network of ship owners and fuel suppliers using VLSFO.XYZ for high-precision pricing and settlement.
     </p>
-    <a href="https://vlsfo.xyz" target="_blank" class="cta-btn">LAUNCH VLSFO.XYZ PLATFORM 🚀</a>
+    <a href="https://vlsfo.xyz" class="cta-button">ACCESS VLSFO.XYZ TERMINAL 🚀</a>
 </section>
 
 <footer>
-    &copy; 2026 VLSFO.com Data & Intelligence Protocol. All Rights Reserved.
+    VLSFO.COM &copy; 2026 | PART OF THE GLOBAL MARINE FUEL PROTOCOL NETWORK
 </footer>
 
 </body>
