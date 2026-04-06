@@ -20,6 +20,7 @@
             color: var(--text);
             margin: 0;
             line-height: 1.6;
+            overflow-x: hidden;
         }
 
         /* Header Navigation */
@@ -43,13 +44,14 @@
             background: var(--accent); color: #000; padding: 12px 25px;
             border-radius: 8px; text-decoration: none; font-weight: 800;
             transition: all 0.3s ease; text-transform: uppercase; letter-spacing: 1px;
+            text-align: center;
+            display: inline-block;
         }
         .header-btn:hover { box-shadow: 0 0 20px rgba(0, 242, 255, 0.4); transform: translateY(-2px); }
 
         /* Hero Section */
         .hero {
             height: 60vh;
-            /* Using the requested image for the hero section */
             background: linear-gradient(to right, rgba(3,5,8,0.9), rgba(3,5,8,0.4)), url('vlsfo-2027.jpg') center/cover no-repeat;
             display: flex;
             flex-direction: column;
@@ -88,7 +90,7 @@
         
         .post-content { padding: 30px; }
         .post-meta { font-size: 0.85rem; color: var(--accent); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px; display: block; }
-        .post-title { font-size: 1.8rem; margin: 0 0 15px 0; color: white; }
+        .post-title { font-size: 1.8rem; margin: 0 0 15px 0; color: white; line-height: 1.3; }
         .post-excerpt { color: #aaa; margin-bottom: 20px; font-size: 1.05rem; line-height: 1.8; }
         .read-more { color: var(--accent); text-decoration: none; font-weight: bold; border-bottom: 1px solid transparent; transition: 0.3s; }
         .read-more:hover { border-bottom: 1px solid var(--accent); }
@@ -109,7 +111,7 @@
         .trending-list { list-style: none; padding: 0; margin: 0 0 40px 0; }
         .trending-list li { margin-bottom: 15px; border-bottom: 1px solid var(--border-color); padding-bottom: 15px; }
         .trending-list li:last-child { border-bottom: none; }
-        .trending-list a { color: #ccc; text-decoration: none; font-size: 1rem; transition: color 0.3s; display: block; }
+        .trending-list a { color: #ccc; text-decoration: none; font-size: 1rem; transition: color 0.3s; display: block; line-height: 1.5; }
         .trending-list a:hover { color: var(--accent); }
 
         .keyword-tags { display: flex; flex-wrap: wrap; gap: 10px; }
@@ -136,12 +138,59 @@
             margin-top: 50px;
         }
         .bottom-cta h2 { font-size: 2.5rem; color: white; margin-bottom: 20px; }
+        
+        /* Dedicated Bottom CTA Button Class */
+        .cta-btn {
+            background: var(--accent);
+            color: #000;
+            padding: 20px 50px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 800;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 1.2rem;
+            display: inline-block;
+            box-sizing: border-box;
+            max-width: 100%;
+        }
+        .cta-btn:hover { box-shadow: 0 0 30px rgba(0, 242, 255, 0.4); transform: scale(1.02); }
 
-        footer { text-align: center; padding: 40px; color: #555; font-size: 0.9rem; background: #010203; }
+        footer { text-align: center; padding: 40px 20px; color: #555; font-size: 0.9rem; background: #010203; }
 
-        @media (max-width: 1024px) {
+        /* Mobile Responsiveness Rules */
+        @media (max-width: 900px) {
             .container { grid-template-columns: 1fr; }
-            .hero h1 { font-size: 2.5rem; }
+        }
+
+        @media (max-width: 600px) {
+            /* Fix Header & Top Button */
+            header { padding: 15px 20px; flex-direction: column; gap: 15px; text-align: center; }
+            .header-btn { padding: 10px 20px; font-size: 0.9rem; width: 100%; box-sizing: border-box; }
+            
+            /* Fix Hero Section */
+            .hero { height: auto; padding: 60px 20px; text-align: center; }
+            .hero h1 { font-size: 2.2rem; line-height: 1.3; }
+            .hero p { font-size: 1rem; }
+
+            /* Fix Blog Cards */
+            .container { margin: 30px auto; gap: 30px; }
+            .post-img { height: 220px; }
+            .post-content { padding: 20px; }
+            .post-title { font-size: 1.4rem; }
+            
+            /* Fix Bottom CTA Button */
+            .bottom-cta { padding: 50px 20px; }
+            .bottom-cta h2 { font-size: 1.8rem; }
+            .cta-btn {
+                padding: 15px 20px;
+                font-size: 1rem;
+                width: 100%;
+                display: block;
+                white-space: normal;
+                line-height: 1.4;
+            }
         }
     </style>
 </head>
@@ -160,7 +209,6 @@
 <div class="container">
     
     <main class="blog-feed">
-        
         <article class="post-card">
             <img src="vlsfo2030.jpg" alt="VLSFO 2030 Vision" class="post-img">
             <div class="post-content">
@@ -210,7 +258,6 @@
                 <a href="#" class="read-more">Read Full Analysis →</a>
             </div>
         </article>
-
     </main>
 
     <aside>
@@ -226,7 +273,7 @@
         <div class="promo-widget">
             <h4>Live Market Terminal</h4>
             <p>Track real-time VLSFO prices globally. Data-driven decisions start here.</p>
-            <a href="https://vlsfo.xyz" target="_blank" class="header-btn" style="padding: 10px 20px; font-size: 0.9rem;">Access VLSFO.XYZ</a>
+            <a href="https://vlsfo.xyz" target="_blank" class="header-btn" style="width:100%; box-sizing:border-box;">Access VLSFO.XYZ</a>
         </div>
 
         <h3 style="margin-top: 40px;">Search Matrix</h3>
@@ -245,10 +292,10 @@
 
 <section class="bottom-cta">
     <h2>Ready to Monitor Global Bunkering Markets?</h2>
-    <p style="color: #aaa; max-width: 600px; margin: 0 auto 30px; font-size: 1.2rem;">
+    <p style="color: #aaa; max-width: 600px; margin: 0 auto 30px; font-size: 1.1rem; line-height: 1.6;">
         Switch to our dedicated pricing terminal for live data across 50+ international maritime hubs.
     </p>
-    <a href="https://vlsfo.xyz" target="_blank" class="header-btn" style="padding: 20px 50px; font-size: 1.2rem;">LAUNCH VLSFO.XYZ PLATFORM 🚀</a>
+    <a href="https://vlsfo.xyz" target="_blank" class="cta-btn">LAUNCH VLSFO.XYZ PLATFORM 🚀</a>
 </section>
 
 <footer>
