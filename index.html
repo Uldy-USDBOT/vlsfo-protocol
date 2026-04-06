@@ -3,211 +3,283 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VLSFO.com | Global Marine Fuel Intelligence & USDT Settlement</title>
+    <title>VLSFO.com | AI Maritime Intelligence & USDT Bunker Settlement</title>
     
     <link rel="icon" type="image/png" href="favicon.png">
     
-    <meta name="description" content="VLSFO.com provides global Low Sulfur Fuel Oil prices, density specifications, AI market predictions, and secure USDT settlement solutions for bunker fuel worldwide.">
-    <meta name="keywords" content="VLSFO, VLSFO meaning, VLSFO density, price bunker fuel, buy VLSFO with USDT, low sulfur fuel oil, AI bunker fuel, Singapore bunker prices, Rotterdam fuel index">
+    <meta name="description" content="VLSFO.com: Global leader in marine fuel price intelligence, AI-driven shipping analytics, and secure B2B USDT settlements.">
+    <meta name="keywords" content="VLSFO, vlsfo meaning, vlsfo density, price bunker fuel, buy VLSFO with USDT, maritime AI, Singapore VLSFO price">
     <meta name="author" content="VLSFO.com">
 
     <style>
+        :root {
+            --bg: #0d1117;
+            --card-bg: #161b22;
+            --border-color: #30363d;
+            --accent-blue: #58a6ff;
+            --success-green: #238636;
+            --text-main: #c9d1d9;
+            --text-white: #ffffff;
+            --text-muted: #8b949e;
+        }
+
         body {
-            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-            background-color: #0d1117;
-            color: #c9d1d9;
+            font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
+            background-color: var(--bg);
+            color: var(--text-main);
             margin: 0;
             padding: 0;
             line-height: 1.6;
         }
-        
-        a { text-decoration: none; color: #58a6ff; }
 
+        /* Navigation Header */
         header {
-            background-color: #161b22;
-            padding: 10px 20px;
+            background-color: rgba(22, 27, 34, 0.95);
+            padding: 12px 5%;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            border-bottom: 1px solid #30363d;
+            border-bottom: 1px solid var(--border-color);
             position: sticky;
             top: 0;
             z-index: 1000;
+            backdrop-filter: blur(10px);
         }
 
-        .logo { font-size: 20px; font-weight: bold; color: #ffffff; }
-        .logo span { color: #58a6ff; }
+        .logo {
+            font-size: 1.4rem;
+            font-weight: 800;
+            color: var(--text-white);
+            text-decoration: none;
+            letter-spacing: -0.5px;
+        }
 
-        /* Small Button for Mobile */
-        .btn-top {
-            background-color: #238636;
-            color: #ffffff;
-            padding: 5px 12px;
-            border-radius: 4px;
-            font-size: 13px;
+        .logo span {
+            color: var(--accent-blue);
+        }
+
+        .btn-nav {
+            background-color: var(--success-green);
+            color: var(--text-white);
+            padding: 6px 14px;
+            border-radius: 5px;
+            font-size: 0.85rem;
             font-weight: 600;
-            transition: 0.2s;
+            text-decoration: none;
+            transition: 0.3s;
         }
 
-        /* Hero Section Styling */
+        .btn-nav:hover {
+            background-color: #2ea043;
+        }
+
+        /* Hero Section */
         .hero {
             text-align: center;
             padding: 80px 20px;
-            background: linear-gradient(180deg, #161b22 0%, #0d1117 100%);
-            border-bottom: 1px solid #30363d;
+            background: radial-gradient(circle at top, #1c2128, var(--bg));
+            border-bottom: 1px solid var(--border-color);
         }
 
-        .hero h1 { color: #ffffff; font-size: 30px; margin-bottom: 15px; }
-        .hero p { font-size: 16px; color: #8b949e; max-width: 700px; margin: 0 auto 25px; }
+        .hero h1 {
+            color: var(--text-white);
+            font-size: 2.2rem;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
 
+        .hero p {
+            max-width: 750px;
+            margin: 0 auto 30px;
+            font-size: 1.05rem;
+            color: var(--text-muted);
+        }
+
+        .btn-hero {
+            background-color: var(--accent-blue);
+            color: var(--text-white);
+            padding: 12px 28px;
+            border-radius: 6px;
+            font-size: 1rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .btn-hero:hover {
+            background-color: #79c0ff;
+        }
+
+        /* Main Container */
         .container {
             max-width: 1200px;
-            margin: 0 auto;
-            padding: 40px 20px;
+            margin: 50px auto;
+            padding: 0 20px;
         }
 
         .section-title {
-            color: #ffffff;
-            font-size: 22px;
-            border-bottom: 2px solid #58a6ff;
-            padding-bottom: 10px;
-            margin-bottom: 30px;
-            display: inline-block;
+            color: var(--text-white);
+            font-size: 1.7rem;
+            margin-bottom: 40px;
+            border-left: 5px solid var(--accent-blue);
+            padding-left: 15px;
         }
 
+        /* Article Grid */
         .grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 25px;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
         }
 
         .card {
-            background-color: #161b22;
-            border: 1px solid #30363d;
-            border-radius: 8px;
-            padding: 20px;
-            transition: 0.3s;
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 24px;
+            transition: 0.3s ease;
             display: flex;
             flex-direction: column;
         }
 
-        .card:hover { border-color: #58a6ff; transform: translateY(-5px); }
-        
+        .card:hover {
+            border-color: var(--accent-blue);
+            transform: translateY(-5px);
+        }
+
         .card img {
             width: 100%;
-            height: 180px;
+            height: 200px;
             object-fit: cover;
-            border-radius: 6px;
-            margin-bottom: 15px;
-            border: 1px solid #30363d;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            border: 1px solid var(--border-color);
         }
 
-        .card h3 { color: #ffffff; margin: 0 0 10px 0; font-size: 18px; }
-        .card p { font-size: 14px; color: #8b949e; flex-grow: 1; margin: 0; }
+        .card h3 {
+            color: var(--text-white);
+            font-size: 1.25rem;
+            margin: 0 0 15px 0;
+        }
 
+        .card p {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            margin: 0;
+            flex-grow: 1;
+        }
+
+        /* Footer */
         footer {
-            background-color: #010409;
             text-align: center;
-            padding: 30px 20px;
-            border-top: 1px solid #30363d;
-            font-size: 13px;
-            color: #8b949e;
+            padding: 50px 20px;
+            background-color: #010409;
+            border-top: 1px solid var(--border-color);
+            margin-top: 50px;
         }
 
+        footer p {
+            font-size: 0.8rem;
+            color: #484f58;
+            margin: 5px 0;
+        }
+
+        /* Responsive adjustments */
         @media (max-width: 600px) {
-            .hero h1 { font-size: 24px; }
+            .hero h1 { font-size: 1.8rem; }
             header { padding: 10px 15px; }
+            .grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body>
 
     <header>
-        <div class="logo">VLSFO<span>.COM</span></div>
-        <a href="https://vlsfo.xyz" class="btn-top">VLSFO.XYZ</a>
+        <a href="#" class="logo">VLSFO<span>.COM</span></a>
+        <a href="https://vlsfo.xyz" target="_blank" class="btn-nav">VLSFO.XYZ</a>
     </header>
 
     <section class="hero">
         <h1>Global Marine Fuel Intelligence & AI Analytics</h1>
-        <p>Providing authoritative insights into VLSFO market trends, technical specifications, and next-generation B2B USDT settlements.</p>
-        <a href="https://vlsfo.xyz" class="btn-top" style="background: #58a6ff; padding: 10px 20px; font-size: 15px;">Access Terminal</a>
+        <p>Providing authoritative insights into Very Low Sulfur Fuel Oil market trends, predictive pricing, and secure B2B USDT settlements.</p>
+        <a href="https://vlsfo.xyz" class="btn-hero">Access Market Terminal</a>
     </section>
 
-    <div class="container" id="articles">
-        <h2 class="section-title">AI Market & Technical Portfolio</h2>
+    <main class="container">
+        <h2 class="section-title">Market Intelligence & Technology</h2>
         
         <div class="grid">
             <article class="card">
-                <img src="vlsfo2030.jpg" alt="AI Fuel Analytics">
-                <h3>AI in Bunkering: Predicting Price Trends</h3>
-                <p>Leveraging <strong>AI maritime</strong> algorithms to analyze global supply data and forecast the <strong>price of bunker fuel</strong> with high precision.</p>
+                <img src="vlsfo2030.jpg" alt="AI in Marine Fuel">
+                <h3>AI-Driven Price Prediction</h3>
+                <p>Harnessing <strong>AI maritime</strong> algorithms to analyze global trade patterns and forecast the <strong>price of bunker fuel</strong> with unprecedented accuracy.</p>
             </article>
 
             <article class="card">
-                <img src="vlsfo-2.jpg" alt="VLSFO Specifications">
-                <h3>VLSFO Meaning & Technical Density</h3>
-                <p>Explaining <strong>vlsfo meaning</strong> and the importance of <strong>vlsfo density</strong> (920-970 kg/m³) in maintaining engine health and efficiency.</p>
+                <img src="vlsfo-2.jpg" alt="VLSFO meaning">
+                <h3>VLSFO Meaning & Technical Specs</h3>
+                <p>What is <strong>vlsfo meaning</strong>? A fuel blend with max 0.50% sulfur content, crucial for environmental compliance and modern engine longevity.</p>
             </article>
 
             <article class="card">
-                <img src="vlsfo-33.jpg" alt="USDT Payments">
-                <h3>Instant USDT Bunker Settlements</h3>
-                <p>Speed up your procurement with <strong>USDT bunker fuel</strong> payments. Secure, transparent, and available for 24/7 global operations.</p>
+                <img src="vlsfo-33.jpg" alt="USDT Bunker Settlement">
+                <h3>B2B USDT Fuel Settlements</h3>
+                <p>Streamline procurement by <strong>buying VLSFO with USDT</strong>. Our blockchain-backed protocol ensures 24/7 instant cross-border settlement.</p>
             </article>
 
             <article class="card">
-                <img src="vlsfo2027.jpg" alt="Singapore Hub">
-                <h3>Singapore: The Global Bunkering Hub</h3>
-                <p>Real-time analysis of <strong>Singapore VLSFO prices</strong> and supply availability in the world's most active refueling port.</p>
+                <img src="vlsfo-2027.jpg" alt="Singapore Port">
+                <h3>Singapore Bunkering Hub</h3>
+                <p>Tracking <strong>Singapore VLSFO prices</strong> and supply availability in the world's most critical refueling destination.</p>
             </article>
 
             <article class="card">
-                <img src="vlsfo2028.jpg" alt="Rotterdam Port">
+                <img src="vlsfo-2028.jpg" alt="Rotterdam Bunker">
                 <h3>Rotterdam Market Fuel Index</h3>
-                <p>Comprehensive tracking of <strong>price bunker fuel</strong> in Rotterdam, the leading gateway for European shipping and logistics.</p>
+                <p>Comprehensive analytics on <strong>low sulfur fuel oil</strong> pricing trends at the primary gateway for European maritime logistics.</p>
             </article>
 
             <article class="card">
-                <img src="vlsfo2033.jpg" alt="Blockchain Security">
+                <img src="vlsfo2033.jpg" alt="Maritime Blockchain">
                 <h3>Blockchain & Smart Contracts</h3>
-                <p>How <strong>AI in shipping</strong> and blockchain ensure secure <strong>USDT payments</strong> and transparent fuel delivery notes (BDN).</p>
+                <p>Using <strong>AI in shipping</strong> and decentralized ledgers to automate fuel delivery notes (BDN) and secure energy transactions.</p>
             </article>
 
             <article class="card">
-                <h3>Is VLSFO Diesel? The Technical Truth</h3>
-                <p>Answering <strong>"is vlsfo diesel"</strong>: While related to distillates, VLSFO is a specialized blend designed for IMO 2020 compliance.</p>
+                <h3>Understanding VLSFO Density</h3>
+                <p>Critical data on <strong>vlsfo density</strong> (920-970 kg/m³) to prevent fuel purification issues and ensure safe voyage operations.</p>
             </article>
 
             <article class="card">
-                <h3>ISO 8217 Quality Standards</h3>
-                <p>Why strict adherence to ISO 8217 is mandatory to prevent cat fines and fuel incompatibility issues in <strong>low sulfur fuel oil</strong>.</p>
+                <h3>Is VLSFO Diesel? Chemical Truths</h3>
+                <p>Answering <strong>"is vlsfo diesel"</strong>: Comparing the properties of marine gas oil (MGO) versus low sulfur residual fuel blends.</p>
             </article>
 
             <article class="card">
-                <h3>AI Route & Speed Optimization</h3>
-                <p>Reducing costs by using <strong>AI maritime</strong> intelligence to calculate optimal vessel speeds and refueling intervals.</p>
+                <h3>AI-Powered Fuel Optimization</h3>
+                <p>How machine learning models reduce vessel carbon footprints by optimizing speed and port refueling intervals based on live pricing.</p>
             </article>
 
             <article class="card">
-                <h3>Fujairah Energy Market Insights</h3>
-                <p>Analysis of VLSFO storage and pricing premiums at the Port of Fujairah, a strategic Middle Eastern refueling location.</p>
+                <h3>Fujairah Energy Market Intelligence</h3>
+                <p>Monitoring regional <strong>VLSFO pricing</strong> and storage levels in the strategic Middle Eastern bunkering hub of Fujairah.</p>
             </article>
 
             <article class="card">
-                <h3>Houston Port: Americas Fuel Hub</h3>
-                <p>Tracking the availability of <strong>low sulfur fuel oil</strong> across the US Gulf Coast and Houston's bunkering sector.</p>
+                <h3>Houston: Americas Bunkering Hub</h3>
+                <p>Tracking the availability of compliant <strong>low sulfur fuel oil</strong> across the US Gulf Coast and Houston's energy sector.</p>
             </article>
 
             <article class="card">
-                <h3>The AI Path to IMO 2030</h3>
-                <p>Forecasting the industry transition from VLSFO to zero-carbon alternative fuels using advanced data modeling.</p>
+                <h3>The Path to IMO 2030 Compliance</h3>
+                <p>Forecasting the industry-wide transition from traditional VLSFO to next-generation green fuels using advanced data modeling.</p>
             </article>
         </div>
-    </div>
+    </main>
 
     <footer>
-        <p>&copy; 2026 VLSFO.COM - AI Maritime Intelligence Hub</p>
-        <p>Operational data and settlement protocols provided by VLSFO.XYZ technology.</p>
+        <p>&copy; 2026 VLSFO.COM | Maritime Intelligence & AI Analytics</p>
+        <p>Operational infrastructure and settlements powered by VLSFO.XYZ technology.</p>
     </footer>
 
 </body>
