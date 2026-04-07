@@ -18,34 +18,46 @@
       "@type": "WebSite",
       "name": "VLSFO GLOBAL",
       "url": "https://vlsfo.com/",
-      "description": "Leading global reference for VLSFO fuel intelligence and maritime technology.",
-      "potentialAction": {
-        "@type": "SearchAction",
-        "target": "https://vlsfo.com/search?q={search_term_string}",
-        "query-input": "required name=search_term_string"
-      }
+      "description": "Leading global reference for VLSFO fuel intelligence and maritime technology."
     }
     </script>
 
     <style>
-        /* Optimized Small Button - No structural changes */
-.nav-actions .btn { 
-    background: var(--secondary); 
-    color: #fff; 
-    padding: 4px 10px; /* Slimmer padding */
-    border-radius: 4px; 
-    text-decoration: none; 
-    font-weight: 600; 
-    font-size: 0.7rem; /* Smaller font size */
-    white-space: nowrap; /* Forces text into one line */
-    display: inline-block;
-    line-height: 1.2;
-    transition: 0.3s ease;
-}
+        :root {
+            --bg: #05070a;
+            --card-bg: #0d1117;
+            --border: #21262d;
+            --accent: #58a6ff;
+            --secondary: #2ea043;
+            --text-main: #c9d1d9;
+            --text-white: #f0f6fc;
+            --text-muted: #8b949e;
+        }
+
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; background-color: var(--bg); color: var(--text-main); margin: 0; line-height: 1.6; }
+        
+        /* Fixed Header with Small Compact Button */
+        header { background: rgba(13, 17, 23, 0.9); padding: 12px 5%; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 1000; backdrop-filter: blur(12px); }
+        .logo { font-size: 1.3rem; font-weight: 900; color: #fff; text-decoration: none; text-transform: uppercase; letter-spacing: 1.5px; }
+        .logo span { color: var(--accent); }
+        
+        .nav-actions .btn { 
+            background: var(--secondary); 
+            color: #fff; 
+            padding: 6px 14px; 
+            border-radius: 6px; 
+            text-decoration: none; 
+            font-weight: 600; 
+            font-size: 0.8rem; 
+            white-space: nowrap; 
+            transition: 0.3s;
+            display: inline-block;
+        }
+        .nav-actions .btn:hover { background: #3fb950; transform: translateY(-1px); }
 
         /* Hero */
-        .hero { padding: 100px 5%; text-align: center; background: radial-gradient(circle at center, #161b22 0%, var(--bg) 100%); border-bottom: 1px solid var(--border); }
-        .hero h1 { font-size: 3rem; margin-bottom: 20px; }
+        .hero { padding: 90px 5%; text-align: center; background: radial-gradient(circle at center, #161b22 0%, var(--bg) 100%); border-bottom: 1px solid var(--border); }
+        .hero h1 { font-size: 3rem; margin-bottom: 20px; color: #fff; }
         .hero p { max-width: 900px; margin: 0 auto; font-size: 1.2rem; color: var(--text-muted); }
 
         /* Layout */
@@ -54,28 +66,28 @@
 
         /* Research Grid */
         .research-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 40px; }
-        .article { background: var(--card-bg); border: 1px solid var(--border); border-radius: 16px; overflow: hidden; transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1); }
+        .article { background: var(--card-bg); border: 1px solid var(--border); border-radius: 16px; overflow: hidden; transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1); display: flex; flex-direction: column; }
         .article:hover { transform: translateY(-10px); border-color: var(--accent); box-shadow: 0 20px 40px rgba(0,0,0,0.4); }
         .article img { width: 100%; height: 240px; object-fit: cover; filter: brightness(0.8); transition: 0.4s; }
         .article:hover img { filter: brightness(1); }
-        .article-body { padding: 30px; }
-        .article h3 { font-size: 1.4rem; border-left: 4px solid var(--accent); padding-left: 15px; }
-        .article p { font-size: 0.95rem; color: var(--text-muted); margin-bottom: 15px; }
+        .article-body { padding: 30px; flex-grow: 1; }
+        .article h3 { font-size: 1.4rem; color: #fff; border-left: 4px solid var(--accent); padding-left: 15px; margin-top: 0; }
+        .article p { font-size: 0.95rem; color: var(--text-muted); }
 
-        /* Technical Specs List */
+        /* Specs Box */
         .specs-list { background: #161b22; padding: 40px; border-radius: 16px; margin-top: 50px; border: 1px solid var(--border); }
         .specs-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
         .spec-item { padding: 15px; border-bottom: 1px solid var(--border); }
         .spec-item b { display: block; color: var(--accent); margin-bottom: 5px; }
 
-        /* Call to Action */
-        .cta-section { background: linear-gradient(135deg, #0d1117 0%, #002b3d 100%); padding: 80px 5%; text-align: center; border-radius: 20px; margin: 60px 0; border: 1px solid var(--accent); }
-        .whatsapp-btn { background: #25d366; color: #fff; padding: 18px 45px; border-radius: 50px; text-decoration: none; font-weight: 800; font-size: 1.2rem; display: inline-flex; align-items: center; gap: 12px; transition: 0.3s; }
+        /* CTA */
+        .cta-section { background: linear-gradient(135deg, #0d1117 0%, #002b3d 100%); padding: 70px 5%; text-align: center; border-radius: 20px; margin: 60px 0; border: 1px solid var(--accent); }
+        .whatsapp-btn { background: #25d366; color: #fff; padding: 16px 40px; border-radius: 50px; text-decoration: none; font-weight: 800; font-size: 1.1rem; display: inline-flex; align-items: center; gap: 12px; transition: 0.3s; }
         .whatsapp-btn:hover { transform: scale(1.05); box-shadow: 0 0 30px rgba(37, 211, 102, 0.4); }
 
         footer { text-align: center; padding: 60px; border-top: 1px solid var(--border); color: var(--text-muted); font-size: 0.9rem; }
         
-        @media (max-width: 768px) { .hero h1 { font-size: 2rem; } .research-grid { grid-template-columns: 1fr; } }
+        @media (max-width: 768px) { .hero h1 { font-size: 2.2rem; } .research-grid { grid-template-columns: 1fr; } }
     </style>
 </head>
 <body>
@@ -89,7 +101,7 @@
 
 <section class="hero">
     <h1>Global Maritime Fuel & Intelligence Hub</h1>
-    <p>Providing the world's most comprehensive research on <strong>VLSFO pricing</strong>, IMO 2030 regulations, and the technical transition from <strong>IFO 380</strong> to sustainable marine energy.</p>
+    <p>The definitive reference for <strong>VLSFO pricing</strong>, IMO 2030 regulations, and the strategic transition from <strong>IFO 380</strong> to compliant energy solutions.</p>
 </section>
 
 <div class="container">
@@ -100,26 +112,26 @@
     
     <div class="research-grid">
         <article class="article">
-            <img src="vlsfo-2028.jpg" alt="IFO 380 High Sulfur Fuel Oil Research">
+            <img src="vlsfo-2028.jpg" alt="IFO 380 Research">
             <div class="article-body">
-                <h3>The IFO 380 to VLSFO Revolution</h3>
-                <p>Data indicates a <strong>3,550%+ increase</strong> in search trends for <strong>IFO 380</strong>. As the maritime industry shifts, understanding why IFO 380 (HSFO) is being replaced by <strong>Very Low Sulfur Fuel Oil</strong> is critical for regulatory compliance and operational efficiency.</p>
+                <h3>IFO 380 to VLSFO Revolution</h3>
+                <p>Analyzing the <strong>3,550%+ surge</strong> in <strong>IFO 380</strong> inquiries and how global shipping is balancing high-sulfur usage via scrubbers against VLSFO blends.</p>
             </div>
         </article>
 
         <article class="article">
-            <img src="vlsfo2030.jpg" alt="Brent Crude Oil Price impact on Marine Fuels">
+            <img src="vlsfo2030.jpg" alt="Brent Oil Impact">
             <div class="article-body">
-                <h3>Brent & Crude Oil Price Correlation</h3>
-                <p>With a massive surge in market volatility, tracking the <strong>crude oil price</strong> and <strong>brent oil price</strong> is essential. These global benchmarks directly dictate the <strong>vlsfo price</strong> in every major bunkering hub from Rotterdam to Singapore.</p>
+                <h3>Brent & Crude Oil Correlation</h3>
+                <p>Tracking how <strong>crude oil price</strong> and <strong>brent oil price</strong> fluctuations directly dictate the <strong>vlsfo price</strong> at the world's most critical refueling points.</p>
             </div>
         </article>
 
         <article class="article">
-            <img src="vlsfo-2027.jpg" alt="VLSFO Rotterdam Fuel Price Index">
+            <img src="vlsfo-2027.jpg" alt="VLSFO Rotterdam">
             <div class="article-body">
-                <h3>VLSFO Rotterdam: The European Gateway</h3>
-                <p>Interest in <strong>VLSFO Rotterdam</strong> has grown by over <strong>100%</strong>. As the largest bunker port in Europe, Rotterdam sets the standard for <strong>low sulfur fuel oil</strong> pricing and supply chain logistics for the Atlantic trade.</p>
+                <h3>VLSFO Rotterdam: Atlantic Gateway</h3>
+                <p>With search interest up by <strong>100%</strong>, <strong>VLSFO Rotterdam</strong> remains the primary benchmark for European maritime fuel logistics and pricing.</p>
             </div>
         </article>
     </div>
@@ -127,22 +139,10 @@
     <div class="specs-list">
         <h2>Technical Reference: VLSFO Specifications</h2>
         <div class="specs-grid">
-            <div class="spec-item">
-                <b>Sulfur Content</b>
-                Max 0.50% m/m as per IMO 2020 mandate to reduce SOx emissions globally.
-            </div>
-            <div class="spec-item">
-                <b>VLSFO Density</b>
-                Typically ranges between <strong>920 and 970 kg/m³</strong>. Crucial for purification.
-            </div>
-            <div class="spec-item">
-                <b>Viscosity Range</b>
-                Varies widely (up to 380 cSt). Understanding <strong>vlsfo meaning</strong> includes managing these chemical properties.
-            </div>
-            <div class="spec-item">
-                <b>MGO Distillates</b>
-                <strong>MGO</strong> (Marine Gas Oil) contains < 0.10% sulfur, mandatory for ECA zones.
-            </div>
+            <div class="spec-item"><b>Sulfur Content</b> Max 0.50% m/m as per IMO 2020 mandate.</div>
+            <div class="spec-item"><b>VLSFO Density</b> Range: <strong>920 - 970 kg/m³</strong>. Key for purification.</div>
+            <div class="spec-item"><b>Viscosity</b> Up to 380 cSt. Essential for pre-heating management.</div>
+            <div class="spec-item"><b>ECA Zones</b> 0.10% sulfur limit (<strong>MGO</strong>) required for specific areas.</div>
         </div>
     </div>
 
@@ -152,50 +152,47 @@
 
     <div class="research-grid">
         <article class="article">
-            <img src="vlsfo2033.jpg" alt="Web3 USDT Maritime Settlements">
+            <img src="vlsfo2033.jpg" alt="Web3 Payments">
             <div class="article-body">
                 <h3>Maritime Web3: USDT Settlements</h3>
-                <p>The slow legacy banking system is being disrupted. Companies can now <strong>buy VLSFO with USDT</strong>, ensuring instant settlement and avoiding SWIFT delays in port. Our terminal at <strong>VLSFO.XYZ</strong> leads this innovation.</p>
+                <p>Streamlining fuel procurement by <strong>buying VLSFO with USDT</strong>. Our infrastructure at <strong>VLSFO.XYZ</strong> bypasses legacy banking delays.</p>
             </div>
         </article>
 
         <article class="article">
-            <img src="vlsfo-33.jpg" alt="AI in Shipping and Fuel Optimization">
+            <img src="vlsfo-33.jpg" alt="AI Maritime">
             <div class="article-body">
                 <h3>AI in Shipping Intelligence</h3>
-                <p>Harnessing <strong>AI maritime</strong> algorithms to predict <strong>Singapore VLSFO prices</strong> and optimize vessel routing based on real-time bunker fuel availability and weather data.</p>
+                <p>Using <strong>AI maritime</strong> models to forecast <strong>Singapore VLSFO prices</strong> and optimize vessel speed for maximum fuel efficiency.</p>
             </div>
         </article>
 
         <article class="article">
-            <img src="vlsfo-2.jpg" alt="Global VLSFO Research Center">
+            <img src="vlsfo-2.jpg" alt="Global Hubs">
             <div class="article-body">
-                <h3>Global VLSFO Research Hub</h3>
-                <p>From Fujairah to Houston, <strong>VLSFO.COM</strong> tracks every major hub. Our mission is to be the <strong>ultimate research reference</strong> for shipowners, traders, and environmental researchers worldwide.</p>
+                <h3>Global VLSFO Research Center</h3>
+                <p>From Fujairah to Houston, we provide the <strong>ultimate research reference</strong> for the entire marine energy value chain.</p>
             </div>
         </article>
     </div>
 
     <div class="cta-section">
-        <h2>Acquire the VLSFO GLOBAL Infrastructure</h2>
-        <p style="color: #fff; margin-bottom: 30px; font-size: 1.1rem;">This premium digital asset (VLSFO.com & VLSFO.xyz) is available for acquisition. Own the primary research gateway for the maritime fuel industry.</p>
-        <a href="https://wa.me/218917021437" class="whatsapp-btn">
-            Contact Owner via WhatsApp
-        </a>
+        <h2>Acquire VLSFO GLOBAL Infrastructure</h2>
+        <p style="color: #fff; margin-bottom: 30px;">Own the primary research gateway for the maritime fuel industry. VLSFO.com is available for acquisition.</p>
+        <a href="https://wa.me/218917021437" class="whatsapp-btn">Contact via WhatsApp</a>
     </div>
 
     <div class="specs-list" style="background: transparent; border-color: var(--border);">
         <h2 style="font-size: 1.5rem;">Frequently Asked Questions (FAQ)</h2>
-        <div class="spec-item"><b>What is the current VLSFO price?</b> Prices fluctuate daily based on <strong>Brent crude oil</strong>. Check VLSFO.XYZ for live data.</div>
-        <div class="spec-item"><b>Is VLSFO diesel?</b> No, VLSFO is a residual fuel blend, while <strong>MGO</strong> is closer to diesel specifications.</div>
-        <div class="spec-item"><b>What does VLSFO meaning stand for?</b> It stands for Very Low Sulfur Fuel Oil, the global standard since January 2020.</div>
+        <div class="spec-item"><b>Current Prices:</b> Check VLSFO.XYZ for live <strong>Brent crude</strong> correlations.</div>
+        <div class="spec-item"><b>Diesel vs VLSFO:</b> <strong>VLSFO</strong> is a residual blend; <strong>MGO</strong> is closer to diesel.</div>
+        <div class="spec-item"><b>Definition:</b> <strong>VLSFO meaning</strong> stands for Very Low Sulfur Fuel Oil (max 0.5% S).</div>
     </div>
 
 </div>
 
 <footer>
-    <p>&copy; 2026 VLSFO.COM | AI Maritime Intelligence & Research Global Reference.</p>
-    <p style="font-size: 0.75rem; margin-top: 10px; opacity: 0.5;">Integrated with GitHub, Google Search Console, and VLSFO.XYZ technology.</p>
+    <p>&copy; 2026 VLSFO.COM | AI Maritime Intelligence & Research Reference.</p>
 </footer>
 
 </body>
