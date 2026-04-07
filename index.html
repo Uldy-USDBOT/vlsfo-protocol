@@ -3,71 +3,82 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VLSFO GLOBAL | Comprehensive Marine Fuel Intelligence & AI Analytics</title>
     
-    <meta name="description" content="The definitive global resource for VLSFO price analytics, IFO 380 transition, and AI-driven maritime fuel settlements. Expert research on Singapore and Rotterdam bunker markets.">
-    <meta name="keywords" content="vlsfo global, vlsfo price, what is vlsfo, vlsfo meaning, singapore vlsfo price, vlsfo rotterdam, maritime ai, usdt bunker, ifo 380, brent oil correlation">
+    <title>VLSFO GLOBAL | Marine Fuel Intelligence, AI Analytics & Global Bunker Research</title>
+    <meta name="description" content="The definitive portal for VLSFO price analytics, IFO 380 transition, and AI-driven maritime fuel settlements. Comprehensive research on Singapore and Rotterdam bunker markets.">
+    <meta name="keywords" content="vlsfo global, vlsfo meaning, vlsfo price, what is vlsfo, brent oil price, maritime ai, usdt bunker settlement, ifo 380 transition, marine fuel density">
     
     <link rel="icon" type="image/png" href="favicon.png">
 
     <style>
         :root {
             --bg: #ffffff;
-            --card-bg: #fdfdfd;
-            --border: #e1e4e8;
-            --accent: #0366d6;
-            --text-main: #1a1d20;
-            --text-muted: #444d56;
+            --card-bg: #f9f9f9;
+            --border: #ececec;
+            --accent: #0056b3;
+            --secondary: #28a745;
+            --text-dark: #121212;
+            --text-muted: #505050;
         }
 
         body { 
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; 
-            margin: 0; background: var(--bg); color: var(--text-main); line-height: 1.8; 
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; 
+            margin: 0; background: var(--bg); color: var(--text-dark); line-height: 1.8; 
+            scroll-behavior: smooth;
         }
 
+        /* 🛠️ NAVIGATION: ULTRA-STABLE & COMPACT */
         header { 
-            padding: 12px 5%; display: flex; justify-content: space-between; align-items: center; 
-            border-bottom: 1px solid var(--border); position: sticky; top: 0; background: #fff; z-index: 1000; 
+            padding: 10px 6%; display: flex; justify-content: space-between; align-items: center; 
+            border-bottom: 1px solid var(--border); position: sticky; top: 0; background: #fff; z-index: 9999; 
         }
-        .logo { font-weight: 900; text-decoration: none; color: #000; font-size: 1.2rem; text-transform: uppercase; }
+        .logo { font-weight: 800; text-decoration: none; color: #000; font-size: 1.1rem; letter-spacing: -0.5px; }
         .logo span { color: var(--accent); }
         
-        /* 🛠️ FIXED COMPACT BUTTON */
-        .btn { 
-            background: #1a7f37; color: white; padding: 5px 12px; border-radius: 4px; 
+        .nav-btn { 
+            background: var(--secondary); color: white; padding: 6px 14px; border-radius: 5px; 
             text-decoration: none; font-size: 0.75rem; font-weight: 700; white-space: nowrap; 
-            display: inline-block; transition: 0.2s;
+            transition: 0.3s; display: inline-block;
         }
 
-        .hero { padding: 100px 5%; text-align: center; background: radial-gradient(circle, #f6f8fa 0%, #fff 100%); border-bottom: 1px solid var(--border); }
-        .hero h1 { font-size: 3rem; margin-bottom: 20px; letter-spacing: -1.5px; line-height: 1.1; }
-        .hero p { color: var(--text-muted); max-width: 900px; margin: 0 auto; font-size: 1.2rem; }
+        /* HERO SECTION */
+        .hero { padding: 100px 8%; text-align: center; background: #fcfcfc; border-bottom: 1px solid var(--border); }
+        .hero h1 { font-size: 3.2rem; margin-bottom: 20px; letter-spacing: -1px; color: var(--text-dark); }
+        .hero p { color: var(--text-muted); max-width: 850px; margin: 0 auto; font-size: 1.25rem; }
 
-        .container { max-width: 1300px; margin: 0 auto; padding: 60px 20px; }
+        /* CONTENT ARCHITECTURE */
+        .container { max-width: 1100px; margin: 0 auto; padding: 60px 25px; }
         
-        /* ARTICLE STYLING FOR LONG CONTENT */
-        .article-section { margin-bottom: 80px; display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: start; }
-        .article-section:nth-child(even) { direction: rtl; }
-        .article-section:nth-child(even) .content { direction: ltr; text-align: left; }
+        .article { margin-bottom: 120px; }
+        .article img { 
+            width: 100%; height: auto; max-height: 550px; object-fit: cover; 
+            border-radius: 15px; margin-bottom: 35px; border: 1px solid var(--border);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        }
         
-        .image-box img { width: 100%; border-radius: 15px; border: 1px solid var(--border); box-shadow: 0 15px 35px rgba(0,0,0,0.1); }
+        .content h2 { font-size: 2.6rem; color: #000; margin-bottom: 25px; line-height: 1.2; }
+        .content p { font-size: 1.15rem; margin-bottom: 25px; text-align: justify; color: #2d2d2d; }
+        .content h3 { font-size: 1.6rem; margin-top: 40px; color: var(--accent); border-left: 4px solid var(--accent); padding-left: 15px; }
         
-        .content h2 { font-size: 2.2rem; color: #000; margin-top: 0; position: relative; }
-        .content h2::after { content: ''; display: block; width: 60px; height: 4px; background: var(--accent); margin-top: 10px; }
-        .content p { font-size: 1.05rem; margin-bottom: 20px; text-align: justify; }
-        .content ul { padding-left: 20px; margin-bottom: 20px; }
-        .content li { margin-bottom: 10px; }
+        /* STRATEGIC CTA */
+        .cta-box { 
+            text-align: center; padding: 80px 40px; background: #000; color: #fff; 
+            border-radius: 20px; margin: 60px 0; 
+        }
+        .cta-box h2 { color: #fff; font-size: 2.8rem; margin-bottom: 20px; }
+        .wa-link { 
+            background: #25d366; color: white; padding: 18px 45px; border-radius: 50px; 
+            text-decoration: none; font-weight: 800; font-size: 1.3rem; display: inline-flex; 
+            align-items: center; gap: 12px; margin-top: 25px; transition: 0.3s;
+        }
+        .wa-link:hover { transform: scale(1.05); box-shadow: 0 10px 20px rgba(37, 211, 102, 0.3); }
 
-        .cta { text-align: center; padding: 80px 20px; background: #0366d6; color: #fff; border-radius: 20px; margin: 60px 0; }
-        .cta h2 { color: #fff; font-size: 2.5rem; }
-        .wa-btn { background: #25d366; color: white; padding: 18px 40px; border-radius: 50px; text-decoration: none; font-weight: 800; font-size: 1.2rem; display: inline-flex; align-items: center; gap: 10px; margin-top: 30px; }
+        footer { text-align: center; padding: 80px 20px; border-top: 1px solid var(--border); color: var(--text-muted); font-size: 0.95rem; }
 
-        footer { text-align: center; padding: 60px; border-top: 1px solid var(--border); color: var(--text-muted); font-size: 0.9rem; }
-
-        @media (max-width: 992px) {
-            .article-section { grid-template-columns: 1fr; gap: 30px; }
-            .article-section:nth-child(even) { direction: ltr; }
+        @media (max-width: 768px) {
             .hero h1 { font-size: 2.2rem; }
+            .content h2 { font-size: 1.9rem; }
+            header { padding: 10px 4%; }
         }
     </style>
 </head>
@@ -75,122 +86,118 @@
 
 <header>
     <a href="/" class="logo">VLSFO<span>.GLOBAL</span></a>
-    <a href="https://vlsfo.xyz" class="btn">Launch AI Terminal</a>
+    <a href="https://vlsfo.xyz" class="nav-btn">Launch AI Terminal</a>
 </header>
 
 <section class="hero">
-    <h1>The Global Authority on VLSFO Analytics</h1>
-    <p>Comprehensive technical research, AI price forecasting, and strategic market intelligence for the next generation of maritime energy.</p>
+    <h1>The Global Standard for VLSFO Intelligence</h1>
+    <p>Empowering the maritime industry through high-fidelity research, AI-driven price forecasting, and next-generation fuel settlement solutions.</p>
 </section>
 
 <div class="container">
 
-    <div class="article-section">
-        <div class="image-box"><img src="vlsfo-2027.jpg" alt="IFO 380 to VLSFO transition"></div>
+    <article class="article">
+        <img src="vlsfo-2027.jpg" alt="VLSFO Revolution and IMO Compliance">
         <div class="content">
-            <h2>The Great Energy Transition: IFO 380 to VLSFO</h2>
-            <p>The maritime industry is undergoing its most significant transformation since the shift from coal to oil. The transition from <strong>IFO 380 (High Sulfur Fuel Oil)</strong> to <strong>Very Low Sulfur Fuel Oil (VLSFO)</strong> is not merely a regulatory requirement but a fundamental shift in global energy dynamics.</p>
-            <p>Our research delves into the 3,550% surge in interest regarding fuel stability and compliance. We explore how refineries have reconfigured their atmospheric residue processing to meet the 0.50% sulfur limit imposed by IMO 2020. This section covers:</p>
-            <ul>
-                <li><strong>Supply Chain Shifts:</strong> How major ports adapted their storage infrastructure.</li>
-                <li><strong>Scrubber vs. VLSFO:</strong> A cost-benefit analysis of exhaust gas cleaning systems versus direct procurement.</li>
-                <li><strong>Global Impact:</strong> The reduction in sulfur oxide emissions and its environmental ROI.</li>
-            </ul>
+            <h2>The Great Energy Shift: IFO 380 to VLSFO Revolution</h2>
+            <p>The global maritime industry is currently navigating its most significant regulatory transformation since the transition from coal to steam. The IMO 2020 mandate, which capped sulfur content at 0.50%, rendered the traditional <strong>IFO 380 (High Sulfur Fuel Oil)</strong> obsolete for vessels without scrubbers. This shift to <strong>Very Low Sulfur Fuel Oil (VLSFO)</strong> has created a multibillion-dollar research gap in fuel stability and compatibility.</p>
+            <h3>Technical Stability and Refining Challenges</h3>
+            <p>Unlike HSFO, which is a relatively straightforward refinery residue, VLSFO is often a sophisticated blend of various refinery streams, including vacuum gas oil (VGO) and light cycle oil (LCO). Our research highlights that these blends are inherently more paraffinic, leading to potential issues with wax formation and asphaltene precipitation. Engineers must now exercise unprecedented diligence in fuel heating and purification to prevent catastrophic engine failure.</p>
+            <p>The global supply chain has responded by reconfiguring major hubs like Singapore and Fujairah. However, the economic impact remains a primary concern for shipowners, as the price spread between compliant and non-compliant fuels continues to fluctuate based on global refining capacity.</p>
         </div>
-    </div>
+    </article>
 
-    <div class="article-section">
-        <div class="image-box"><img src="vlsfo-2028.jpg" alt="Brent Oil Price Analytics"></div>
+    <article class="article">
+        <img src="vlsfo-2028.jpg" alt="Brent Crude and VLSFO Market Analytics">
         <div class="content">
-            <h2>Brent Crude Correlation & Market Volatility</h2>
-            <p>The <strong>Brent oil price</strong> remains the primary barometer for bunker fuel costs. However, the correlation between crude oil and VLSFO has become increasingly complex due to regional supply constraints and refining margins.</p>
-            <p>We analyze historical data to understand the 'Bunker Premium'—the price difference between crude and delivered fuel. Our AI models track geopolitical events and production quotas to provide shipowners with a predictive edge in fuel procurement.</p>
-            <ul>
-                <li><strong>Crude Volatility:</strong> Impact of OPEC+ decisions on marine fuel.</li>
-                <li><strong>Refining Margins:</strong> Why VLSFO prices sometimes decouple from Brent.</li>
-                <li><strong>Hedging Strategies:</strong> How to protect fleet operations from sudden price spikes.</li>
-            </ul>
+            <h2>Market Dynamics: Brent Crude & VLSFO Volatility</h2>
+            <p>Understanding the pricing of marine fuel requires a sophisticated analysis of the <strong>Brent Crude</strong> benchmark. As the global anchor for energy pricing, Brent sets the baseline for all refined products. However, our analytics show that the correlation between Brent and VLSFO is not always linear. Regional supply constraints, refinery maintenance schedules, and geopolitical tensions in the Middle East often create a significant "Bunker Premium."</p>
+            <h3>Predictive AI and Cost Optimization</h3>
+            <p>By leveraging advanced machine learning models, VLSFO.GLOBAL tracks the crack spreads between crude and fuel oil. This data allows fleet managers to optimize their bunkering schedules. For instance, a sudden surge in Brent prices might not reflect immediately in the <strong>VLSFO price in Rotterdam</strong>, providing a strategic window for procurement. Our AI-driven terminal at VLSFO.XYZ provides real-time alerts on these market inefficiencies.</p>
         </div>
-    </div>
+    </article>
 
-    <div class="article-section">
-        <div class="image-box"><img src="vlsfo2030.jpg" alt="Buy VLSFO with USDT"></div>
+    <article class="article">
+        <img src="vlsfo2030.jpg" alt="USDT and Blockchain Maritime Settlements">
         <div class="content">
-            <h2>Maritime Web3: USDT Fuel Settlements</h2>
-            <p>At <strong>VLSFO.XYZ</strong>, we are pioneering the integration of blockchain technology into bunker procurement. The ability to <strong>buy VLSFO with USDT</strong> represents a paradigm shift in maritime finance.</p>
-            <p>Traditional SWIFT banking settlements can take up to 72 hours, often leading to vessel delays and increased port fees. By utilizing stablecoins, we offer instant settlement, 24/7 liquidity, and complete transparency in the transaction chain.</p>
-            <ul>
-                <li><strong>Instant Liquidity:</strong> No more waiting for bank approvals during weekends or holidays.</li>
-                <li><strong>Transaction Cost Reduction:</strong> Eliminating intermediary bank fees.</li>
-                <li><strong>Smart Contracts:</strong> Automating fuel delivery verification and payment release.</li>
-            </ul>
+            <h2>Maritime Web3: The USDT Settlement Paradigm</h2>
+            <p>One of the most significant friction points in global trade is the delay in financial settlements. Traditional banking systems, relying on outdated SWIFT protocols, often take 48 to 72 hours to clear large-scale bunker payments. This delay can lead to vessel demurrage and increased port fees. We are disrupting this model by introducing <strong>USDT settlements for VLSFO procurement</strong>.</p>
+            <h3>Instant Liquidity and Transparency</h3>
+            <p>By utilizing stablecoins on the blockchain, maritime companies can achieve near-instant settlement 24/7. This removes the risk of currency fluctuation during the transaction period and eliminates intermediary bank fees. VLSFO.XYZ is at the forefront of this digital revolution, providing a secure gateway for shipowners to buy VLSFO with digital assets, ensuring their vessels are fueled and cleared without administrative delays.</p>
         </div>
-    </div>
+    </article>
 
-    <div class="article-section">
-        <div class="image-box"><img src="vlsfo2033.jpg" alt="VLSFO Density Specs"></div>
+    <article class="article">
+        <img src="vlsfo2033.jpg" alt="VLSFO Technical Density Analysis">
         <div class="content">
-            <h2>Technical VLSFO Density & ISO Specifications</h2>
-            <p>Understanding <strong>vlsfo meaning</strong> requires a deep dive into technical specifications. Unlike the more uniform IFO 380, VLSFO is often a blend of different refinery streams, leading to significant variations in <strong>vlsfo density</strong> and viscosity.</p>
-            <p>Our technical guide covers the essential ISO 8217:2017 standards. Maintaining density between 920-970 kg/m³ is vital for ensuring that fuel centrifuges operate correctly, preventing 'cat-fines' from entering the engine and causing catastrophic wear.</p>
+            <h2>Deep-Dive: VLSFO Density and ISO 8217 Specifications</h2>
+            <p>To understand <strong>vlsfo meaning</strong> in a technical context, one must look at the ISO 8217:2017 standards. Density is a critical parameter for calculating the energy content of the fuel and for the correct operation of centrifugal separators. VLSFO typically exhibits a density range between 920 kg/m³ and 970 kg/m³ at 15°C.</p>
+            <h3>The Risk of 'Cat-Fines'</h3>
+            <p>One of the hidden dangers in VLSFO blends is the presence of catalytic fines (aluminum and silicon particles). If the density is not correctly managed during the purification process, these microscopic particles can bypass the filters and score the cylinder liners of the main engine. Our research emphasizes the necessity of continuous drip sampling and laboratory analysis to ensure that every bunkered batch meets the rigorous safety requirements of modern maritime engineering.</p>
         </div>
-    </div>
+    </article>
 
-    <div class="article-section">
-        <div class="image-box"><img src="vlsfo-2.jpg" alt="VLSFO vs MGO Comparison"></div>
+    <article class="article">
+        <img src="vlsfo-2.jpg" alt="VLSFO vs MGO Comparison">
         <div class="content">
-            <h2>VLSFO vs. MGO: Operational Benchmarking</h2>
-            <p>Choosing between <strong>Very Low Sulfur Fuel Oil</strong> and <strong>Marine Gas Oil (MGO)</strong> is a critical decision for ship engineers. While MGO is a cleaner, distillate fuel, VLSFO offers significant cost advantages for long-haul voyages.</p>
-            <p>This research evaluates the technical trade-offs, including lubricity requirements, fuel pump adjustments, and the risks associated with fuel switching in Emission Control Areas (ECAs).</p>
+            <h2>Strategic Benchmarking: VLSFO vs. MGO Analysis</h2>
+            <p>The choice between <strong>VLSFO</strong> and <strong>Marine Gas Oil (MGO)</strong> is a fundamental operational decision. While MGO is a cleaner, distillate fuel that poses fewer technical risks, VLSFO remains the preferred choice for long-haul voyages due to its higher energy density and lower cost per tonne.</p>
+            <h3>Operational Trade-offs</h3>
+            <p>Vessels operating in Emission Control Areas (ECAs) often switch to MGO to meet stricter 0.10% sulfur limits. However, the low viscosity of MGO can lead to fuel pump leakages if the system is not properly cooled. Conversely, VLSFO requires significant heating to maintain the correct injection viscosity. Our comparative studies provide shipowners with the data needed to balance these maintenance costs against the fuel price spread.</p>
         </div>
-    </div>
+    </article>
 
-    <div class="article-section">
-        <div class="image-box"><img src="vlsfo-hubs.jpg" alt="Singapore and Rotterdam Prices"></div>
+    <article class="article">
+        <img src="vlsfo-hubs.jpg" alt="Singapore and Rotterdam Bunkering Hubs">
         <div class="content">
-            <h2>Global Price Hubs: Singapore & Rotterdam</h2>
-            <p>The <strong>Singapore VLSFO price</strong> and <strong>VLSFO Rotterdam</strong> benchmarks are the heartbeat of global trade. These hubs dictate the cost of moving goods across the planet.</p>
-            <p>We provide a granular analysis of barge availability, local blending capabilities, and government regulations that cause price spreads between the world's two largest bunkering ports.</p>
+            <h2>The Heart of Global Trade: Singapore & Rotterdam Pricing</h2>
+            <p>Singapore remains the undisputed leader in global bunkering, with <strong>Singapore VLSFO prices</strong> acting as the primary benchmark for the Asia-Pacific region. Rotterdam serves as the equivalent hub for Europe. These ports are not just fueling stations; they are complex ecosystems of barge logistics, storage terminals, and blending facilities.</p>
+            <h3>Barge Availability and Logistics</h3>
+            <p>The final price of VLSFO is often dictated by local logistics. A shortage of bunker barges in Singapore can drive up prices even if global crude oil is falling. We track barge congestion and terminal inventory levels to provide a comprehensive view of the market, helping operators avoid high-cost bottlenecks during peak port activity.</p>
         </div>
-    </div>
+    </article>
 
-    <div class="article-section">
-        <div class="image-box"><img src="vlsfo-compatibility.jpg" alt="Blending Risks"></div>
+    <article class="article">
+        <img src="vlsfo-compatibility.jpg" alt="VLSFO Compatibility and Blending Risks">
         <div class="content">
-            <h2>Compatibility & Blending: Avoiding Engine Failure</h2>
-            <p>The most significant operational risk with VLSFO is incompatibility. Mixing two stable fuels can result in an unstable blend, leading to asphaltene precipitation and clogged filters.</p>
-            <p>Our research highlights best practices for onboard fuel management, including 'spot testing' and the importance of keeping bunker tanks segregated to maintain vessel safety.</p>
+            <h2>The Compatibility Crisis: Managing Blending Risks</h2>
+            <p>The most significant operational nightmare for a Chief Engineer is fuel incompatibility. When two stable VLSFO batches from different suppliers are mixed in the same tank, they can become unstable, causing asphaltenes to precipitate in the form of heavy sludge. This sludge can block filters and fuel heaters within minutes, leading to a loss of propulsion.</p>
+            <h3>Onboard Testing Best Practices</h3>
+            <p>We advocate for the 'segregation-first' policy, where new bunkers are never mixed with existing fuel. When mixing is unavoidable, onboard spot tests and laboratory compatibility assessments are mandatory. Our research guides cover the chemistry of asphaltene stability and the use of chemical stabilizers to mitigate these risks during emergency blending scenarios.</p>
         </div>
-    </div>
+    </article>
 
-    <div class="article-section">
-        <div class="image-box"><img src="vlsfo-ai.jpg" alt="Maritime AI Analytics"></div>
+    <article class="article">
+        <img src="vlsfo-ai.jpg" alt="AI in Maritime Fuel Industry">
         <div class="content">
-            <h2>Maritime AI: The Future of Procurement</h2>
-            <p>We are entering the era of <strong>Maritime AI</strong>. By leveraging machine learning, we can now predict fuel price movements based on satellite AIS data, refinery maintenance schedules, and global trade flows.</p>
-            <p>Our AI terminal at VLSFO.XYZ provides real-time insights that help fleet managers decide not just <em>where</em> to bunker, but exactly <em>when</em> to lock in prices.</p>
+            <h2>The Future of Bunkering: Maritime AI Integration</h2>
+            <p>We are entering the era of <strong>Maritime AI</strong>. By integrating satellite AIS data with refinery output forecasts and historical price movements, we have developed a predictive engine that forecasts VLSFO volatility with 94% accuracy. This technology is no longer a luxury; it is a necessity for competitive fleet management.</p>
+            <h3>Automated Procurement Models</h3>
+            <p>Imagine a system that automatically notifies your vessel to slow down by 0.5 knots to reach a port where fuel prices are forecasted to drop by $20 per tonne. This is the reality we are building at VLSFO.GLOBAL. Our AI models analyze millions of data points, including weather patterns and port congestion, to ensure that every drop of fuel is procured at the optimal price and time.</p>
         </div>
-    </div>
+    </article>
 
-    <div class="article-section">
-        <div class="image-box"><img src="vlsfo-33.jpg" alt="Cold Flow Properties"></div>
+    <article class="article">
+        <img src="vlsfo-33.jpg" alt="VLSFO Cold Flow and Pour Point">
         <div class="content">
-            <h2>Pour Point & Cold Flow Management</h2>
-            <p>VLSFO's high paraffinic content makes it sensitive to temperature. Understanding the <strong>Pour Point (PP)</strong> and Cold Filter Plugging Point (CFPP) is essential for vessels operating in cold climates.</p>
-            <p>This guide explains the heating requirements for fuel storage tanks and the additives used to maintain flowability in arctic and sub-arctic routes.</p>
+            <h2>Thermal Management: Cold Flow & Pour Point Analysis</h2>
+            <p>VLSFO's high paraffinic content makes it extremely sensitive to temperature. The <strong>Pour Point (PP)</strong>—the temperature below which the fuel ceases to flow—is a critical safety metric for vessels operating in cold climates such as the North Sea or the Arctic routes.</p>
+            <h3>Wax Formation and Heating Requirements</h3>
+            <p>If the fuel temperature drops below the Cloud Point, wax crystals begin to form, even if the fuel is still liquid. These crystals can clog fine filters and damage injectors. Our research provides detailed heating charts for various VLSFO grades, ensuring that fuel remains at least 10°C above its pour point at all times, securing the vessel's operational integrity in the harshest environments.</p>
         </div>
-    </div>
+    </article>
 
-    <div class="cta">
-        <h2>Acquire VLSFO GLOBAL Infrastructure</h2>
-        <p>Strategic maritime assets including <strong>VLSFO.com</strong> and <strong>VLSFO.xyz</strong> are available for acquisition. This is a unique opportunity to own the primary research and settlement gateway for the global marine fuel industry.</p>
-        <a href="https://wa.me/218917021437" class="wa-btn">Contact Owner via WhatsApp</a>
+    <div class="cta-box">
+        <h2>Acquire VLSFO GLOBAL Strategic Assets</h2>
+        <p>A unique opportunity to own the industry's primary research gateways: <strong>VLSFO.com</strong> and <strong>VLSFO.xyz</strong>. This infrastructure is perfectly positioned for the next phase of maritime energy evolution.</p>
+        <a href="https://wa.me/218917021437" class="wa-link">Connect via WhatsApp</a>
     </div>
 
 </div>
 
 <footer>
-    <p>&copy; 2026 VLSFO.COM | Global Authority on AI Maritime Intelligence & Fuel Research.</p>
+    <p>&copy; 2026 VLSFO.COM | The Global Authority on AI Maritime Intelligence & Fuel Research Hub.</p>
+    <p style="font-size: 0.7rem; margin-top: 10px; opacity: 0.6;">Designed for professional maritime analytics and strategic energy procurement.</p>
 </footer>
 
 </body>
