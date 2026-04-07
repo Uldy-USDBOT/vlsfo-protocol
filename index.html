@@ -33,7 +33,7 @@
             line-height: 1.7; 
         }
 
-        /* 🛠️ NAVIGATION: Permanent Small Button Fix (From Screenshot 11536.jpg) */
+        /* 🛠️ NAVIGATION: Permanent Small Button Fix */
         header { 
             background: rgba(255, 255, 255, 0.95); 
             padding: 10px 4%; 
@@ -61,12 +61,12 @@
         .nav-actions .btn { 
             background: var(--secondary); 
             color: #fff; 
-            padding: 4px 10px; /* Small footprint */
+            padding: 4px 10px; 
             border-radius: 4px; 
             text-decoration: none; 
             font-weight: 600; 
-            font-size: 0.7rem; /* Extra small for mobile compatibility */
-            white-space: nowrap; /* Forces text into ONE line */
+            font-size: 0.7rem; 
+            white-space: nowrap; 
             display: inline-block;
             line-height: 1.2;
             transition: 0.3s ease;
@@ -86,11 +86,20 @@
         .container { max-width: 1200px; margin: 0 auto; padding: 60px 20px; }
         .section-header { margin-bottom: 50px; border-left: 5px solid var(--accent); padding-left: 20px; }
 
-        /* Research Grid */
+        /* Research Grid & Articles */
         .research-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 40px; }
-        .article { background: var(--card-bg); border: 1px solid var(--border); border-radius: 12px; overflow: hidden; transition: 0.3s ease; }
+        .article { background: var(--card-bg); border: 1px solid var(--border); border-radius: 12px; overflow: hidden; transition: 0.3s ease; display: flex; flex-direction: column;}
         .article:hover { transform: translateY(-5px); border-color: var(--accent); box-shadow: 0 10px 30px rgba(0,0,0,0.08); }
-        .article-body { padding: 35px; }
+        
+        /* NEW: Image styling inside articles */
+        .article img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .article-body { padding: 35px; flex-grow: 1; }
         .article h3 { font-size: 1.5rem; color: var(--text-white); margin-top: 0; border-bottom: 1px solid var(--border); padding-bottom: 10px; }
         .article p { font-size: 0.95rem; color: var(--text-main); margin-top: 15px; text-align: justify; }
 
@@ -144,6 +153,7 @@
     
     <div class="research-grid">
         <article class="article">
+            <img src="vlsfo-2027.jpg" alt="IFO 380 to VLSFO transition and stability">
             <div class="article-body">
                 <h3>IFO 380 to VLSFO Revolution</h3>
                 <p>
@@ -153,6 +163,7 @@
         </article>
 
         <article class="article">
+            <img src="vlsfo-2028.jpg" alt="Brent Crude Oil and VLSFO Correlation analytics">
             <div class="article-body">
                 <h3>Brent Crude Oil & VLSFO Correlation</h3>
                 <p>
@@ -162,6 +173,7 @@
         </article>
 
         <article class="article">
+            <img src="vlsfo2030.jpg" alt="Buy VLSFO with USDT maritime web3 settlement">
             <div class="article-body">
                 <h3>Maritime Web3: USDT Fuel Settlements</h3>
                 <p>
@@ -171,6 +183,7 @@
         </article>
 
         <article class="article">
+            <img src="vlsfo2033.jpg" alt="VLSFO density meaning and marine fuel specifications">
             <div class="article-body">
                 <h3>Technical VLSFO Density & Meaning</h3>
                 <p>
@@ -178,6 +191,56 @@
                 </p>
             </div>
         </article>
+                <article class="article">
+            <img src="vlsfo-2.jpg" alt="VLSFO vs MGO marine fuel comparison">
+            <div class="article-body">
+                <h3>VLSFO vs. MGO: Choosing Compliant Fuel</h3>
+                <p>
+                    A comprehensive comparison between <strong>Very Low Sulfur Fuel Oil (VLSFO)</strong> and <strong>Marine Gas Oil (MGO)</strong>. We analyze the price spread, viscosity differences, and the operational challenges ship engineers face when switching fuels to maintain IMO 2020 compliance.
+                </p>
+            </div>
+        </article>
+
+        <article class="article">
+            <img src="vlsfo-33.jpg" alt="VLSFO cold flow properties and pour point">
+            <div class="article-body">
+                <h3>Managing VLSFO Cold Flow Properties</h3>
+                <p>
+                    Unlike traditional heavy fuels, VLSFO requires careful temperature management due to its high paraffinic content. Discover the critical importance of monitoring the <strong>Pour Point (PP)</strong> and <strong>Cold Filter Plugging Point (CFPP)</strong> to prevent wax formation and engine starvation.
+                </p>
+            </div>
+        </article>
+
+        <article class="article">
+            <img src="vlsfo-hubs.jpg" alt="Singapore and Rotterdam VLSFO bunker prices">
+            <div class="article-body">
+                <h3>Price Dynamics: Singapore & Rotterdam</h3>
+                <p>
+                    Global bunker prices fluctuate based on regional supply chains. This analysis breaks down the daily <strong>Singapore VLSFO price</strong> and <strong>VLSFO Rotterdam</strong> trends, highlighting how barge fees, local blending, and storage capacities impact final procurement costs.
+                </p>
+            </div>
+        </article>
+
+        <article class="article">
+            <img src="vlsfo-compatibility.jpg" alt="VLSFO fuel compatibility and blending risks">
+            <div class="article-body">
+                <h3>VLSFO Compatibility & Blending Risks</h3>
+                <p>
+                    Commingling different batches of VLSFO can lead to severe asphaltene precipitation and sludge buildup. Learn why adhering to <strong>ISO 8217 specifications</strong> and conducting onboard spot tests before mixing bunker fuels is essential to protect marine engines from catastrophic failure.
+                </p>
+            </div>
+        </article>
+
+        <article class="article">
+            <img src="vlsfo-ai.jpg" alt="AI in maritime fuel procurement and forecasting">
+            <div class="article-body">
+                <h3>AI Optimization in Bunker Procurement</h3>
+                <p>
+                    Leveraging <strong>Maritime AI</strong> to forecast fuel prices based on Brent crude volatility. Our models help shipowners optimize vessel routing for the most cost-effective bunker stops globally, reducing operational expenses while ensuring continuous low-sulfur compliance.
+                </p>
+            </div>
+        </article>
+
     </div>
 
     <div class="cta-section">
