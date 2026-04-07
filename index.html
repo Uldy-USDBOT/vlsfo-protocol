@@ -12,6 +12,16 @@
     
     <link rel="icon" type="image/png" href="favicon.png">
 
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "VLSFO GLOBAL",
+      "url": "https://vlsfo.com/",
+      "description": "Leading global reference for VLSFO fuel intelligence and maritime technology."
+    }
+    </script>
+
     <style>
         :root {
             --bg: #05070a;
@@ -24,182 +34,62 @@
             --text-muted: #8b949e;
         }
 
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
-            background-color: var(--bg);
-            color: var(--text-main);
-            margin: 0;
-            line-height: 1.6;
-        }
-
-        h1, h2, h3 {
-            color: var(--text-white);
-            font-weight: 700;
-            margin-bottom: 1rem;
-        }
-
-        strong { color: var(--accent); }
-
-        /* Header */
-        header {
-            background: rgba(13, 17, 23, 0.9);
-            padding: 12px 5%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-bottom: 1px solid var(--border);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            backdrop-filter: blur(12px);
-        }
-
-        .logo {
-            font-size: 1.4rem;
-            font-weight: 900;
-            color: #fff;
-            text-decoration: none;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        }
-
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; background-color: var(--bg); color: var(--text-main); margin: 0; line-height: 1.6; }
+        
+        /* 🛠️ NAVIGATION: Refined Small Button */
+        header { background: rgba(13, 17, 23, 0.9); padding: 12px 5%; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 1000; backdrop-filter: blur(12px); }
+        .logo { font-size: 1.3rem; font-weight: 900; color: #fff; text-decoration: none; text-transform: uppercase; letter-spacing: 1.5px; }
         .logo span { color: var(--accent); }
-
-        /* SMALLER BUTTON */
-        .nav-actions .btn {
-            background: var(--secondary);
-            color: #fff;
-            padding: 5px 12px;       /* reduced */
-            border-radius: 5px;      /* slightly smaller */
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 0.8rem;       /* reduced text size */
-            transition: 0.2s ease;
+        
+        .nav-actions .btn { 
+            background: var(--secondary); 
+            color: #fff; 
+            padding: 6px 14px; /* Compact padding */
+            border-radius: 6px; 
+            text-decoration: none; 
+            font-weight: 600; 
+            font-size: 0.8rem; /* Professional small font size */
+            white-space: nowrap; /* Prevents text from breaking into 2 lines */
+            transition: 0.3s ease;
+            display: inline-block;
         }
+        .nav-actions .btn:hover { background: #3fb950; transform: translateY(-1px); box-shadow: 0 4px 12px rgba(46, 160, 67, 0.3); }
 
-        .nav-actions .btn:hover {
-            opacity: 0.9;
-        }
+        /* HERO SECTION */
+        .hero { padding: 90px 5%; text-align: center; background: radial-gradient(circle at center, #161b22 0%, var(--bg) 100%); border-bottom: 1px solid var(--border); }
+        .hero h1 { font-size: 3rem; margin-bottom: 20px; color: #fff; letter-spacing: -1px; }
+        .hero p { max-width: 900px; margin: 0 auto; font-size: 1.2rem; color: var(--text-muted); }
 
-        /* Hero */
-        .hero {
-            padding: 100px 5%;
-            text-align: center;
-            background: radial-gradient(circle at center, #161b22 0%, var(--bg) 100%);
-            border-bottom: 1px solid var(--border);
-        }
+        /* MAIN LAYOUT */
+        .container { max-width: 1300px; margin: 0 auto; padding: 60px 20px; }
+        .section-header { margin-bottom: 50px; border-bottom: 2px solid var(--border); padding-bottom: 15px; }
 
-        .hero h1 { font-size: 3rem; margin-bottom: 20px; }
+        /* 🔬 RESEARCH GRID: Massive Content */
+        .research-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 40px; }
+        .article { background: var(--card-bg); border: 1px solid var(--border); border-radius: 16px; overflow: hidden; transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1); display: flex; flex-direction: column; }
+        .article:hover { transform: translateY(-10px); border-color: var(--accent); box-shadow: 0 20px 40px rgba(0,0,0,0.4); }
+        .article img { width: 100%; height: 240px; object-fit: cover; filter: brightness(0.8); transition: 0.4s; }
+        .article:hover img { filter: brightness(1); }
+        .article-body { padding: 30px; flex-grow: 1; }
+        .article h3 { font-size: 1.4rem; color: #fff; border-left: 4px solid var(--accent); padding-left: 15px; margin-top: 0; margin-bottom: 15px; }
+        .article p { font-size: 0.95rem; color: var(--text-muted); }
 
-        .hero p {
-            max-width: 900px;
-            margin: 0 auto;
-            font-size: 1.2rem;
-            color: var(--text-muted);
-        }
+        /* TECHNICAL SPECS */
+        .specs-list { background: #161b22; padding: 40px; border-radius: 16px; margin-top: 50px; border: 1px solid var(--border); }
+        .specs-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
+        .spec-item { padding: 15px; border-bottom: 1px solid var(--border); }
+        .spec-item b { display: block; color: var(--accent); margin-bottom: 5px; }
 
-        .container {
-            max-width: 1300px;
-            margin: 0 auto;
-            padding: 60px 20px;
-        }
+        /* 💰 CALL TO ACTION */
+        .cta-section { background: linear-gradient(135deg, #0d1117 0%, #002b3d 100%); padding: 80px 5%; text-align: center; border-radius: 20px; margin: 60px 0; border: 1px solid var(--accent); }
+        .whatsapp-btn { background: #25d366; color: #fff; padding: 18px 45px; border-radius: 50px; text-decoration: none; font-weight: 800; font-size: 1.1rem; display: inline-flex; align-items: center; gap: 12px; transition: 0.3s; }
+        .whatsapp-btn:hover { transform: scale(1.05); box-shadow: 0 0 30px rgba(37, 211, 102, 0.4); }
 
-        .section-header {
-            margin-bottom: 50px;
-            border-bottom: 2px solid var(--border);
-            padding-bottom: 15px;
-        }
-
-        .research-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 40px;
-        }
-
-        .article {
-            background: var(--card-bg);
-            border: 1px solid var(--border);
-            border-radius: 16px;
-            overflow: hidden;
-            transition: 0.4s;
-        }
-
-        .article:hover {
-            transform: translateY(-10px);
-            border-color: var(--accent);
-        }
-
-        .article img {
-            width: 100%;
-            height: 240px;
-            object-fit: cover;
-        }
-
-        .article-body { padding: 30px; }
-
-        .article h3 {
-            font-size: 1.4rem;
-            border-left: 4px solid var(--accent);
-            padding-left: 15px;
-        }
-
-        .specs-list {
-            background: #161b22;
-            padding: 40px;
-            border-radius: 16px;
-            margin-top: 50px;
-            border: 1px solid var(--border);
-        }
-
-        .specs-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-        }
-
-        .spec-item {
-            padding: 15px;
-            border-bottom: 1px solid var(--border);
-        }
-
-        .spec-item b {
-            display: block;
-            color: var(--accent);
-        }
-
-        .cta-section {
-            background: linear-gradient(135deg, #0d1117 0%, #002b3d 100%);
-            padding: 80px 5%;
-            text-align: center;
-            border-radius: 20px;
-            margin: 60px 0;
-            border: 1px solid var(--accent);
-        }
-
-        .whatsapp-btn {
-            background: #25d366;
-            color: #fff;
-            padding: 18px 45px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 800;
-            font-size: 1.2rem;
-        }
-
-        footer {
-            text-align: center;
-            padding: 60px;
-            border-top: 1px solid var(--border);
-            color: var(--text-muted);
-        }
-
-        @media (max-width: 768px) {
-            .hero h1 { font-size: 2rem; }
-            .research-grid { grid-template-columns: 1fr; }
-        }
+        footer { text-align: center; padding: 60px; border-top: 1px solid var(--border); color: var(--text-muted); font-size: 0.9rem; }
+        
+        @media (max-width: 768px) { .hero h1 { font-size: 2.2rem; } .research-grid { grid-template-columns: 1fr; } }
     </style>
 </head>
-
 <body>
 
 <header>
@@ -211,17 +101,98 @@
 
 <section class="hero">
     <h1>Global Maritime Fuel & Intelligence Hub</h1>
-    <p>Providing the world's most comprehensive research on <strong>VLSFO pricing</strong>, IMO 2030 regulations, and the transition from <strong>IFO 380</strong>.</p>
+    <p>The world's premier research reference for <strong>VLSFO pricing</strong>, IMO 2030 compliance, and the strategic transition from <strong>IFO 380</strong> to high-efficiency marine energy.</p>
 </section>
 
 <div class="container">
+    
     <div class="section-header">
-        <h2>Global Market Dynamics & Research</h2>
+        <h2>Global Market Dynamics & Intelligence</h2>
     </div>
+    
+    <div class="research-grid">
+        <article class="article">
+            <img src="vlsfo-2028.jpg" alt="IFO 380 High Sulfur Fuel Oil Transition">
+            <div class="article-body">
+                <h3>IFO 380 Market Transition</h3>
+                <p>Analyzing the massive <strong>3,550%+ surge</strong> in <strong>IFO 380</strong> inquiries. As the industry pivots, we track how scrubbers impact the demand for high-sulfur residual fuels compared to VLSFO blends.</p>
+            </div>
+        </article>
+
+        <article class="article">
+            <img src="vlsfo2030.jpg" alt="Brent Oil Price Analysis">
+            <div class="article-body">
+                <h3>Brent & Crude Oil Correlation</h3>
+                <p>Tracking the direct volatility impact of <strong>crude oil price</strong> and <strong>brent oil price</strong> on global bunkering indices. Essential data for forecasting <strong>VLSFO price</strong> movements.</p>
+            </div>
+        </article>
+
+        <article class="article">
+            <img src="vlsfo-2027.jpg" alt="VLSFO Rotterdam Market">
+            <div class="article-body">
+                <h3>VLSFO Rotterdam Authority</h3>
+                <p>Search interest for <strong>VLSFO Rotterdam</strong> has climbed by <strong>100%</strong>. As Europe's leading energy gateway, Rotterdam dictates the standard for low-sulfur logistics in the Atlantic trade.</p>
+            </div>
+        </article>
+    </div>
+
+    <div class="specs-list">
+        <h2>Technical Reference: VLSFO Standards</h2>
+        <div class="specs-grid">
+            <div class="spec-item"><b>Sulfur Threshold</b> Max 0.50% m/m (IMO 2020) | 0.10% (ECA Zones - <strong>MGO</strong>).</div>
+            <div class="spec-item"><b>Density (kg/m³)</b> Typical range <strong>920 - 970</strong>. Vital for purifier efficiency.</div>
+            <div class="spec-item"><b>Viscosity</b> <strong>VLSFO meaning</strong> implies variable viscosity management up to 380 cSt.</div>
+            <div class="spec-item"><b>Flash Point</b> Minimum 60°C to comply with SOLAS safety regulations.</div>
+        </div>
+    </div>
+
+    <div class="section-header" style="margin-top: 80px;">
+        <h2>Technology & Web3 Settlement</h2>
+    </div>
+
+    <div class="research-grid">
+        <article class="article">
+            <img src="vlsfo2033.jpg" alt="Web3 USDT Fuel Settlement">
+            <div class="article-body">
+                <h3>Maritime Web3 USDT Settlements</h3>
+                <p>Digital transformation for fleet managers: <strong>buy VLSFO with USDT</strong> to avoid SWIFT delays and ensure instant, 24/7 bunker invoice settlement.</p>
+            </div>
+        </article>
+
+        <article class="article">
+            <img src="vlsfo-33.jpg" alt="AI in Shipping Intelligence">
+            <div class="article-body">
+                <h3>AI-Driven Shipping Intelligence</h3>
+                <p>Utilizing <strong>AI maritime</strong> algorithms to analyze consumption patterns and forecast <strong>Singapore VLSFO price</strong> trends for proactive procurement.</p>
+            </div>
+        </article>
+
+        <article class="article">
+            <img src="vlsfo-2.jpg" alt="Global VLSFO Research Center">
+            <div class="article-body">
+                <h3>The Definitive VLSFO Research Center</h3>
+                <p>From Fujairah to Houston, VLSFO.COM tracks every critical bunkering hub to provide the <strong>ultimate research reference</strong> for shipowners worldwide.</p>
+            </div>
+        </article>
+    </div>
+
+    <div class="cta-section">
+        <h2>Acquire VLSFO GLOBAL Assets</h2>
+        <p style="color: #fff; margin-bottom: 30px;">Dominate the marine fuel digital landscape. Own the premium <strong>VLSFO.com</strong> & <strong>VLSFO.xyz</strong> strategic infrastructure.</p>
+        <a href="https://wa.me/218917021437" class="whatsapp-btn">Direct WhatsApp Inquiry</a>
+    </div>
+
+    <div class="specs-list" style="background: transparent; border-color: var(--border);">
+        <h2 style="font-size: 1.5rem;">Frequently Asked Questions (FAQ)</h2>
+        <div class="spec-item"><b>Live Price:</b> Visit <strong>VLSFO.XYZ</strong> for real-time market tracking.</div>
+        <div class="spec-item"><b>Technical Distinction:</b> <strong>VLSFO</strong> is a blend; <strong>MGO</strong> is a distillate.</div>
+        <div class="spec-item"><b>IMO 2020:</b> Mandated a global cap of 0.50% sulfur in marine fuels.</div>
+    </div>
+
 </div>
 
 <footer>
-    <p>&copy; 2026 VLSFO.COM | AI Maritime Intelligence.</p>
+    <p>&copy; 2026 VLSFO.COM | AI Maritime Intelligence & Research Authority.</p>
 </footer>
 
 </body>
