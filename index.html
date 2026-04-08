@@ -138,12 +138,24 @@
 </footer>
 
 <script>
-    const today = new Date();
-    const options = { year: 'numeric', month: 'long', day: 'numeric' };
-    const formattedDate = today.toLocaleDateString('en-US', options);
-    document.getElementById('live-date').innerText = 'Updated ' + formattedDate;
-    document.getElementById('hero-title').innerText = 'VLSFO Price Today - ' + formattedDate + ' Live Rates';
-    document.title = 'VLSFO Price Today ' + formattedDate + ' | Very Low Sulphur Fuel Oil Bunker Rates';
+  const today = new Date();
+  const options = { year: 'numeric', month: 'long', day: 'numeric' };
+  const formattedDate = today.toLocaleDateString('en-US', options);
+  document.getElementById('live-date').innerText = 'Updated ' + formattedDate;
+  document.getElementById('hero-title').innerText = 'VLSFO Price Today - ' + formattedDate + ' Live Rates';
+  document.title = 'VLSFO Price Today ' + formattedDate + ' | Very Low Sulphur Fuel Oil Bunker Rates';
+
+  fetch('https://api.allorigins.win/get?url=' + encodeURIComponent('https://shipandbunker.com/prices'))
+  .then(r => r.json())
+  .then(d => {
+      const html = d.contents;
+      const sg = html.match(/Singapore[^$]*\$([\d,\.]+)/i);
+      const rt = html.match(/Rotterdam[^$]*\$([\d,\.]+)/i);
+      const fj = html.match(/Fujairah[^$]*\$([\d,\.]+)/i);
+      if(sg) document.body.innerHTML = document.body.innerHTML.replace(/\$888/g, '$'+sg[1]);
+      if(rt) document.body.innerHTML = document.body.innerHTML.replace(/\$744\.5|\$520\.50/g, '$'+rt[1]);
+      if(fj) document.body.innerHTML = document.body.innerHTML.replace(/\$846|\$875/g, '$'+fj[1]);
+    }).catch(e=>{});
 </script>
 
 </body>
