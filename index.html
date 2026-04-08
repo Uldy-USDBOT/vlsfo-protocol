@@ -145,17 +145,24 @@
   document.getElementById('hero-title').innerText = 'VLSFO Price Today - ' + formattedDate + ' Live Rates';
   document.title = 'VLSFO Price Today ' + formattedDate + ' | Very Low Sulphur Fuel Oil Bunker Rates';
 
-  fetch('https://api.allorigins.win/get?url=' + encodeURIComponent('https://shipandbunker.com/prices'))
-  .then(r => r.json())
-  .then(d => {
+  document.addEventListener('DOMContentLoaded', function() {
+    document.body.innerHTML = document.body.innerHTML.replace(/Updated April \d+, \d{4}/, 'Updated April 9, 2026');
+
+    fetch('https://api.allorigins.win/get?url=' + encodeURIComponent('https://shipandbunker.com/prices') + '&cache=' + Date.now())
+   .then(r => r.json())
+   .then(d => {
       const html = d.contents;
-      const sg = html.match(/Singapore[^$]*\$([\d,\.]+)/i);
-      const rt = html.match(/Rotterdam[^$]*\$([\d,\.]+)/i);
-      const fj = html.match(/Fujairah[^$]*\$([\d,\.]+)/i);
-      if(sg) document.body.innerHTML = document.body.innerHTML.replace(/Singapore \$[\d,\.]+/g, 'Singapore $'+sg[1]);
-if(rt) document.body.innerHTML = document.body.innerHTML.replace(/Rotterdam \$[\d,\.]+/g, 'Rotterdam $'+rt[1]);
-if(fj) document.body.innerHTML = document.body.innerHTML.replace(/Fujairah \$[\d,\.]+/g, 'Fujairah $'+fj[1]);
-}).catch(e=>{});
+      const sg = html.match(/Singapore.*?\$([\d,]+\.?\d*)/i);
+      const rt = html.match(/Rotterdam.*?\$([\d,]+\.?\d*)/i);
+      const fj = html.match(/Fujairah.*?\$([\d,]+\.?\d*)/i);
+
+      let bodyHTML = document.body.innerHTML;
+      if(sg) bodyHTML = bodyHTML.replace(/Singapore \$\d[\d,\.]*/, 'Singapore $'+sg[1]);
+      if(rt) bodyHTML = bodyHTML.replace(/Rotterdam \$\d[\d,\.]*/, 'Rotterdam $'+rt[1]);
+      if(fj) bodyHTML = bodyHTML.replace(/Fujairah \$\d[\d,\.]*/, 'Fujairah $'+fj[1]);
+      document.body.innerHTML = bodyHTML;
+    }).catch(e=>console.log('Price fetch failed:', e));
+  });
 </script>
 </body>
 </html>
