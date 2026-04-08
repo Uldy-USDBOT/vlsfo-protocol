@@ -152,11 +152,9 @@
       const sg = html.match(/Singapore[^$]*\$([\d,\.]+)/i);
       const rt = html.match(/Rotterdam[^$]*\$([\d,\.]+)/i);
       const fj = html.match(/Fujairah[^$]*\$([\d,\.]+)/i);
-      if(sg) document.body.innerHTML = document.body.innerHTML.replace(/\$888/g, '$'+sg[1]);
-      if(rt) document.body.innerHTML = document.body.innerHTML.replace(/\$744\.5|\$520\.50/g, '$'+rt[1]);
-      if(fj) document.body.innerHTML = document.body.innerHTML.replace(/\$846|\$875/g, '$'+fj[1]);
-    }).catch(e=>{});
-</script>
+      if(sg) document.body.innerHTML = document.body.innerHTML.replace(/Singapore \$[\d,\.]+/g, 'Singapore $'+sg[1]);
+if(rt) document.body.innerHTML = document.body.innerHTML.replace(/Rotterdam \$[\d,\.]+/g, 'Rotterdam $'+rt[1]);
+if(fj) document.body.innerHTML = document.body.innerHTML.replace(/Fujairah \$[\d,\.]+/g, 'Fujairah $'+fj[1]);
 
 </body>
 </html>
