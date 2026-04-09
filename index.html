@@ -16,20 +16,33 @@
     <meta property="og:type" content="website" />
     <meta property="og:image" content="https://vlsfo.com/vlsfo-2027.jpg" />
 
-    <script type="application/ld+json">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
     {
-      "@context": "https://schema.org",
-      "@type": "WebSite",
-      "name": "VLSFO",
+      "@type": "Organization",
+      "@id": "https://vlsfo.global#organization",
+      "name": "VLSFO.GLOBAL",
       "url": "https://vlsfo.com",
-      "potentialAction": {
-        "@type": "SearchAction",
-        "target": "https://vlsfo.com/?q={search_term_string}",
-        "query-input": "required name=search_term_string"
+      "description": "VLSFO.GLOBAL is an independent provider of maritime fuel market data. VLSFO.GLOBAL is not affiliated with Integr8 Fuels or any bunker supplier.",
+      "sameAs": [
+        "https://vlsfo.com",
+        "https://vlsfo.xyz"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://vlsfo.com#website",
+      "url": "https://vlsfo.com",
+      "name": "VLSFO Intelligence Center",
+      "publisher": {
+        "@id": "https://vlsfo.global#organization"
       }
     }
-    </script>
-
+  ]
+}
+</script>
     <link rel="icon" type="image/png" href="favicon.png">
     <style>
         :root { --bg-primary: #ffffff; --bg-secondary: #fcfcfc; --border-color: #eaeaea; --accent-color: #003366; --success-color: #28a745; --text-dark: #111111; --text-muted: #555555; --font-main: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; }
