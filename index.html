@@ -91,7 +91,8 @@
 <section class="hero">
     <h1 id="hero-title">VLSFO Price Today - Live Very Low Sulphur Fuel Oil Rates</h1>
     <p>Your source for daily VLSFO bunker fuel price, IMO 2020 compliance data, and VLSFO market analysis for Singapore, Rotterdam and Fujairah.</p>
-    <div class="price-banner" id="price-banner"><p id="last-update" style="text-align:center; font-weight:bold; color:#003366; margin:15px 0;">آخر تحديث: جاري التحميل...</p>
+    <div class="price-banner" id="price-banner">
+  <p style="text-align:center; font-weight:bold; color:#003366; margin:15px 0;">آخر تحديث للسعر اليوم</p>
         <strong>VLSFO Bunker Price:</strong> Singapore <span id="singapore-price">$--</span>/MT | Rotterdam <span id="rotterdam-price">$--</span>/MT | Fujairah <span id="fujairah-price">$--</span>/MT
     </div>
 </section>
@@ -164,28 +165,32 @@
     VLSFO.GLOBAL © 2026 | VLSFO Price, News and IMO 2020 Data. All rights reserved.
 </footer/>
 <script>
-async function loadPrices() {
-  try {
-    const response = await fetch('prices.json');
-    const data = await response.json();
-    
-    const singaporeEl = document.getElementById('singapore-price');
-    const rotterdamEl = document.getElementById('rotterdam-price');
-    const fujairahEl = document.getElementById('fujairah-price');
-    const updateEl = document.getElementById('last-update');
-    
-    if (singaporeEl) singaporeEl.innerText = '$' + data.singapore.price.toFixed(2);
-    if (rotterdamEl) rotterdamEl.innerText = '$' + data.rotterdam.price.toFixed(2);
-    if (fujairahEl) fujairahEl.innerText = '$' + data.fujairah.price.toFixed(2);
-    if (updateEl) updateEl.innerText = 'Last Updated: ' + data.last_updated;
-    
-  } catch (error) {
-    console.log('Failed to load prices.json');
+  async function loadPrices() {
+    try {
+      const response = await fetch('prices.json');
+      const data = await response.json();
+
+      const singaporeEl = document.getElementById('singapore-price');
+      const rotterdamEl = document.getElementById('rotterdam-price');
+      const fujairahEl = document.getElementById('fujairah-price');
+
+      if (singaporeEl) singaporeEl.innerText = '$' + data.singapore.price.toFixed(2);
+      if (rotterdamEl) rotterdamEl.innerText = '$' + data.rotterdam.price.toFixed(2);
+      if (fujairahEl) fujairahEl.innerText = '$' + data.fujairah.price.toFixed(2);
+
+      const today = new Date().toLocaleDateString('en-US', { 
+        year: 'numeric', 
+        month: 'long', 
+        day: 'numeric' 
+      });
+      document.title = 'VLSFO Price Today ' + today + ' | Very Low Sulphur Fuel Oil Bunker Rates';
+
+    } catch (error) {
+      console.log('Failed to load prices.json');
+    }
   }
-}
 
-document.addEventListener('DOMContentLoaded', loadPrices);
+  document.addEventListener('DOMContentLoaded', loadPrices);
 </script>
-
 </body>
 </html>
