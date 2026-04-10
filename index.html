@@ -91,8 +91,8 @@
 <section class="hero">
     <h1 id="hero-title">VLSFO Price Today - Live Very Low Sulphur Fuel Oil Rates</h1>
     <p>Your source for daily VLSFO bunker fuel price, IMO 2020 compliance data, and VLSFO market analysis for Singapore, Rotterdam and Fujairah.</p>
-    <div class="price-banner" id="price-banner">
-        <strong>VLSFO Bunker Price:</strong> Singapore $888/MT | Rotterdam $520.50/MT | Fujairah $875/MT | <span id="live-date">Updated April 8, 2026</span>
+    <div class="price-banner" id="price-banner"><p id="last-update" style="text-align:center; font-weight:bold; color:#003366; margin:15px 0;">آخر تحديث: جاري التحميل...</p>
+        <strong>VLSFO Bunker Price:</strong> Singapore <span id="singapore-price">$--</span>/MT | Rotterdam <span id="rotterdam-price">$--</span>/MT | Fujairah <span id="fujairah-price">$--</span>/MT
     </div>
 </section>
 
@@ -163,33 +163,29 @@
     <a href="mailto:contact@vlsfo.com" style="color:#64748b; text-decoration:none;">Contact</a> | 
     VLSFO.GLOBAL © 2026 | VLSFO Price, News and IMO 2020 Data. All rights reserved.
 </footer/>
-
 <script>
-document.addEventListener('DOMContentLoaded', function() {
-  const today = new Date();
-  const options = { year: 'numeric', month: 'long', day: 'numeric' };
-  const formattedDate = today.toLocaleDateString('en-US', options);
+async function loadPrices() {
+  try {
+    const response = await fetch('prices.json');
+    const data = await response.json();
+    
+    const singaporeEl = document.getElementById('singapore-price');
+    const rotterdamEl = document.getElementById('rotterdam-price');
+    const fujairahEl = document.getElementById('fujairah-price');
+    const updateEl = document.getElementById('last-update');
+    
+    if (singaporeEl) singaporeEl.innerText = '$' + data.singapore.price.toFixed(2);
+    if (rotterdamEl) rotterdamEl.innerText = '$' + data.rotterdam.price.toFixed(2);
+    if (fujairahEl) fujairahEl.innerText = '$' + data.fujairah.price.toFixed(2);
+    if (updateEl) updateEl.innerText = 'Last Updated: ' + data.last_updated;
+    
+  } catch (error) {
+    console.log('Failed to load prices.json');
+  }
+}
 
-// --- UPDATE THESE 3 PRICES DAILY ---
-const priceSingapore = '795.50';
-const priceRotterdam = '671.00';
-const priceFujairah = '779.50';
-  // -----------------------------------
-
-  const liveDate = document.getElementById('live-date');
-  const heroTitle = document.getElementById('hero-title');
-  if(liveDate) liveDate.innerText = 'Updated ' + formattedDate;
-  if(heroTitle) heroTitle.innerText = 'VLSFO Price Today - ' + formattedDate + ' Live Rates';
-  document.title = 'VLSFO Price Today ' + formattedDate + ' | Very Low Sulphur Fuel Oil Bunker Rates';
-
-  // Update prices in the blue box and anywhere on page
-  let bodyHTML = document.body.innerHTML;
-  bodyHTML = bodyHTML.replace(/Singapore \$\d[\d,\.]*/, 'Singapore $' + priceSingapore);
-  bodyHTML = bodyHTML.replace(/Rotterdam \$\d[\d,\.]*/, 'Rotterdam $' + priceRotterdam);
-  bodyHTML = bodyHTML.replace(/Fujairah \$\d[\d,\.]*/, 'Fujairah $' + priceFujairah);
-  bodyHTML = bodyHTML.replace(/Updated April \d+, \d{4}/, 'Updated ' + formattedDate);
-  document.body.innerHTML = bodyHTML;
-});
+document.addEventListener('DOMContentLoaded', loadPrices);
 </script>
+
 </body>
 </html>
