@@ -1,0 +1,18 @@
+{
+  "last_updated": "2026-04-10",
+  "singapore": {
+    "price": 795.50,
+    "change_24h": -1.2,
+    "volatility_7d": 3.8
+  },
+  "rotterdam": {
+    "price": 671.00,
+    "change_24h": 0.5,
+    "volatility_7d": 2.1
+  },
+  "fujairah": {
+    "price": 779.50,
+    "change_24h": -0.8,
+    "volatility_7d": 2.9
+  }
+}
