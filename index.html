@@ -95,13 +95,41 @@
 <section class="hero">
     <h1 id="hero-title">VLSFO Price Today - Live Very Low Sulphur Fuel Oil Rates</h1>
     <p>Your source for daily VLSFO bunker fuel price, IMO 2020 compliance data, and VLSFO market analysis for Singapore, Rotterdam and Fujairah.</p>
-<div class="price-banner" id="price-banner" style="text-align:center; padding:20px; background:#e8f4ff; border:1px solid #91d5ff; border-radius:8px; margin:20px auto; max-width:500px;">
-<p style="font-weight:bold; color:#003366; margin:0 0 15px 0; font-size:1.1rem;">Today's Price Update</p>
-  <div style="font-size:1.05rem; line-height:2; color:#003366;">
-    <strong>Singapore:</strong> <span id="singapore-price">Loading...</span> /MT<br>
-    <strong>Rotterdam:</strong> <span id="rotterdam-price">Loading...</span> /MT<br>
-    <strong>Fujairah:</strong> <span id="fujairah-price">Loading...</span> /MT
-  </div>
+<div class="price-banner" style="background: transparent; border: none; padding: 0; max-width: 1000px;">
+    <p style="font-weight:bold; color: #1a2a6c; margin-bottom: 20px; font-size: 1.2rem; text-align: center;">📊 Live Market Index</p>
+    
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px;">
+        
+        <div style="background: white; padding: 20px; border-radius: 15px; border: 1px solid #eef2ff; box-shadow: 0 4px 12px rgba(0,0,0,0.05); text-align: center;">
+            <div style="font-size: 1.8rem; margin-bottom: 10px;">🇸🇬</div>
+            <div style="font-weight: 600; color: #475569; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.5px;">Singapore</div>
+            <div style="font-size: 1.5rem; color: #27ae60; font-weight: 800; margin: 10px 0;">
+                $<span id="singapore-price">...</span>
+            </div>
+            <div style="font-size: 0.75rem; color: #94a3b8;">MT / USD</div>
+        </div>
+
+        <div style="background: white; padding: 20px; border-radius: 15px; border: 1px solid #eef2ff; box-shadow: 0 4px 12px rgba(0,0,0,0.05); text-align: center;">
+            <div style="font-size: 1.8rem; margin-bottom: 10px;">🇳🇱</div>
+            <div style="font-weight: 600; color: #475569; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.5px;">Rotterdam</div>
+            <div style="font-size: 1.5rem; color: #27ae60; font-weight: 800; margin: 10px 0;">
+                $<span id="rotterdam-price">...</span>
+            </div>
+            <div style="font-size: 0.75rem; color: #94a3b8;">MT / USD</div>
+        </div>
+
+        <div style="background: white; padding: 20px; border-radius: 15px; border: 1px solid #eef2ff; box-shadow: 0 4px 12px rgba(0,0,0,0.05); text-align: center;">
+            <div style="font-size: 1.8rem; margin-bottom: 10px;">🇦🇪</div>
+            <div style="font-weight: 600; color: #475569; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.5px;">Fujairah</div>
+            <div style="font-size: 1.5rem; color: #27ae60; font-weight: 800; margin: 10px 0;">
+                $<span id="fujairah-price">...</span>
+            </div>
+            <div style="font-size: 0.75rem; color: #94a3b8;">MT / USD</div>
+        </div>
+
+    </div>
+</div>
+
 </section>
 
 <div class="container">
