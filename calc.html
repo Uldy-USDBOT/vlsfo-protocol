@@ -3,23 +3,140 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VLSFO Fuel Calculator - Operational Insights</title>
+    <title>VLSFO Fuel Calculator & Technical Specs - VLSFO.COM</title>
     <style>
-        :root { --primary-blue: #1a2a6c; --accent-gold: #d4af37; --bg-gray: #f4f7f6; }
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: var(--bg-gray); margin: 0; padding: 20px; display: flex; justify-content: center; align-items: center; min-height: 100vh; }
-        .calc-container { background: white; padding: 40px; border-radius: 20px; box-shadow: 0 15px 35px rgba(0,0,0,0.1); max-width: 500px; width: 100%; }
+        :root { 
+            --primary-blue: #1a2a6c; 
+            --accent-gold: #d4af37; 
+            --bg-gray: #f4f7f6; 
+            --text-dark: #333;
+        }
+        
+        body { 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            background-color: var(--bg-gray); 
+            margin: 0; 
+            padding: 40px 20px; 
+            display: flex; 
+            flex-direction: column;
+            align-items: center; 
+            min-height: 100vh; 
+        }
+
+        .calc-container { 
+            background: white; 
+            padding: 40px; 
+            border-radius: 20px; 
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1); 
+            max-width: 650px; 
+            width: 100%; 
+        }
+
         h2 { color: var(--primary-blue); text-align: center; margin-bottom: 10px; }
         .subtitle { text-align: center; color: #666; font-size: 0.9rem; margin-bottom: 30px; }
+        
+        /* Calculator Styles */
         .input-group { margin-bottom: 20px; }
         label { display: block; margin-bottom: 8px; font-weight: 600; color: #333; }
-        input { width: 100%; padding: 12px; border: 2px solid #eee; border-radius: 10px; box-sizing: border-box; font-size: 1rem; transition: border-color 0.3s; }
+        input { 
+            width: 100%; 
+            padding: 12px; 
+            border: 2px solid #eee; 
+            border-radius: 10px; 
+            box-sizing: border-box; 
+            font-size: 1rem; 
+            transition: border-color 0.3s; 
+        }
         input:focus { border-color: var(--accent-gold); outline: none; }
-        button { width: 100%; padding: 15px; background: var(--primary-blue); color: white; border: none; border-radius: 10px; font-size: 1.1rem; font-weight: bold; cursor: pointer; transition: transform 0.2s, background 0.3s; }
+        
+        button { 
+            width: 100%; 
+            padding: 15px; 
+            background: var(--primary-blue); 
+            color: white; 
+            border: none; 
+            border-radius: 10px; 
+            font-size: 1.1rem; 
+            font-weight: bold; 
+            cursor: pointer; 
+            transition: transform 0.2s, background 0.3s; 
+        }
         button:hover { background: #121d4d; transform: translateY(-2px); }
-        #result { margin-top: 25px; padding: 20px; border: 2px dashed var(--accent-gold); border-radius: 12px; display: none; background: #fffdf5; animation: fadeIn 0.5s; }
+
+        #result { 
+            margin-top: 25px; 
+            padding: 20px; 
+            border: 2px dashed var(--accent-gold); 
+            border-radius: 12px; 
+            display: none; 
+            background: #fffdf5; 
+            animation: fadeIn 0.5s; 
+        }
         .cost-val { color: #27ae60; font-size: 1.5rem; display: block; margin: 10px 0; }
-        .smart-tip { margin-top: 15px; padding: 12px; background: #fff; border-left: 4px solid var(--accent-gold); font-size: 0.9rem; color: #444; line-height: 1.5; }
-        .back-link { display: block; text-align: center; margin-top: 20px; color: var(--primary-blue); text-decoration: none; font-size: 0.9rem; }
+        
+        .smart-tip { 
+            margin-top: 15px; 
+            padding: 12px; 
+            background: #fff; 
+            border-left: 4px solid var(--accent-gold); 
+            font-size: 0.9rem; 
+            color: #444; 
+            line-height: 1.5; 
+        }
+
+        /* Technical Table Styles */
+        .specs-section {
+            margin-top: 40px;
+            padding-top: 30px;
+            border-top: 1px solid #eee;
+        }
+        .specs-section h3 {
+            color: var(--primary-blue);
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+        .table-wrapper { overflow-x: auto; }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.9rem;
+            text-align: left;
+        }
+        th {
+            background-color: var(--primary-blue);
+            color: white;
+            padding: 12px;
+        }
+        td {
+            padding: 10px 12px;
+            border-bottom: 1px solid #eee;
+        }
+        tr:nth-child(even) { background-color: #fcfcfc; }
+        .highlight-val { color: var(--accent-gold); font-weight: bold; }
+
+        /* Disclaimer Style */
+        .disclaimer-box {
+            margin-top: 20px;
+            background-color: #fff9e6;
+            border-left: 4px solid var(--accent-gold);
+            padding: 15px;
+            font-size: 0.8rem;
+            color: #5d4037;
+            line-height: 1.4;
+        }
+
+        .back-link { 
+            display: block; 
+            text-align: center; 
+            margin-top: 30px; 
+            color: var(--primary-blue); 
+            text-decoration: none; 
+            font-size: 0.9rem; 
+            font-weight: 600;
+        }
+        .back-link:hover { text-decoration: underline; }
+
         @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
     </style>
 </head>
@@ -48,7 +165,59 @@
         <div class="smart-tip">
             <strong>💡 Efficiency Insight:</strong><br>
             Using <strong>iTAC Nanofilm</strong> coatings on cylinder liners can reduce this consumption by ~5%, potentially saving you <span id="savings" style="color: #27ae60; font-weight: bold;">$0</span> daily. 
-            <br><a href="index.html" style="color: var(--accent-gold); font-weight: bold;">View Technical Report →</a>
+            <br><a href="index.html" style="color: var(--accent-gold); font-weight: bold; text-decoration: none;">View Technical Report →</a>
+        </div>
+    </div>
+
+    <div class="specs-section">
+        <h3>VLSFO Standard Specs (ISO 8217:2017)</h3>
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Characteristic</th>
+                        <th>Unit</th>
+                        <th>Limit</th>
+                        <th>Value</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Sulphur Content</td>
+                        <td>% (m/m)</td>
+                        <td>Max</td>
+                        <td class="highlight-val">0.50</td>
+                    </tr>
+                    <tr>
+                        <td>Density @ 15°C</td>
+                        <td>kg/m³</td>
+                        <td>Max</td>
+                        <td>991.0</td>
+                    </tr>
+                    <tr>
+                        <td>Viscosity @ 50°C</td>
+                        <td>mm²/s</td>
+                        <td>Max</td>
+                        <td>80 - 180</td>
+                    </tr>
+                    <tr>
+                        <td>Flash Point</td>
+                        <td>°C</td>
+                        <td>Min</td>
+                        <td>60.0</td>
+                    </tr>
+                    <tr>
+                        <td>Pour Point</td>
+                        <td>°C</td>
+                        <td>Max</td>
+                        <td>30</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="disclaimer-box">
+            <strong>Disclaimer:</strong> This table is for reference only based on international standards. Actual fuel properties vary. Always refer to your <strong>Bunker Delivery Note (BDN)</strong> for precise batch specifications.
         </div>
     </div>
 
