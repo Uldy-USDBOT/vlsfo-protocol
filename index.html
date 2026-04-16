@@ -246,10 +246,12 @@
       const singaporeEl = document.getElementById('singapore-price');
       const rotterdamEl = document.getElementById('rotterdam-price');
       const fujairahEl = document.getElementById('fujairah-price');
+      const houstonEl = document.getElementById('houston-price');
 
       if (singaporeEl) singaporeEl.innerText = '$' + data.singapore.price.toFixed(2);
       if (rotterdamEl) rotterdamEl.innerText = '$' + data.rotterdam.price.toFixed(2);
       if (fujairahEl) fujairahEl.innerText = '$' + data.fujairah.price.toFixed(2);
+      if (houstonEl) houstonEl.innerText = '$' + data.houston.price.toFixed(2);
 
       const today = new Date().toLocaleDateString('en-US', { 
         year: 'numeric', 
