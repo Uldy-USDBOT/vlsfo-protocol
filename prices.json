@@ -1,7 +1,6 @@
 {
-  "singapore":  { "price": 728.50 },
- 
-  "rotterdam":  { "price": 670.00 },
- 
-  "fujairah":  { "price": 719.50 }
+  "singapore": { "price": 728.50 },
+  "rotterdam": { "price": 670.00 },
+  "fujairah": { "price": 719.50 },
+  "houston": { "price": 829.50 }
 }
