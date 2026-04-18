@@ -135,16 +135,6 @@
             font-size: 1.2rem;
         }
         
-        .price-banner {
-            background: #e6f7ff;
-            border: 1px solid #91d5ff;
-            padding: 15px;
-            border-radius: 8px;
-            max-width: 850px;
-            margin: 25px auto 0;
-            font-size: 1.05rem;
-        }
-        
         .container {
             max-width: 1000px;
             margin: 0 auto;
@@ -241,51 +231,12 @@
         <h1 id="hero-title">VLSFO Price Today - Live Very Low Sulphur Fuel Oil Rates</h1>
         <p>Your source for daily VLSFO bunker fuel price, IMO 2020 compliance data, and VLSFO market analysis for Singapore, Rotterdam and Fujairah.</p>
         
-        <div class="price-banner" style="background: transparent; border: none; padding: 0; max-width: 1000px;">
-            <p style="font-weight:bold; color: #1a2a6c; margin-bottom: 20px; font-size: 1.2rem; text-align: center;">📊 Live Market Index</p>
-            
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px;">
-                
-                <!-- Singapore Card -->
-                <div style="background: white; padding: 20px; border-radius: 15px; border: 1px solid #eef2ff; box-shadow: 0 4px 12px rgba(0,0,0,0.05); text-align: center;">
-                    <div style="font-size: 1.8rem; margin-bottom: 10px;">🇸🇬</div>
-                    <div style="font-weight: 600; color: #475569; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.5px;">Singapore</div>
-                    <div style="font-size: 1.5rem; color: #27ae60; font-weight: 800; margin: 10px 0;">
-                        $<span id="singapore-price">...</span>
-                    </div>
-                    <div style="font-size: 0.75rem; color: #94a3b8;">MT / USD</div>
-                </div>
-
-                <!-- Rotterdam Card -->
-                <div style="background: white; padding: 20px; border-radius: 15px; border: 1px solid #eef2ff; box-shadow: 0 4px 12px rgba(0,0,0,0.05); text-align: center;">
-                    <div style="font-size: 1.8rem; margin-bottom: 10px;">🇳🇱</div>
-                    <div style="font-weight: 600; color: #475569; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.5px;">Rotterdam</div>
-                    <div style="font-size: 1.5rem; color: #27ae60; font-weight: 800; margin: 10px 0;">
-                        $<span id="rotterdam-price">...</span>
-                    </div>
-                    <div style="font-size: 0.75rem; color: #94a3b8;">MT / USD</div>
-                </div>
-
-                <!-- Fujairah Card -->
-                <div style="background: white; padding: 20px; border-radius: 15px; border: 1px solid #eef2ff; box-shadow: 0 4px 12px rgba(0,0,0,0.05); text-align: center;">
-                    <div style="font-size: 1.8rem; margin-bottom: 10px;">🇦🇪</div>
-                    <div style="font-weight: 600; color: #475569; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.5px;">Fujairah</div>
-                    <div style="font-size: 1.5rem; color: #27ae60; font-weight: 800; margin: 10px 0;">
-                        $<span id="fujairah-price">...</span>
-                    </div>
-                    <div style="font-size: 0.75rem; color: #94a3b8;">MT / USD</div>
-                </div>
-
-                <!-- Houston Card -->
-                <div style="background: white; padding: 20px; border-radius: 15px; border: 1px solid #eef2ff; box-shadow: 0 4px 6px rgba(0,0,0,0.05); text-align: center;">
-                    <div style="font-size: 1.8rem; margin-bottom: 10px;">🇺🇸</div>
-                    <div style="font-weight: 600; color: #475569; font-size: 0.9rem; text-transform: uppercase;">Houston</div>
-                    <div style="font-size: 1.5rem; color: #27ae60; font-weight: 800; margin: 10px 0;">
-                        $<span id="houston-price">...</span>
-                    </div>
-                    <div style="font-size: 0.75rem; color: #94a3b8;">MT / USD</div>
-                </div>
-            </div>
+        <!-- تم استبدال بطاقات الأسعار بزر السوق -->
+        <div style="margin-top: 35px;">
+            <a href="https://vlsfo.xyz" style="display: inline-block; background: #003366; color: white; padding: 16px 42px; border-radius: 50px; text-decoration: none; font-weight: 700; font-size: 1.25rem; box-shadow: 0 8px 20px rgba(0,51,102,0.25); transition: transform 0.2s ease;" onmouseover="this.style.transform='scale(1.02)'" onmouseout="this.style.transform='scale(1)'">
+                📊 View Live Market Dashboard →
+            </a>
+            <p style="font-size: 0.9rem; color: #666; margin-top: 10px;">Real-time VLSFO prices, charts & port analytics</p>
         </div>
     </section>
 
@@ -460,7 +411,7 @@
             </p>
         </div>
 
-        <!-- Live Market Terminal Link -->
+        <!-- Live Market Terminal Link (موجود أيضاً في الأسفل كخيار إضافي) -->
         <div style="text-align: center; margin: 35px 0; padding: 25px; border-radius: 15px; background: #f0f7ff; border: 1px solid #d0e3ff;">
             <h3 style="color: #003366; font-family: sans-serif; font-size: 1.1em; margin-bottom: 15px;">🌐 Live Market Terminal</h3>
             <p style="color: #444; font-size: 0.9em; margin-bottom: 20px;">View real-time VLSFO prices, 24h charts, and global port analytics.</p>
@@ -496,35 +447,6 @@
         VLSFO.GLOBAL © 2026 | VLSFO Price, News and IMO 2020 Data. All rights reserved.
     </footer>
 
-    <script>
-        async function loadPrices() {
-            try {
-                const response = await fetch('prices.json');
-                const data = await response.json();
-
-                const singaporeEl = document.getElementById('singapore-price');
-                const rotterdamEl = document.getElementById('rotterdam-price');
-                const fujairahEl = document.getElementById('fujairah-price');
-                const houstonEl = document.getElementById('houston-price');
-
-                if (singaporeEl) singaporeEl.innerText = data.singapore.price.toFixed(2);
-                if (rotterdamEl) rotterdamEl.innerText = data.rotterdam.price.toFixed(2);
-                if (fujairahEl) fujairahEl.innerText = data.fujairah.price.toFixed(2);
-                if (houstonEl) houstonEl.innerText = data.houston.price.toFixed(2);
-
-                const today = new Date().toLocaleDateString('en-US', { 
-                    year: 'numeric', 
-                    month: 'long', 
-                    day: 'numeric' 
-                });
-                document.title = 'VLSFO Price Today ' + today + ' | Very Low Sulphur Fuel Oil Bunker Rates';
-
-            } catch (error) {
-                console.log('Failed to load prices.json');
-            }
-        }
-
-        document.addEventListener('DOMContentLoaded', loadPrices);
-    </script>
+    <!-- تمت إزالة سكريبت جلب الأسعار لعدم الحاجة إليه بعد حذف بطاقات الأسعار -->
 </body>
 </html>
