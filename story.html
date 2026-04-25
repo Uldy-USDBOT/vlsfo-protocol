@@ -36,18 +36,6 @@ h2 {
     margin-bottom: 40px;
 }
 
-.controls {
-    text-align: center;
-    margin-bottom: 30px;
-}
-
-button {
-    padding: 10px 20px;
-    margin: 5px;
-    font-size: 16px;
-    cursor: pointer;
-}
-
 p {
     margin-bottom: 18px;
 }
@@ -65,11 +53,6 @@ p {
 
 <h1>Zero Dollars, Zero Code, One Smartphone</h1>
 <p class="subtitle">The Impossible Rise of VLSFO.com<br>By Naji Ali</p>
-
-<div class="controls">
-    <button onclick="startReading()">🔊 Read Aloud</button>
-    <button onclick="stopReading()">⏸️ Stop</button>
-</div>
 
 <h2>Prologue: They Were Right</h2>
 <p>They laughed. Not a simple laugh—but the kind that stays inside your chest long after the moment ends.</p>
@@ -197,23 +180,6 @@ p {
 <p>And that… changed everything.</p>
 
 </div>
-
-<script>
-let speech;
-
-function startReading() {
-    stopReading();
-    let text = document.querySelector(".container").innerText;
-    speech = new SpeechSynthesisUtterance(text);
-    speech.lang = "en-US";
-    speech.rate = 1;
-    window.speechSynthesis.speak(speech);
-}
-
-function stopReading() {
-    window.speechSynthesis.cancel();
-}
-</script>
 
 </body>
 </html>
