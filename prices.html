@@ -3,80 +3,84 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VLSFO and MGO Prices | Live Bunker Fuel Market Data</title>
-    <meta name="description" content="Check real-time VLSFO and MGO prices. Compare global bunker fuel rates and stay updated with the latest marine fuel market trends.">
+    <title>VLSFO and MGO Price Index | Global Average Bunker Fuel Rates</title>
+    <meta name="description" content="Check global average VLSFO and MGO price ranges. Compare bunker fuel market trends and stay updated with the marine fuel industry standards.">
     <style>
         :root { --navy: #003366; --accent: #0056b3; --gray: #f4f7f6; }
         body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; color: #333; margin: 0; background: var(--gray); }
         .container { max-width: 1000px; margin: 40px auto; padding: 20px; background: #fff; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
-        h1 { color: var(--navy); text-align: center; font-size: 2rem; margin-bottom: 10px; }
-        .update-tag { text-align: center; font-size: 0.85rem; color: #666; margin-bottom: 30px; }
+        h1 { color: var(--navy); text-align: center; font-size: 2rem; margin-bottom: 5px; }
+        .subtitle { text-align: center; font-size: 1rem; color: #555; margin-bottom: 30px; }
         
         /* Table Styling */
         .price-table-wrapper { overflow-x: auto; }
-        table { width: 100%; border-collapse: collapse; margin-bottom: 20px; }
+        table { width: 100%; border-collapse: collapse; margin-bottom: 10px; }
         th, td { padding: 15px; text-align: left; border-bottom: 1px solid #eee; }
         th { background-color: var(--navy); color: white; text-transform: uppercase; font-size: 0.9rem; }
         tr:hover { background-color: #f9f9f9; }
-        .price-up { color: #27ae60; font-weight: bold; }
-        .price-down { color: #c0392b; font-weight: bold; }
+        .trend-stable { color: #27ae60; font-weight: bold; }
+        .trend-fluctuating { color: #c0392b; font-weight: bold; }
+        .trend-moderate { color: #f39c12; font-weight: bold; }
         
+        .disclaimer { font-size: 0.85rem; color: #777; font-style: italic; margin-bottom: 30px; text-align: right; }
+
         .content-section { margin-top: 40px; }
         .content-section h2 { color: var(--navy); border-left: 5px solid var(--accent); padding-left: 15px; }
-        .btn-back { display: inline-block; margin-top: 20px; padding: 10px 20px; background: var(--navy); color: #fff; text-decoration: none; border-radius: 5px; }
+        .btn-back { display: inline-block; margin-top: 20px; padding: 10px 20px; background: var(--navy); color: #fff; text-decoration: none; border-radius: 5px; transition: background 0.3s; }
+        .btn-back:hover { background: var(--accent); }
     </style>
 </head>
 <body>
 
 <div class="container">
-    <h1>Global Bunker Fuel Prices</h1>
-    <p class="update-tag">Last Updated: <span id="current-date"></span> (Real-time Market Data)</p>
+    <h1>Global Bunker Fuel Price Index</h1>
+    <p class="subtitle">Monthly Average Price Ranges & Market Trends</p>
 
     <div class="price-table-wrapper">
         <table>
             <thead>
                 <tr>
                     <th>Fuel Grade</th>
-                    <th>Price (USD/mt)</th>
-                    <th>Change</th>
-                    <th>Availability</th>
+                    <th>Average Range (USD/mt)</th>
+                    <th>Market Trend</th>
+                    <th>Standard Specs</th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
                     <td><strong>VLSFO</strong> (0.5% Sulphur)</td>
-                    <td>$645.50</td>
-                    <td class="price-up">+1.20%</td>
-                    <td>High</td>
+                    <td>$620 - $680</td>
+                    <td class="trend-stable">Stable</td>
+                    <td>ISO 8217:2017</td>
                 </tr>
                 <tr>
                     <td><strong>MGO</strong> (Marine Gas Oil)</td>
-                    <td>$812.00</td>
-                    <td class="price-down">-0.45%</td>
-                    <td>High</td>
+                    <td>$790 - $850</td>
+                    <td class="trend-fluctuating">Fluctuating</td>
+                    <td>DMA / DMZ</td>
                 </tr>
                 <tr>
                     <td><strong>HSFO</strong> (3.5% Sulphur)</td>
-                    <td>$485.00</td>
-                    <td class="price-up">+0.30%</td>
-                    <td>Medium</td>
+                    <td>$450 - $510</td>
+                    <td class="trend-moderate">Moderate</td>
+                    <td>RMG 380</td>
                 </tr>
             </tbody>
         </table>
     </div>
+    
+    <div class="disclaimer">
+        * Note: These figures represent global monthly averages intended for market analysis and trend tracking. They are not real-time spot prices.
+    </div>
 
     <div class="content-section">
         <h2>VLSFO and MGO Price Analysis</h2>
-        <p>Understanding the price spread between <strong>Very Low Sulphur Fuel Oil (VLSFO)</strong> and <strong>Marine Gas Oil (MGO)</strong> is crucial for shipping efficiency. While VLSFO remains the primary choice for global fleets, MGO is essential for operation in Emission Control Areas (ECA).</p>
-        <p>Our platform provides the most accurate data for bunker fuel procurement, helping you optimize fuel costs and ensure compliance with IMO 2020 regulations.</p>
+        <p>Understanding the price spread between <strong>Very Low Sulphur Fuel Oil (VLSFO)</strong> and <strong>Marine Gas Oil (MGO)</strong> is crucial for shipping efficiency. While VLSFO remains the primary choice for global fleets, MGO is essential for operations in Emission Control Areas (ECA).</p>
+        <p>Our index provides reliable average ranges for bunker fuel procurement strategies, helping you monitor market volatility, optimize fuel costs, and ensure compliance with IMO 2020 regulations.</p>
     </div>
 
     <a href="index.html" class="btn-back">Return to Dashboard</a>
 </div>
-
-<script>
-    document.getElementById('current-date').textContent = new Date().toUTCString();
-</script>
 
 </body>
 </html>
