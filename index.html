@@ -6,6 +6,7 @@
 
     <title>VLSFO Price Today: Houston & Global | Live Bunker Fuel Rates 2026</title>
     <meta name="description" content="VLSFO price today for Houston, Singapore, Rotterdam, and Fujairah. Live Very Low Sulphur Fuel Oil bunker fuel rates, IMO 2020 compliance, and maritime market intelligence.">
+    <meta name="author" content="VLSFO.GLOBAL">
     <link rel="canonical" href="https://vlsfo.com/" />
     <meta name="robots" content="index, follow, max-image-preview:large">
     <meta property="article:modified_time" content="2026-04-20T18:42:00+02:00" />
@@ -14,7 +15,7 @@
     <meta property="og:description" content="Daily VLSFO Very Low Sulphur Fuel Oil prices and IMO 2020 market analysis." />
     <meta property="og:url" content="https://vlsfo.com/" />
     <meta property="og:type" content="website" />
-    <meta property="og:image" content="https://vlsfo.com/vlsfo-2027.jpg" />
+    <meta property="og:image" content="https://vlsfo.com/vlsfo-og.jpg" />
     <meta name="google-adsense-account" content="ca-pub-1927467541081068">
     
     <script type="application/ld+json">
@@ -27,6 +28,11 @@
           "name": "VLSFO.GLOBAL",
           "url": "https://vlsfo.com",
           "description": "VLSFO.GLOBAL is an independent provider of maritime fuel market data. VLSFO.GLOBAL is not affiliated with Integr8 Fuels or any bunker supplier.",
+          "contactPoint": {
+            "@type": "ContactPoint",
+            "contactType": "customer support",
+            "email": "contact@vlsfo.com"
+          },
           "sameAs": [
             "https://vlsfo.com",
             "https://vlsfo.xyz"
@@ -74,6 +80,7 @@
             -webkit-font-smoothing: antialiased;
         }
         
+        /* ── Header ── */
         header {
             padding: 15px 6%;
             display: flex;
@@ -99,6 +106,12 @@
             color: var(--accent-color);
         }
         
+        nav {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
         .nav-btn {
             background: none;
             color: var(--accent-color);
@@ -107,13 +120,13 @@
             text-decoration: none;
             font-weight: 400;
             font-size: 0.75rem;
-            margin-left: 8px;
         }
         
         .nav-btn:hover {
             text-decoration: underline;
         }
         
+        /* ── Hero ── */
         .hero {
             padding: 80px 8% 60px;
             text-align: center;
@@ -135,20 +148,49 @@
             margin: 0 auto;
             font-size: 1.2rem;
         }
+
+        .hero-cta-wrapper {
+            margin-top: 35px;
+        }
+
+        .hero-cta-btn {
+            display: inline-block;
+            background: #003366;
+            color: white;
+            padding: 16px 42px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.25rem;
+            box-shadow: 0 8px 20px rgba(0,51,102,0.25);
+            transition: transform 0.2s ease;
+        }
+
+        .hero-cta-btn:hover {
+            transform: scale(1.02);
+        }
+
+        .hero-cta-sub {
+            font-size: 0.9rem;
+            color: #666;
+            margin-top: 10px;
+        }
         
+        /* ── Container ── */
         .container {
             max-width: 1000px;
             margin: 0 auto;
             padding: 60px 25px;
         }
         
+        /* ── Articles ── */
         .article {
             margin-bottom: 60px;
             padding-bottom: 40px;
             border-bottom: 1px solid var(--border-color);
         }
         
-        .article img {
+        .article-img {
             width: 100%;
             height: auto;
             max-height: 500px;
@@ -158,10 +200,30 @@
             border: 1px solid var(--border-color);
             display: block;
         }
+
+        .article-img-rounded {
+            width: 100%;
+            border-radius: 10px;
+            margin-bottom: 25px;
+        }
+
+        .article-img-shadowed {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
         
         .content h2 {
             font-size: 1.9rem;
             margin-bottom: 15px;
+            line-height: 1.3;
+            color: #003366;
+        }
+
+        .content h3 {
+            font-size: 1.3rem;
+            margin-bottom: 12px;
+            margin-top: 20px;
             line-height: 1.3;
             color: #003366;
         }
@@ -175,7 +237,80 @@
         .content strong {
             color: #000;
         }
-        
+
+        .article-date {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-bottom: 15px;
+        }
+
+        .article-image-caption {
+            font-size: 0.8em;
+            color: #666;
+            font-style: italic;
+            margin-top: 8px;
+            text-align: center;
+        }
+
+        /* ── Info Box ── */
+        .info-box {
+            margin-top: 20px;
+            padding: 25px;
+            border: 1px solid #e0e0e0;
+            border-radius: 15px;
+            background-color: #ffffff;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+
+        .info-box h2 {
+            color: #004a99;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin-bottom: 12px;
+        }
+
+        .info-box p {
+            color: #444;
+            line-height: 1.6;
+        }
+
+        .info-box-highlight {
+            background: #f8f9fa;
+            padding: 15px;
+            border-left: 5px solid #004a99;
+            margin: 20px 0;
+        }
+
+        .info-box-highlight h3 {
+            color: #004a99;
+            font-size: 1.2rem;
+            margin-top: 0;
+            margin-bottom: 10px;
+        }
+
+        .hub-list {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .hub-list li {
+            margin-bottom: 10px;
+        }
+
+        .info-box-cta {
+            text-align: center;
+            margin-top: 20px;
+            padding: 15px;
+            background: #e3f2fd;
+            border-radius: 8px;
+        }
+
+        .info-box-cta p {
+            margin: 0;
+            color: #0d47a1;
+            font-weight: bold;
+        }
+
+        /* ── CTA Box ── */
         .cta-box {
             text-align: center;
             padding: 60px 30px;
@@ -201,7 +336,173 @@
             font-size: 1.1rem;
             display: inline-block;
         }
-        
+
+        /* ── Analyst Note ── */
+        .analyst-note {
+            margin: 25px 0;
+            padding: 25px;
+            border-radius: 12px;
+            background-color: #f8f9fa;
+            border-left: 6px solid #003366;
+            font-family: sans-serif;
+            text-align: left;
+        }
+
+        .analyst-note h3 {
+            color: #003366;
+            margin-top: 0;
+            font-size: 1.2em;
+            margin-bottom: 12px;
+        }
+
+        .analyst-note p {
+            color: #444;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .analyst-note .note-disclaimer {
+            color: #666;
+            line-height: 1.6;
+            font-size: 0.95em;
+            font-style: italic;
+            border-top: 1px solid #ddd;
+            padding-top: 15px;
+            margin-bottom: 0;
+        }
+
+        /* ── Story Box ── */
+        .story-box {
+            text-align: center;
+            margin: 40px auto;
+            padding: 25px;
+            background-color: #ffffff;
+            border-radius: 15px;
+            border: 1px solid #eee;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            max-width: 600px;
+        }
+
+        .story-box img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        .story-box p {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #444;
+            margin-bottom: 20px;
+            font-size: 16px;
+            line-height: 1.5;
+            font-weight: 500;
+        }
+
+        .story-btn {
+            display: inline-block;
+            padding: 15px 35px;
+            background-color: #cc0000;
+            color: #ffffff;
+            text-decoration: none;
+            border-radius: 50px;
+            font-family: 'Segoe UI', sans-serif;
+            font-weight: bold;
+            font-size: 18px;
+            box-shadow: 0 4px 12px rgba(204,0,0,0.25);
+            transition: opacity 0.3s;
+        }
+
+        .story-btn:hover {
+            opacity: 0.9;
+        }
+
+        /* ── Terminal Box ── */
+        .terminal-box {
+            text-align: center;
+            margin: 35px 0;
+            padding: 25px;
+            border-radius: 15px;
+            background: #f0f7ff;
+            border: 1px solid #d0e3ff;
+        }
+
+        .terminal-box h3 {
+            color: #003366;
+            font-family: sans-serif;
+            font-size: 1.1em;
+            margin-bottom: 15px;
+        }
+
+        .terminal-box p {
+            color: #444;
+            font-size: 0.9em;
+            margin-bottom: 20px;
+        }
+
+        .terminal-btn {
+            display: inline-block;
+            padding: 15px 40px;
+            background: #003366;
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1em;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,51,102,0.2);
+            transition: opacity 0.2s;
+        }
+
+        .terminal-btn:hover {
+            opacity: 0.9;
+        }
+
+        /* ── Promo Links ── */
+        .promo-links {
+            text-align: center;
+            margin-top: 10px;
+            font-size: 1.1rem;
+        }
+
+        .promo-links a {
+            color: #0052ff;
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        .promo-links a:hover {
+            text-decoration: underline;
+        }
+
+        /* ── Prices Button ── */
+        .prices-btn-wrapper {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .prices-btn {
+            display: inline-block;
+            padding: 14px 30px;
+            background-color: #003366;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: bold;
+            font-family: sans-serif;
+            transition: opacity 0.2s;
+        }
+
+        .prices-btn:hover {
+            opacity: 0.9;
+        }
+
+        /* ── Article image wrapper ── */
+        .article-image-wrapper {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        /* ── Footer ── */
         footer {
             text-align: center;
             padding: 40px 20px;
@@ -210,7 +511,17 @@
             font-size: 0.9rem;
             margin-top: 40px;
         }
+
+        footer a {
+            color: #64748b;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
         
+        /* ── Responsive ── */
         @media (max-width: 768px) {
             .hero h1 {
                 font-size: 2.1rem;
@@ -222,21 +533,21 @@
 
     <header>
         <a href="/" class="logo">VLSFO<span>.GLOBAL</span></a>
-        <div>
-            <a href="https://vlsfo.xyz" class="nav-btn" target="_blank" rel="noopener">Terminal →</a>
+        <nav>
+            <a href="https://vlsfo.xyz" class="nav-btn" target="_blank" rel="noopener noreferrer">Terminal →</a>
             <a href="calc.html" class="nav-btn">📊 Fuel Calculator</a>
-        </div>
+        </nav>
     </header>
 
     <section class="hero">
         <h1 id="hero-title">VLSFO Price Today - Live Very Low Sulphur Fuel Oil Rates</h1>
-        <p>Your source for daily VLSFO bunker fuel price, IMO 2020 compliance data, and VLSFO market analysis for Singapore, Rotterdam, Fujairah, and Houston.</p>
+        <p>Your source for daily VLSFO bunker fuel prices, IMO 2020 compliance data, and market analysis for Singapore, Rotterdam, Fujairah, and Houston.</p>
         
-        <div style="margin-top: 35px;">
-            <a href="https://vlsfo.xyz" style="display: inline-block; background: #003366; color: white; padding: 16px 42px; border-radius: 50px; text-decoration: none; font-weight: 700; font-size: 1.25rem; box-shadow: 0 8px 20px rgba(0,51,102,0.25); transition: transform 0.2s ease;" onmouseover="this.style.transform='scale(1.02)'" onmouseout="this.style.transform='scale(1)'">
+        <div class="hero-cta-wrapper">
+            <a href="https://vlsfo.xyz" class="hero-cta-btn">
                 📊 View Live Market Dashboard →
             </a>
-            <p style="font-size: 0.9rem; color: #666; margin-top: 10px;">Real-time VLSFO prices, charts & port analytics</p>
+            <p class="hero-cta-sub">Real-time VLSFO prices, charts &amp; port analytics</p>
         </div>
     </section>
 
@@ -244,41 +555,41 @@
 
         <!-- Article 1 -->
         <article class="article">
-            <img src="vlsfo-2027.jpg" alt="VLSFO price today live bunker fuel">
+            <img src="vlsfo-2027.jpg" alt="VLSFO bunker fuel overview" class="article-img" loading="lazy">
             <div class="content">
                 <h2>1. What is VLSFO? Very Low Sulphur Fuel Oil Explained</h2>
-                <p><strong>VLSFO (Very Low Sulphur Fuel Oil)</strong> is a marine bunker fuel with a maximum sulphur content of 0.50% m/m, mandated by the IMO 2020 regulation. VLSFO replaced High Sulphur Fuel Oil (HSFO) as the standard bunker fuel for global shipping. The VLSFO price today is driven by Brent crude, refining margins, and regional demand in key VLSFO hubs like Singapore and Rotterdam.</p>
-                <p>Shipowners searching for VLSFO price, VLSFO bunker price, and VLSFO cost per ton need live data. VLSFO.GLOBAL tracks daily VLSFO rates to help you compare VLSFO vs HSFO and VLSFO vs MGO costs.</p>
+                <p><strong>VLSFO (Very Low Sulphur Fuel Oil)</strong> is a marine bunker fuel with a maximum sulphur content of 0.50% m/m, mandated by the IMO 2020 regulation. It replaced High Sulphur Fuel Oil (HSFO) as the standard bunker fuel for global shipping. Pricing is driven by Brent crude benchmarks, refinery margins, and regional demand at major hubs including Singapore and Rotterdam.</p>
+                <p>Shipowners and operators who need live bunker rate data will find daily VLSFO assessments, port-by-port comparisons, and cost-per-ton analytics across our platform.</p>
             </div>
         </article>
 
         <!-- Article 2 -->
         <article class="article">
-            <img src="vlsfo-2028.jpg" alt="VLSFO Singapore Rotterdam Fujairah price">
+            <img src="vlsfo-2028.jpg" alt="VLSFO Singapore Rotterdam Fujairah price hubs" class="article-img" loading="lazy">
             <div class="content">
                 <h2>2. VLSFO Price Today: Singapore, Rotterdam, Fujairah Live Rates</h2>
-                <p>The global VLSFO market is priced at three main hubs. The <strong>VLSFO Singapore price</strong> is the Asian benchmark, while <strong>VLSFO Rotterdam price</strong> sets the European rate. <strong>VLSFO Fujairah price</strong> is critical for Middle East bunkering. Our VLSFO price tracking shows daily VLSFO bunker fuel price changes, VLSFO market trends, and the VLSFO premium over crude oil.</p>
-                <p>Checking VLSFO price today helps operators hedge VLSFO cost and plan bunkering. VLSFO live price data is updated for VLSFO 0.5% sulphur fuel across all major ports.</p>
+                <p>The global VLSFO market is benchmarked across three primary hubs. The <strong>Singapore price</strong> serves as the Asian reference, <strong>Rotterdam</strong> sets the European rate, and <strong>Fujairah</strong> is the critical Middle East bunkering benchmark. Our daily tracking covers price movements, regional trends, and the VLSFO premium over crude oil at all three locations.</p>
+                <p>Monitoring these rates helps fleet operators make informed hedging decisions and plan bunkering calls efficiently. Data covers 0.50% sulphur compliant fuel across all major ports.</p>
             </div>
         </article>
 
         <!-- Article 3 -->
         <article class="article">
-            <img src="vlsfo2030.jpg" alt="VLSFO vs HSFO IMO 2020 compliance">
+            <img src="vlsfo2030.jpg" alt="VLSFO vs HSFO IMO 2020 compliance comparison" class="article-img" loading="lazy">
             <div class="content">
                 <h2>3. VLSFO vs HSFO: IMO 2020 Compliance and Sulphur Content</h2>
-                <p>Before IMO 2020, ships used HSFO with 3.5% sulphur. The IMO 2020 rule forced a switch to VLSFO with 0.5% sulphur max. The key difference between VLSFO vs HSFO is sulphur content, price, and stability. VLSFO is more expensive than HSFO but ensures IMO 2020 compliance.</p>
-                <p>Many owners also compare VLSFO vs LSMGO (Low Sulphur Marine Gas Oil). VLSFO is cheaper than MGO but requires heating. Understanding VLSFO sulphur content and VLSFO IMO 2020 rules is essential for compliance.</p>
+                <p>Before IMO 2020, vessels predominantly burned High Sulphur Fuel Oil at 3.5% sulphur. The regulation mandated a switch to 0.50% sulphur-compliant fuel. The key differences between these two grades lie in sulphur content, pricing, and blending stability — VLSFO carries a cost premium but ensures full regulatory compliance.</p>
+                <p>Many owners also evaluate Low Sulphur Marine Gas Oil (LSMGO) as an alternative. VLSFO is typically cheaper than MGO but requires heating and more careful compatibility management. Understanding the technical and compliance distinctions is essential for sound procurement decisions.</p>
             </div>
         </article>
 
         <!-- Article 4 -->
         <article class="article">
-            <img src="vlsfo20331.jpg" alt="VLSFO density viscosity ISO 8217 specifications">
+            <img src="vlsfo20331.jpg" alt="VLSFO density viscosity ISO 8217 specifications" class="article-img" loading="lazy">
             <div class="content">
                 <h2>4. VLSFO Technical Specs: Density, Viscosity and ISO 8217</h2>
-                <p>VLSFO must meet ISO 8217 specifications. Key VLSFO parameters are VLSFO density (typically 920-970 kg/m3 at 15°C), VLSFO viscosity (20-180 cSt at 50°C), and VLSFO CCAI. VLSFO density and VLSFO viscosity affect fuel injection and combustion.</p>
-                <p>Poor VLSFO stability causes sludge. Checking VLSFO compatibility, VLSFO cat fines, and VLSFO pour point is critical. Our VLSFO technical data helps engineers manage VLSFO fuel treatment onboard.</p>
+                <p>VLSFO must meet ISO 8217 specifications. Key parameters include density (typically 920–970 kg/m³ at 15°C), viscosity (20–180 cSt at 50°C), and CCAI ratings that affect ignition quality. These properties directly influence fuel injection performance and combustion efficiency.</p>
+                <p>Poor blending stability can cause sludge formation and filter blockages. Engineers are advised to verify compatibility, cat fines content, and pour point before bunkering. Our technical data resources help crews and superintendents manage onboard fuel treatment procedures.</p>
             </div>
         </article>
 
@@ -286,8 +597,8 @@
         <article class="article">
             <div class="content">
                 <h2>5. VLSFO Market News and Price Forecast 2026</h2>
-                <p>The VLSFO market in 2026 is volatile due to OPEC+ cuts and refinery maintenance. VLSFO price forecast models track Brent crude, VLSFO bunker demand, and VLSFO inventory levels. VLSFO news today shows tight supply in Singapore pushing VLSFO price up.</p>
-                <p>VLSFO market analysis, VLSFO price history, and VLSFO price chart data help traders. We cover VLSFO bunker market updates, VLSFO arbitrage, and VLSFO future prices for hedging.</p>
+                <p>The bunker fuel market in 2026 remains sensitive to OPEC+ production decisions, refinery maintenance schedules, and shifting trade patterns. Price forecast models incorporate Brent crude movements, regional inventory levels, and port-specific demand signals to generate forward-looking assessments.</p>
+                <p>Our market coverage includes price history charts, spot and forward price comparisons, and arbitrage analysis across key bunkering regions — giving traders and operators the context needed for hedging and procurement planning.</p>
             </div>
         </article>
 
@@ -295,208 +606,195 @@
         <article class="article">
             <div class="content">
                 <h2>6. Where to Buy VLSFO Bunker Fuel: Suppliers and Cost</h2>
-                <p>Looking to buy VLSFO bunker fuel? VLSFO suppliers in Singapore, Rotterdam, Houston and Fujairah offer VLSFO 0.5%. VLSFO cost per ton varies daily. Compare VLSFO bunker suppliers, VLSFO stem prices, and VLSFO delivery options.</p>
-                <p>VLSFO procurement requires checking VLSFO quality, VLSFO sulphur test results, and VLSFO BDN. Use our VLSFO price today data to negotiate the best VLSFO bunker fuel price.</p>
+                <p>VLSFO suppliers in Singapore, Rotterdam, Houston, and Fujairah offer 0.50% sulphur fuel with varying lead times, delivery methods, and credit terms. Cost per metric ton fluctuates daily and differs significantly between ports based on local supply and logistics conditions.</p>
+                <p>Sound procurement requires validating fuel quality certificates, reviewing sulphur test results, and checking Bunker Delivery Note (BDN) compliance. Use our daily price data as a negotiation baseline when approaching suppliers.</p>
             </div>
         </article>
 
         <!-- Article 7 -->
         <article class="article">
-            <img src="vlsfo-apm.jpg" alt="Nanofilm Exhibit at APM 2026 Singapore" style="width: 100%; border-radius: 10px;">
+            <img src="vlsfo-apm.jpg" alt="Nanofilm Exhibit at APM 2026 Singapore" class="article-img-rounded" loading="lazy">
             <div class="content">
                 <h2>7. APM 2026: Tackling VLSFO Fuel Challenges with Nanotechnology</h2>
-                <p>The <strong>Asia Pacific Maritime (APM) 2026</strong> in Singapore has highlighted critical technical hurdles. As the industry embraces <strong>VLSFO</strong>, the focus has shifted to engine durability and cylinder liner wear.</p>
-                <p>A major highlight was <strong>Nanofilm Technologies</strong>' showcase of their <strong>iTAC</strong> (Ion-Bonded Tactical Advanced Coating) for piston rings. This technology is engineered to reduce friction and withstand the harsh conditions of low-sulphur fuel combustion, lasting over 32,000 hours.</p>
-                <p>At <strong>VLSFO.COM</strong>, we integrate these industry insights with our AI-driven analytics to help operators optimize bunkering and maintenance strategies.</p>
+                <time class="article-date" datetime="2026-03-01">March 2026 | Technical Insights</time>
+                <p>The <strong>Asia Pacific Maritime (APM) 2026</strong> exhibition in Singapore spotlighted ongoing technical challenges associated with low-sulphur fuel combustion, particularly engine wear and cylinder liner durability.</p>
+                <p>One notable showcase was <strong>Nanofilm Technologies</strong>' iTAC (Ion-Bonded Tactical Advanced Coating) for piston rings — engineered to reduce friction under the demanding conditions of VLSFO combustion, with a rated service life exceeding 32,000 hours.</p>
+                <p>VLSFO.GLOBAL monitors these technical developments to help operators integrate engineering insights alongside market data for a more complete picture of bunkering decisions.</p>
             </div>
         </article>
 
         <!-- Info Box: VLSFO Fuel Prices 2026 -->
-        <article class="content-box" style="margin-top: 20px; padding: 25px; border: 1px solid #e0e0e0; border-radius: 15px; background-color: #ffffff; box-shadow: 0 4px 6px rgba(0,0,0,0.05);">
-            <h2 style="color: #004a99; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">VLSFO Fuel Prices 2026: Global Market Trends and Daily Analysis</h2>
-            <p style="color: #444; line-height: 1.6;">As the maritime industry continues to evolve, <strong>Very Low Sulphur Fuel Oil (VLSFO)</strong> remains the primary choice for global shipping fleets. Today's market shows significant volatility driven by shifting demand in major bunkering hubs.</p>
+        <article class="info-box">
+            <h2>VLSFO Fuel Prices 2026: Global Market Trends and Daily Analysis</h2>
+            <p>As the maritime industry continues to evolve, <strong>Very Low Sulphur Fuel Oil (VLSFO)</strong> remains the primary compliance fuel for global shipping fleets. Current market conditions show elevated volatility across major bunkering hubs.</p>
             
-            <div style="background: #f8f9fa; padding: 15px; border-left: 5px solid #004a99; margin: 20px 0;">
-                <h3 style="color: #004a99; font-size: 1.2rem; margin-top: 0;">Key Bunkering Hubs Outlook:</h3>
-                <ul style="list-style-type: none; padding-left: 0;">
-                    <li style="margin-bottom: 10px;">🚢 <strong>Singapore:</strong> Prices are stabilizing amid consistent supply levels and steady bunker demand.</li>
-                    <li style="margin-bottom: 10px;">⚓ <strong>Fujairah:</strong> Market reports indicate a slight tightening in availability, influencing short-term premiums.</li>
-                    <li style="margin-bottom: 10px;">🌊 <strong>Rotterdam:</strong> Fluctuations in European energy benchmarks continue to impact regional VLSFO pricing.</li>
+            <div class="info-box-highlight">
+                <h3>Key Bunkering Hubs Outlook:</h3>
+                <ul class="hub-list">
+                    <li>🚢 <strong>Singapore:</strong> Prices are stabilizing amid consistent supply levels and steady bunker demand.</li>
+                    <li>⚓ <strong>Fujairah:</strong> Market reports indicate a slight tightening in availability, influencing short-term premiums.</li>
+                    <li>🌊 <strong>Rotterdam:</strong> Fluctuations in European energy benchmarks continue to impact regional pricing.</li>
                 </ul>
             </div>
 
-            <p style="color: #444; line-height: 1.6;">At <strong>VLSFO.COM</strong>, we believe that essential maritime data should be accessible to everyone. Unlike platforms that hide critical information behind paywalls, we provide free analytical insights and tools to help you navigate the bunker market efficiently.</p>
+            <p>At <strong>VLSFO.COM</strong>, we believe that essential maritime data should be accessible to everyone. Our platform provides free analytical insights and tools to help you navigate the bunker market efficiently.</p>
             
-            <div style="text-align: center; margin-top: 20px; padding: 15px; background: #e3f2fd; border-radius: 8px;">
-                <p style="margin: 0; color: #0d47a1; font-weight: bold;">Use our Free Bunker Calculator below to estimate your voyage costs instantly!</p>
+            <div class="info-box-cta">
+                <p>Use our Free Bunker Calculator to estimate your voyage costs instantly!</p>
             </div>
         </article>
 
         <!-- Article 8 -->
         <article class="article">
-            <img src="vlsfo-99.jpg" alt="SeaARCTOS Sulfur Emissions Reporting System" style="width: 100%; border-radius: 10px;">
+            <img src="vlsfo-99.jpg" alt="SeaARCTOS Sulfur Emissions Reporting System" class="article-img-rounded" loading="lazy">
             <div class="content">
                 <h2>8. Global Compliance: LR Approves SeaARCTOS Sulfur Monitoring System</h2>
-                <p>The maritime industry takes another step toward full transparency. <strong>Lloyd's Register (LR)</strong> has officially granted type approval to <strong>SeaARCTOS</strong> for its innovative sulfur emissions tracking and reporting device.</p>
-                <p>The <strong>ARCTOS-1</strong> system, which can be installed on a ship's funnel in less than an hour, measures exhaust gases like sulfur dioxide (SO2) and carbon dioxide (CO2) in real-time. This data is automatically sent to the cloud, providing shipowners and regulators with instant access to emissions information.</p>
-                <p>At <strong>VLSFO.COM</strong>, we see this as a vital tool for 2026 compliance. As global sulfur limits tighten, continuous independent monitoring will become the standard for vessels using <strong>Very Low Sulphur Fuel Oil</strong> to prove environmental adherence.</p>
+                <time class="article-date" datetime="2026-04-01">April 2026 | Regulatory</time>
+                <p><strong>Lloyd's Register (LR)</strong> has granted type approval to <strong>SeaARCTOS</strong> for its exhaust gas monitoring device. The <strong>ARCTOS-1</strong> system installs on a ship's funnel in under an hour and measures sulfur dioxide (SO₂) and carbon dioxide (CO₂) in real time, transmitting data automatically to the cloud for shipowner and regulator access.</p>
+                <p>As global sulfur limits are enforced more rigorously, continuous independent monitoring is becoming a standard requirement for vessels operating on VLSFO to demonstrate environmental compliance. VLSFO.GLOBAL tracks these regulatory developments to keep operators informed.</p>
             </div>
         </article>
 
         <!-- Article 9: Singapore Market 2026 -->
         <article class="article" id="article-9">
             <div class="content">
-                <h2>9. Singapore's VLSFO Market 2026: Why Real-Time Data is the New Fuel</h2>
-                <p class="date">April 17, 2026 | Market Insights & Analytics</p>
+                <h2>9. Singapore's VLSFO Market 2026: Why Real-Time Data Matters</h2>
+                <time class="article-date" datetime="2026-04-17">April 17, 2026 | Market Insights &amp; Analytics</time>
                 
-                <p>As the undisputed global leader in marine bunkering, Singapore continues to set the benchmark for Very Low Sulfur Fuel Oil (VLSFO) operations. In 2026, the challenge for shipowners, charterers, and bunker traders is no longer just securing the fuel, but navigating the extreme price volatility and technical specifications that dictate operational efficiency.</p>
+                <p>As the undisputed global leader in marine bunkering, Singapore continues to set the benchmark for VLSFO operations. In 2026, the challenge for shipowners, charterers, and bunker traders is no longer just securing supply — it is navigating price volatility and technical specifications that directly affect operational efficiency.</p>
                 
-                <p><strong>The Data Transparency Gap</strong><br>
-                Historically, the maritime energy sector relied on delayed market reports and fragmented data. Today, a price swing of just a few dollars per metric ton in the Port of Singapore can cost shipping lines millions. Furthermore, understanding the exact density, viscosity, and chemical properties of the fuel before purchasing is crucial to prevent engine wear and ensure strict environmental compliance.</p>
+                <h3>The Data Transparency Gap</h3>
+                <p>The maritime energy sector has historically relied on delayed market reports and fragmented data sources. Today, a price swing of just a few dollars per metric ton at the Port of Singapore can translate to significant costs at scale for major shipping lines. Understanding the exact density, viscosity, and chemical composition of fuel before purchase is equally critical for engine protection and regulatory compliance.</p>
                 
-                <p><strong>How VLSFO.COM is Changing the Game</strong><br>
-                To survive in this fast-paced environment, professionals require instant access to pure, uncompromised data. This is where specialized platforms come into play. <strong>VLSFO.COM</strong> has rapidly emerged as a critical intelligence tool for industry leaders. By focusing exclusively on VLSFO and integrating real-time market trends with advanced technical insights, the platform provides the ultimate transparency needed to make instant, multi-million dollar decisions.</p>
-                
-                <p>Whether you are a major bunker supplier in the Middle East, a fleet manager in Europe, or operating directly out of the Singapore strait, keeping a close eye on the market through a dedicated, highly specialized portal like VLSFO.COM is the only reliable way to stay ahead of the curve in today's maritime energy landscape.</p>
+                <h3>How VLSFO.COM Supports Decision-Making</h3>
+                <p>VLSFO.COM integrates real-time market pricing with technical fuel data, providing a consolidated view for professionals who need to act on multi-million dollar procurement decisions quickly. Whether you operate from the Singapore Strait, the Middle East, or Europe, a dedicated intelligence platform reduces reliance on fragmented data and delayed reports.</p>
             </div>
         </article>
 
         <!-- Article 10: Japan Market -->
         <article class="article" id="article-10">
             <div class="content">
-                <h2>10. Japan’s VLSFO Market: A $4.2 Billion Frontier by 2033</h2>
-                <p class="date">April 17, 2026 | Strategic Market Analysis</p>
+                <h2>10. Japan's VLSFO Market: Growth Outlook Through 2033</h2>
+                <time class="article-date" datetime="2026-04-17">April 17, 2026 | Strategic Market Analysis</time>
                 
-                <div class="article-image-wrapper" style="text-align: center; margin: 20px 0;">
-                    <img src="vlsfo-12.jpg" alt="Japan VLSFO Market Growth" style="width: 100%; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
-                    <p style="font-size: 0.8em; color: #666; font-style: italic; margin-top: 8px;">Source: Market Data Analytics on Japan’s VLSFO Sector</p>
+                <div class="article-image-wrapper">
+                    <img src="vlsfo-12.jpg" alt="Japan VLSFO Market Growth Analysis" class="article-img-shadowed" loading="lazy">
+                    <p class="article-image-caption">Source: Market Data Analytics on Japan's VLSFO Sector</p>
                 </div>
 
-                <p>Recent analytics indicate a significant shift in the East Asian energy sector, with Japan’s Very Low Sulfur Fuel Oil (VLSFO) market projected to reach an estimated <strong>$4.2 billion by 2033</strong>. Starting from a 2024 valuation of $2.5 billion, this trajectory represents a robust Compound Annual Growth Rate (CAGR) of 5.4%.</p>
+                <p>Analytics from multiple industry sources point to sustained growth in Japan's Very Low Sulphur Fuel Oil market over the coming years, driven by regulatory pressure and a national shift toward cleaner energy sources across industrial and maritime sectors.</p>
                 
-                <p><strong>Driven by Sustainability and Regulation</strong><br>
-                The surge is primarily fueled by a nationwide transition toward environmentally sustainable fuel sources. As stringent global and local emission regulations tighten, VLSFO has become the "cleaner alternative" of choice for major industries.</p>
+                <h3>Driven by Sustainability and Regulation</h3>
+                <p>Stricter domestic and international emission standards are accelerating VLSFO adoption among Japan's major shipping operators and port authorities. The fuel's lower sulphur profile positions it as the practical compliance choice while alternative fuel infrastructure matures.</p>
                 
-                <p><strong>The Strategic Edge of VLSFO.COM</strong><br>
-                In such a high-stakes market, having access to accurate data is no longer a luxury—it’s a necessity for survival. <strong>VLSFO.COM</strong> is positioned to provide the analytical depth required for international stakeholders looking to enter or expand within the Japanese market.</p>
+                <h3>Why Accurate Data is Essential</h3>
+                <p>In a high-growth market with active international stakeholder interest, access to reliable pricing, specification, and logistics data is a competitive advantage. VLSFO.COM provides the analytical depth needed by buyers, traders, and investors assessing the Japanese bunkering landscape.</p>
             </div>
         </article>
         
         <!-- Analyst Note Box -->
-        <div style="margin: 25px 0; padding: 25px; border-radius: 12px; background-color: #f8f9fa; border-left: 6px solid #003366; font-family: sans-serif; text-align: left;">
-            <h3 style="color: #003366; margin-top: 0; font-size: 1.2em;">📊 Analyst Note on Market Valuation</h3>
-            <p style="color: #444; line-height: 1.6; margin-bottom: 15px;">
-                While some conservative estimates project the VLSFO market to reach approximately <strong>$40 billion by 2033</strong>, other comprehensive industry benchmarks indicate the market has already surpassed <strong>$80 billion as of 2023</strong>, with a trajectory exceeding <strong>$137 billion by 2032</strong>.
-            </p>
-            <p style="color: #666; line-height: 1.6; font-size: 0.95em; font-style: italic; border-top: 1px solid #ddd; padding-top: 15px;">
-                This variance in data highlights the dynamic nature of the marine fuel sector. At <strong>VLSFO.COM</strong>, we monitor these diverse data streams to provide our clients with a balanced view of the global energy landscape.
+        <div class="analyst-note">
+            <h3>📊 Analyst Note on Market Valuation</h3>
+            <p>Published market size estimates for the global VLSFO sector vary considerably depending on methodology and scope. Some forecasts cite figures in the range of $40 billion by 2033, while broader assessments that include blended and compliant fuel categories report significantly higher valuations.</p>
+            <p class="note-disclaimer">
+                This variance reflects the fragmented nature of marine fuel reporting and differences in how "VLSFO" is defined across data providers. At <strong>VLSFO.COM</strong>, we monitor multiple data streams and will always attribute figures to their source when specific numbers are referenced.
             </p>
         </div>
 
         <!-- Article 11: Libya Market -->
         <article class="article" id="article-11">
-            <img src="libya-vlsfo.jpg" alt="VLSFO Supply in Libya Sirte Basin Ports" style="width: 100%; border-radius: 10px;">
+            <img src="libya-vlsfo.jpg" alt="VLSFO Supply in Libya Sirte Basin Ports" class="article-img-rounded" loading="lazy">
             <div class="content">
-                <h2>11. Strategic Vision: VLSFO Supply in Libya’s Sirte Basin Ports</h2>
-                <p class="date">April 18, 2026 | Regional Market Development</p>
+                <h2>11. Strategic Vision: VLSFO Supply in Libya's Sirte Basin Ports</h2>
+                <time class="article-date" datetime="2026-04-18">April 18, 2026 | Regional Market Development</time>
                 
-                <p>As Libya aims to restore its position as a Mediterranean energy hub, the provision of <strong>Very Low Sulphur Fuel Oil (VLSFO)</strong> in the <strong>Sirte Basin</strong> ports (including Brega, Ras Lanuf, and Sidra) has become a strategic necessity. With the Mediterranean Sea being a high-traffic zone for international shipping, local availability of IMO 2020 compliant fuel is a game-changer for the Libyan maritime sector.</p>
+                <p>As Libya works to restore its role as a Mediterranean energy hub, the availability of <strong>Very Low Sulphur Fuel Oil (VLSFO)</strong> at <strong>Sirte Basin</strong> ports — including Brega, Ras Lanuf, and Sidra — is increasingly relevant for regional maritime strategy. The Mediterranean remains a high-traffic corridor for international shipping, and local IMO 2020-compliant fuel supply would raise the attractiveness of Libyan ports for global fleet operators.</p>
                 
-                <p><strong>The Logistics of the Sirte Basin</strong><br>
-                The Sirte Basin is the backbone of Libya's oil production. Integrating VLSFO bunkering facilities directly within these export terminals would allow tankers to refuel at the source, reducing operational downtime and increasing the attractiveness of Libyan ports for global fleet operators. This vision requires specialized infrastructure for fuel blending and storage to meet ISO 8217 standards.</p>
+                <h3>The Logistics of the Sirte Basin</h3>
+                <p>The Sirte Basin is the backbone of Libya's oil production. Integrating VLSFO bunkering facilities within these export terminals would allow tankers to refuel at the source, reducing operational downtime. Realising this vision requires specialised infrastructure for fuel blending and storage to meet ISO 8217 standards.</p>
                 
-                <p><strong>Economic Impact and Environmental Leadership</strong><br>
-                By providing VLSFO locally, Libya can capture a significant share of the Mediterranean bunkering market, currently dominated by neighboring hubs. At <strong>VLSFO.COM</strong>, we monitor the infrastructure developments in North Africa, providing data-driven insights for stakeholders looking to invest in the future of Libyan maritime energy. High-quality, low-sulfur fuel is not just a regulatory requirement; it is an economic catalyst for the region’s industrial recovery.</p>
+                <h3>Economic Impact and Environmental Leadership</h3>
+                <p>Local VLSFO supply could allow Libya to capture a share of the Mediterranean bunkering market currently served by neighbouring hubs. VLSFO.GLOBAL monitors infrastructure developments in North Africa, providing data-driven insights for stakeholders evaluating the region's maritime energy potential.</p>
             </div>
         </article>
 
         <!-- Article 12: Panama Market -->
         <article class="article" id="article-12">
-            <img src="panama-vlsfo1.jpg" alt="VLSFO Bunkering at Panama Canal" style="width: 100%; border-radius: 10px;">
+            <img src="panama-vlsfo1.jpg" alt="VLSFO Bunkering at Panama Canal Balboa Cristobal" class="article-img-rounded" loading="lazy">
             <div class="content">
-                <h2>12. Strategic Crossroads: VLSFO Availability in Panama & Balboa</h2>
-                <p class="date">April 19, 2026 | Global Trade Routes</p>
+                <h2>12. Strategic Crossroads: VLSFO Availability in Panama &amp; Balboa</h2>
+                <time class="article-date" datetime="2026-04-19">April 19, 2026 | Global Trade Routes</time>
                 
-                <p>The <strong>Panama Canal</strong> remains one of the most critical chokepoints in global maritime trade. As vessel traffic between the Atlantic and Pacific oceans continues to rise, the demand for <strong>VLSFO (0.50% Sulphur)</strong> at the ports of <strong>Balboa</strong> and <strong>Cristobal</strong> has reached record highs in early 2026.</p>
+                <p>The <strong>Panama Canal</strong> is one of the most critical chokepoints in global maritime trade. As vessel traffic between the Atlantic and Pacific continues to grow, demand for IMO 2020-compliant fuel at the ports of <strong>Balboa</strong> and <strong>Cristobal</strong> has risen accordingly in early 2026.</p>
                 
-                <p><strong>Supply Chain Logistics:</strong><br>
-                Unlike other regional ports, Panama offers a unique dual-coast advantage. Ship operators must strategically plan their refueling stops based on the "Panama Spread"—the price difference between Houston and Panama—to optimize operational costs for transpacific voyages.</p>
+                <h3>Supply Chain Logistics</h3>
+                <p>Panama's dual-coast geography offers ship operators a unique refuelling advantage. Fleet managers typically weigh the price differential between Houston and Panama — often referred to as the "Panama Spread" — to optimise refuelling decisions for transpacific voyages.</p>
                 
-                <p><strong>Sustainability & Compliance:</strong><br>
-                Panama has implemented strict monitoring to ensure all bunkering operations meet the IMO 2020 environmental standards. At <strong>VLSFO.COM</strong>, we track these regulatory shifts to ensure our users have the most accurate data for their logistics planning across the Americas.</p>
+                <h3>Sustainability &amp; Compliance</h3>
+                <p>Panama has implemented strict monitoring to ensure all bunkering operations meet IMO 2020 environmental standards. VLSFO.GLOBAL tracks these regulatory requirements and price movements to support logistics planning across the Americas corridor.</p>
             </div>
         </article>
 
         <!-- Article 13: Gibraltar Market -->
         <article class="article" id="article-13">
-            <img src="vlsfo-2032.jpg" alt="Gibraltar Port VLSFO Bunker Fuel Prices and Logistics" loading="lazy" width="100%" style="border-radius: 10px; margin-bottom: 25px;">
+            <img src="vlsfo-2032.jpg" alt="Gibraltar Port VLSFO Bunker Fuel Prices and Logistics" class="article-img-rounded" loading="lazy">
             <div class="content">
-                <h2>13. Gibraltar Bunker Market: VLSFO Price Trends & Mediterranean Logistics</h2>
-                <p class="date">April 20, 2026 | Regional Logistics</p>
+                <h2>13. Gibraltar Bunker Market: VLSFO Price Trends &amp; Mediterranean Logistics</h2>
+                <time class="article-date" datetime="2026-04-20">April 20, 2026 | Regional Logistics</time>
                 
-                <p>As the primary gateway between the Atlantic Ocean and the Mediterranean Sea, the Port of Gibraltar remains a critical hub for global bunker fuel operations. For shipowners and marine fuel traders, understanding the localized pricing dynamics, regional premiums, and logistical frameworks in Gibraltar is essential for optimizing voyage economics.</p>
+                <p>As the primary gateway between the Atlantic Ocean and the Mediterranean Sea, the Port of Gibraltar remains a critical hub for global bunker fuel operations. For shipowners and marine fuel traders, understanding localised pricing dynamics, regional premiums, and the logistical framework in Gibraltar is essential for optimising voyage economics.</p>
 
-                <h2>VLSFO vs. HSFO: The Scrubber Spread</h2>
-                <p>A key indicator for operators currently calling at Mediterranean ports is the Hi-5 spread (the price difference between Very Low Sulphur Fuel Oil and High Sulphur Fuel Oil). Recent market data indicates that the spread has maintained a resilient range of $100 to $120 per metric ton. This sustained gap continues to validate the return on investment (ROI) for vessels equipped with exhaust gas cleaning systems (scrubbers), making Gibraltar a highly attractive replenishment stop for scrubber-fitted tonnage.</p>
+                <h3>VLSFO vs. HSFO: The Scrubber Spread</h3>
+                <p>A key indicator for Mediterranean operators is the Hi-5 spread — the price differential between VLSFO and High Sulphur Fuel Oil. Recent market data suggests this spread has maintained a resilient range of $100–$120 per metric ton, continuing to support the ROI case for scrubber-fitted vessels calling at Gibraltar.</p>
 
-                <h2>Platts vs. Argus: Navigating Pricing Benchmarks</h2>
-                <p>In the Mediterranean bunker market, pricing visibility relies heavily on major indices. While Platts provides the foundational benchmark for European physical markets, traders increasingly monitor Argus average assessments to capture nuanced regional premiums. Understanding the subtle discrepancies between these two reporting agencies allows buyers to negotiate better terms and anticipate short-term price corrections before lifting fuel in Gibraltar.</p>
+                <h3>Platts vs. Argus: Navigating Pricing Benchmarks</h3>
+                <p>Pricing transparency in the Mediterranean bunker market relies on two primary indices. While Platts provides the foundational European physical market benchmark, traders increasingly monitor Argus average assessments to capture nuanced regional premiums. Understanding the discrepancies between these agencies enables buyers to negotiate more effectively before lifting fuel.</p>
 
-                <h2>Arbitrage Opportunities: Rotterdam to the Mediterranean</h2>
-                <p>The Gibraltar market does not operate in a vacuum; it is deeply intertwined with Northern Europe. A classic trading strategy currently in play is the <strong>Rotterdam-Med Arbitrage</strong>. Traders leverage the price differentials by securing bulk VLSFO cargoes in the ARA (Amsterdam-Rotterdam-Antwerp) region and moving them to the Mediterranean. Tracking these arbitrage windows is crucial for anticipating supply swells and subsequent price dips in the Gibraltar strait.</p>
+                <h3>Arbitrage Opportunities: Rotterdam to the Mediterranean</h3>
+                <p>The Gibraltar market is closely linked to Northern European supply dynamics. The <strong>Rotterdam-Med Arbitrage</strong> — securing bulk VLSFO in the ARA region and moving it to the Mediterranean — is an active strategy when price windows open. Tracking these flows helps anticipate supply swells and subsequent price corrections in the strait.</p>
 
-                <h2>Global Context: Gibraltar vs. Houston Hubs</h2>
-                <p>When planning transatlantic voyages, ship managers often weigh the cost benefits of bunkering in the US Gulf Coast versus the Mediterranean. While <strong>Houston</strong> offers highly competitive ex-pipe VLSFO rates fueled by local refinery outputs, Gibraltar counters with strategic geographical convenience that eliminates deviation time. The price parity between Houston and Gibraltar serves as a macro-economic indicator of global fuel flow, deeply influenced by broader geopolitical shifts and shifting crude oil benchmarks.</p>
+                <h3>Global Context: Gibraltar vs. Houston</h3>
+                <p>When planning transatlantic voyages, ship managers weigh the cost benefits of bunkering in the US Gulf Coast versus the Mediterranean. While Houston offers competitive ex-pipe rates underpinned by local refinery output, Gibraltar provides strategic geographic convenience that eliminates deviation time. Price parity between the two hubs acts as a macro indicator of global fuel flows.</p>
 
-                <p><em>Stay tuned to VLSFO.com for daily marine fuel intelligence, port price indexes, and real-time market analysis covering Houston, Gibraltar, Rotterdam, and Singapore.</em></p>
+                <p><em>Stay tuned to VLSFO.com for daily marine fuel intelligence, port price indices, and real-time market analysis.</em></p>
             </div>
         </article>
 
-        <!-- Article 14: China Ports Market (NEW) -->
+        <!-- Article 14: China Ports Market -->
         <article class="article" id="article-14">
-            <img src="china-vlsfo1.jpg" alt="China VLSFO Bunker Market Shanghai Ningbo Zhoushan" style="width: 100%; border-radius: 10px;">
+            <img src="china-vlsfo1.jpg" alt="China VLSFO Bunker Market Shanghai Ningbo Zhoushan" class="article-img-rounded" loading="lazy">
             <div class="content">
-                <h2>14. China's VLSFO Dominance: Shanghai, Ningbo-Zhoushan & Bonded Bunker Markets</h2>
-                <p class="date">April 20, 2026 | Asia-Pacific Market Intelligence</p>
+                <h2>14. China's VLSFO Landscape: Shanghai, Ningbo-Zhoushan &amp; Bonded Bunker Markets</h2>
+                <time class="article-date" datetime="2026-04-20">April 20, 2026 | Asia-Pacific Market Intelligence</time>
                 
-                <p>As the world's largest trading nation, China's maritime fuel consumption continues to reshape global <strong>VLSFO (Very Low Sulphur Fuel Oil)</strong> benchmarks. The country's major bunkering hubs—<strong>Shanghai, Ningbo-Zhoushan, Qingdao, and Shenzhen</strong>—have witnessed exponential growth in bonded bunker fuel sales, driven by expanding port throughput and strategic government policies supporting low-sulphur fuel adoption.</p>
+                <p>China's maritime fuel consumption continues to reshape global VLSFO benchmarks. The country's major bunkering hubs — <strong>Shanghai, Ningbo-Zhoushan, Qingdao, and Shenzhen</strong> — have seen significant growth in bonded bunker fuel sales, driven by expanding port throughput and government policies supporting low-sulphur fuel adoption.</p>
                 
-                <p><strong>Keywords:</strong> VLSFO China price, Shanghai bonded bunker fuel, Ningbo-Zhoushan VLSFO, China bunker market 2026, Chinese VLSFO suppliers, low sulphur fuel oil China ports, bonded bunker China, VLSFO Zhoushan price, marine fuel China IMO 2020.</p>
+                <h3>Ningbo-Zhoushan: Emerging Global Volume Leader</h3>
+                <p>Ningbo-Zhoushan has solidified its position as the world's busiest port by cargo tonnage and is narrowing the gap with Singapore in bonded bunker volumes. Competitive pricing versus regional hubs and streamlined customs procedures for international vessels transiting the East China Sea have been key drivers of this growth.</p>
                 
-                <p><strong>Ningbo-Zhoushan: The Emerging Global Leader</strong><br>
-                The port of <strong>Ningbo-Zhoushan</strong> has solidified its position as the world's busiest port by cargo tonnage and is rapidly closing the gap with Singapore in bonded bunker sales. In early 2026, VLSFO liftings at Zhoushan averaged over 600,000 metric tons per month, fueled by competitive pricing against regional hubs and streamlined customs procedures for international vessels transiting the East China Sea.</p>
+                <h3>Shanghai's Strategic Advantage</h3>
+                <p>Shanghai functions as the financial and logistical hub of China's bunker market. The Shanghai International Energy Exchange (INE) has introduced VLSFO futures contracts, giving Chinese refiners and international traders new hedging tools. Major state suppliers including Sinopec, PetroChina, and CNOOC have expanded refining capacity to meet the 0.50% sulphur specification.</p>
                 
-                <p><strong>Shanghai's Strategic Advantage</strong><br>
-                <strong>Shanghai</strong> remains the financial and logistical nerve center of China's bunker market. The Shanghai International Energy Exchange (INE) has launched new VLSFO futures contracts, providing unprecedented hedging tools for Chinese refiners and international traders. Local <strong>VLSFO suppliers</strong>, including Sinopec, PetroChina, and CNOOC, have significantly expanded their refining capacity to meet the 0.50% sulphur specification, ensuring stable supply for both domestic and international fleets.</p>
+                <h3>China Bonded Bunker Fuel Policy</h3>
+                <p>China's bonded bunkering framework allows international ships to refuel with tax-exempt fuel in Chinese ports, making the market highly competitive. Recent moves to liberalise the bunker licensing regime have attracted international players and narrowed the price spread between Chinese ports and Singapore — with significant implications for transpacific and Asia-Europe routing decisions.</p>
                 
-                <p><strong>China Bonded Bunker Fuel Policy</strong><br>
-                China's bonded bunker fuel policy allows international ships to refuel with tax-exempt VLSFO while in Chinese ports, making it highly competitive. The government's recent initiatives to further liberalize the bunker licensing regime have attracted major global players, intensifying competition and narrowing the <strong>VLSFO China price</strong> spread versus Singapore. This has profound implications for transpacific and Asia-Europe shipping routes, as vessels now have more cost-effective refueling options along the Chinese coastline.</p>
-                
-                <p><strong>Market Outlook 2026-2027</strong><br>
-                Looking ahead, China's VLSFO demand is projected to grow by 6-8% annually, underpinned by fleet expansion and stricter environmental enforcement. The expansion of bonded bunkering zones in Hainan Free Trade Port and the Greater Bay Area will further decentralize supply, reducing regional price disparities. At <strong>VLSFO.COM</strong>, we provide granular, real-time data on Chinese port premiums, helping charterers and owners optimize their bunker procurement strategies in this dynamic market.</p>
+                <h3>Market Outlook 2026–2027</h3>
+                <p>Demand growth in China is expected to continue, supported by fleet expansion and tighter domestic environmental enforcement. Expansion of bonded bunkering zones in the Hainan Free Trade Port and Greater Bay Area will further decentralise supply and reduce regional price disparities. VLSFO.GLOBAL provides granular data on Chinese port premiums to support procurement optimisation in this evolving market.</p>
             </div>
         </article>
-<div style="text-align: center; margin: 40px auto; padding: 25px; background-color: #ffffff; border-radius: 15px; border: 1px solid #eee; box-shadow: 0 5px 15px rgba(0,0,0,0.05); max-width: 600px;">
-    
-    <img src="vlsfo-90day.jpg" alt="vlsfo-90day" style="width: 100%; height: auto; border-radius: 10px; margin-bottom: 20px;">
-    
-    <p style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color: #444; margin-bottom: 20px; font-size: 16px; line-height: 1.5; font-weight: 500;">
-        From zero capital and no coding experience to a global platform. Discover the grit behind the 90-day challenge.
-    </p>
 
-    <a href="story.html" style="display: inline-block; padding: 15px 35px; background-color: #cc0000; color: #ffffff; text-decoration: none; border-radius: 50px; font-family: 'Segoe UI', sans-serif; font-weight: bold; font-size: 18px; box-shadow: 0 4px 12px rgba(204, 0, 0, 0.25); transition: 0.3s;">
-        The 90-Day Challenge Story
-    </a>
-</div>
+        <!-- Story Box -->
+        <div class="story-box">
+            <img src="vlsfo-90day.jpg" alt="90-day challenge VLSFO platform story">
+            <p>From zero capital and no coding experience to a global platform. Discover the grit behind the 90-day challenge.</p>
+            <a href="story.html" class="story-btn">The 90-Day Challenge Story</a>
+        </div>
 
         <!-- Live Market Terminal Link -->
-        <div style="text-align: center; margin: 35px 0; padding: 25px; border-radius: 15px; background: #f0f7ff; border: 1px solid #d0e3ff;">
-            <h3 style="color: #003366; font-family: sans-serif; font-size: 1.1em; margin-bottom: 15px;">🌐 Live Market Terminal</h3>
-            <p style="color: #444; font-size: 0.9em; margin-bottom: 20px;">View real-time VLSFO prices, 24h charts, and global port analytics.</p>
-            
-            <a href="https://vlsfo.xyz" style="display: inline-block; padding: 15px 40px; background: #003366; color: #ffffff; text-decoration: none; font-weight: bold; font-size: 1.1em; border-radius: 8px; box-shadow: 0 5px 15px rgba(0,51,102,0.2);">
-                Open VLSFO.XYZ Dashboard
-            </a>
+        <div class="terminal-box">
+            <h3>🌐 Live Market Terminal</h3>
+            <p>View real-time VLSFO prices, 24h charts, and global port analytics.</p>
+            <a href="https://vlsfo.xyz" class="terminal-btn">Open VLSFO.XYZ Dashboard</a>
         </div>
 
         <p style="text-align: center; margin-top: 30px;">
@@ -507,27 +805,30 @@
         <!-- CTA Box -->
         <div class="cta-box">
             <h2>VLSFO Market Intelligence Platform</h2>
-            <p>Get daily VLSFO price alerts for Singapore, Rotterdam and Fujairah.</p>
-            <a href="https://wa.me/218918883918" class="wa-link" target="_blank" rel="noopener">Contact via WhatsApp</a>
+            <p>Get daily price alerts for Singapore, Rotterdam and Fujairah.</p>
+            <a href="https://wa.me/218918883918" class="wa-link" target="_blank" rel="noopener noreferrer">Contact via WhatsApp</a>
         </div>
 
-        <p style="text-align:center; margin-top:10px; font-size:1.1rem;">
-            <a href="/blockchain-settlement.html" style="color:#0052ff; font-weight:600;">New: How Blockchain Cuts VLSFO Payment Costs by $20k+ →</a>
+        <p class="promo-links" style="margin-top: 10px;">
+            <a href="/blockchain-settlement.html">New: How Blockchain Cuts VLSFO Payment Costs by $20k+ →</a>
         </p>
-        <p style="text-align:center; margin:10px 0; font-size:1.1rem;">
-            <a href="/trust-engineering.html" style="color:#0052ff; font-weight:600; text-decoration:none;">Part 2: Trust Engineering - Replacing Bank LCs with On-Chain Reputation →</a>
+        <p class="promo-links" style="margin: 10px 0;">
+            <a href="/trust-engineering.html">Part 2: Trust Engineering - Replacing Bank LCs with On-Chain Reputation →</a>
         </p>
     </div>
-<div style="text-align: center; margin-bottom: 40px;">
-    <a href="prices.html" style="display: inline-block; padding: 14px 30px; background-color: #003366; color: white; text-decoration: none; border-radius: 8px; font-weight: bold; font-family: sans-serif;">
-        Check VLSFO & MGO Prices
-    </a>
-</div>
+
+    <div class="prices-btn-wrapper">
+        <a href="prices.html" class="prices-btn">Check VLSFO &amp; MGO Prices</a>
+    </div>
 
     <footer>
-        <a href="/about.html" style="color:#64748b; text-decoration:none;">About</a> | 
-        <a href="mailto:contact@vlsfo.com" style="color:#64748b; text-decoration:none;">Contact</a> | 
+        <address style="font-style: normal; display: inline;">
+            <a href="mailto:contact@vlsfo.com">contact@vlsfo.com</a>
+        </address>
+         | 
+        <a href="/about.html">About</a> | 
         VLSFO.GLOBAL © 2026 | VLSFO Price, News and IMO 2020 Data. All rights reserved.
     </footer>
+
 </body>
 </html>
