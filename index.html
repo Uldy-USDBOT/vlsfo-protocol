@@ -9,7 +9,8 @@
     <meta name="author" content="VLSFO.GLOBAL">
     <link rel="canonical" href="https://vlsfo.com/" />
     <meta name="robots" content="index, follow, max-image-preview:large">
-    <meta property="article:modified_time" content="2026-04-20T18:42:00+02:00" />
+    <!-- تم تصحيح الخاصية إلى og:updated_time لتناسب نوع الصفحة website -->
+    <meta property="og:updated_time" content="2026-04-20T18:42:00+02:00" />
     
     <meta property="og:title" content="VLSFO Price Today - Live Bunker Fuel Rates" />
     <meta property="og:description" content="Daily VLSFO Very Low Sulphur Fuel Oil prices and IMO 2020 market analysis." />
@@ -55,6 +56,7 @@
     <link rel="icon" type="image/png" href="favicon.png">
     
     <style>
+        /* ===== المتغيرات الأساسية ===== */
         :root {
             --bg-primary: #ffffff;
             --bg-secondary: #fcfcfc;
@@ -66,6 +68,7 @@
             --font-main: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
         }
         
+        /* ===== إعادة الضبط ===== */
         * {
             box-sizing: border-box;
             margin: 0;
@@ -80,7 +83,7 @@
             -webkit-font-smoothing: antialiased;
         }
         
-        /* ── Header ── */
+        /* ===== الهيدر ===== */
         header {
             padding: 15px 6%;
             display: flex;
@@ -126,7 +129,7 @@
             text-decoration: underline;
         }
         
-        /* ── Hero ── */
+        /* ===== القسم الرئيسي Hero ===== */
         .hero {
             padding: 80px 8% 60px;
             text-align: center;
@@ -176,14 +179,14 @@
             margin-top: 10px;
         }
         
-        /* ── Container ── */
+        /* ===== الحاوية العامة ===== */
         .container {
             max-width: 1000px;
             margin: 0 auto;
             padding: 60px 25px;
         }
         
-        /* ── Articles ── */
+        /* ===== المقالات ===== */
         .article {
             margin-bottom: 60px;
             padding-bottom: 40px;
@@ -238,7 +241,9 @@
             color: #000;
         }
 
+        /* تمت إضافة display: block حتى تظهر الهوامش السفلية بشكل صحيح */
         .article-date {
+            display: block;
             font-size: 0.9rem;
             color: var(--text-muted);
             margin-bottom: 15px;
@@ -252,7 +257,7 @@
             text-align: center;
         }
 
-        /* ── Info Box ── */
+        /* ===== صندوق المعلومات ===== */
         .info-box {
             margin-top: 20px;
             padding: 25px;
@@ -310,7 +315,7 @@
             font-weight: bold;
         }
 
-        /* ── CTA Box ── */
+        /* ===== صندوق الدعوة للإجراء CTA ===== */
         .cta-box {
             text-align: center;
             padding: 60px 30px;
@@ -337,7 +342,7 @@
             display: inline-block;
         }
 
-        /* ── Analyst Note ── */
+        /* ===== ملاحظة المحلل ===== */
         .analyst-note {
             margin: 25px 0;
             padding: 25px;
@@ -371,7 +376,7 @@
             margin-bottom: 0;
         }
 
-        /* ── Story Box ── */
+        /* ===== صندوق القصة ===== */
         .story-box {
             text-align: center;
             margin: 40px auto;
@@ -417,7 +422,7 @@
             opacity: 0.9;
         }
 
-        /* ── Terminal Box ── */
+        /* ===== صندوق المنصة الحية ===== */
         .terminal-box {
             text-align: center;
             margin: 35px 0;
@@ -457,7 +462,7 @@
             opacity: 0.9;
         }
 
-        /* ── Promo Links ── */
+        /* ===== روابط ترويجية ===== */
         .promo-links {
             text-align: center;
             margin-top: 10px;
@@ -474,7 +479,7 @@
             text-decoration: underline;
         }
 
-        /* ── Prices Button ── */
+        /* ===== زر الأسعار ===== */
         .prices-btn-wrapper {
             text-align: center;
             margin-bottom: 40px;
@@ -496,13 +501,13 @@
             opacity: 0.9;
         }
 
-        /* ── Article image wrapper ── */
+        /* ===== غلاف صور المقالات ===== */
         .article-image-wrapper {
             text-align: center;
             margin: 20px 0;
         }
 
-        /* ── Footer ── */
+        /* ===== الفوتر ===== */
         footer {
             text-align: center;
             padding: 40px 20px;
@@ -521,7 +526,7 @@
             text-decoration: underline;
         }
         
-        /* ── Responsive ── */
+        /* ===== تجاوب الشاشات ===== */
         @media (max-width: 768px) {
             .hero h1 {
                 font-size: 2.1rem;
