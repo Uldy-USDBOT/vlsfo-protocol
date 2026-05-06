@@ -1,0 +1,11 @@
+User-agent: *
+Allow: /
+
+# منع الفهرسة للمجلدات الحساسة إن وجدت
+Disallow: /admin/
+Disallow: /private/
+Disallow: /cgi-bin/
+Disallow: /tmp/
+
+# رابط خريطة الموقع
+Sitemap: https://vlsfo.com/sitemap.xml
