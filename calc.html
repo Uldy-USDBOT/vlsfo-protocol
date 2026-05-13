@@ -3,249 +3,154 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VLSFO Fuel Calculator & Technical Specs - VLSFO.COM</title>
-    <style> <meta name="google-adsense-account" content="ca-pub-1927467541081068">
+    <title>VLSFO Fuel Calculator & ISO 8217 Specs | VLSFO.COM</title>
+    <meta name="description" content="Professional VLSFO calculator for maritime fuel consumption, cost estimation, and technical ISO 8217:2017 specifications.">
+    <link rel="canonical" href="https://vlsfo.com/calc.html">
+    <meta name="google-adsense-account" content="ca-pub-1927467541081068">
+    
+    <!-- SoftwareApplication Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "VLSFO Fuel Calculator",
+      "operatingSystem": "All",
+      "applicationCategory": "BusinessApplication",
+      "url": "https://vlsfo.com/calc.html",
+      "description": "Calculates daily maritime fuel costs and potential efficiency savings for VLSFO fuel."
+    }
+    </script>
+    
+    <style>
         :root { 
-            --primary-blue: #1a2a6c; 
-            --accent-gold: #d4af37; 
-            --bg-gray: #f4f7f6; 
-            --text-dark: #333;
+            --primary-blue: #1e40af; 
+            --dark-slate: #1e293b;
+            --accent-gold: #fbbf24; /* الذهب المتوافق مع تصميم DOMINZ MARKT */
+            --bg-gray: #f8fafc; 
         }
         
-        body { 
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
-            background-color: var(--bg-gray); 
-            margin: 0; 
-            padding: 40px 20px; 
-            display: flex; 
-            flex-direction: column;
-            align-items: center; 
-            min-height: 100vh; 
-        }
-
-        .calc-container { 
-            background: white; 
-            padding: 40px; 
-            border-radius: 20px; 
-            box-shadow: 0 15px 35px rgba(0,0,0,0.1); 
-            max-width: 650px; 
-            width: 100%; 
-        }
-
-        h2 { color: var(--primary-blue); text-align: center; margin-bottom: 10px; }
-        .subtitle { text-align: center; color: #666; font-size: 0.9rem; margin-bottom: 30px; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: var(--bg-gray); margin: 0; color: #334155; }
         
-        /* Calculator Styles */
+        header { background: var(--dark-slate); color: white; padding: 1rem 0; text-align: center; border-bottom: 3px solid var(--accent-gold); }
+        nav { padding: 10px; background: #0f172a; text-align: center; }
+        nav a { color: #cbd5e1; text-decoration: none; margin: 0 15px; font-weight: 500; font-size: 0.9rem; }
+        nav a:hover { color: var(--accent-gold); }
+
+        .container { max-width: 800px; margin: 40px auto; padding: 0 20px; }
+        .calc-card { background: white; padding: 40px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+
+        h1, h2 { color: var(--primary-blue); text-align: center; }
+        
         .input-group { margin-bottom: 20px; }
-        label { display: block; margin-bottom: 8px; font-weight: 600; color: #333; }
+        label { display: block; margin-bottom: 8px; font-weight: 600; color: var(--dark-slate); }
         input { 
-            width: 100%; 
-            padding: 12px; 
-            border: 2px solid #eee; 
-            border-radius: 10px; 
-            box-sizing: border-box; 
-            font-size: 1rem; 
-            transition: border-color 0.3s; 
+            width: 100%; padding: 12px; border: 2px solid #e2e8f0; border-radius: 8px; box-sizing: border-box; 
+            font-size: 1rem; transition: 0.3s; 
         }
         input:focus { border-color: var(--accent-gold); outline: none; }
         
         button { 
-            width: 100%; 
-            padding: 15px; 
-            background: var(--primary-blue); 
-            color: white; 
-            border: none; 
-            border-radius: 10px; 
-            font-size: 1.1rem; 
-            font-weight: bold; 
-            cursor: pointer; 
-            transition: transform 0.2s, background 0.3s; 
+            width: 100%; padding: 15px; background: var(--dark-slate); color: var(--accent-gold); 
+            border: none; border-radius: 8px; font-size: 1.1rem; font-weight: bold; cursor: pointer; 
+            transition: 0.3s; border: 1px solid var(--accent-gold);
         }
-        button:hover { background: #121d4d; transform: translateY(-2px); }
+        button:hover { background: #0f172a; transform: translateY(-2px); }
 
         #result { 
-            margin-top: 25px; 
-            padding: 20px; 
-            border: 2px dashed var(--accent-gold); 
-            border-radius: 12px; 
-            display: none; 
-            background: #fffdf5; 
-            animation: fadeIn 0.5s; 
+            margin-top: 25px; padding: 20px; border: 2px dashed var(--accent-gold); border-radius: 8px; 
+            display: none; background: #fffbeb; animation: fadeIn 0.5s; 
         }
-        .cost-val { color: #27ae60; font-size: 1.5rem; display: block; margin: 10px 0; }
+        .cost-val { color: #16a34a; font-size: 1.8rem; font-weight: bold; display: block; margin: 10px 0; }
         
-        .smart-tip { 
-            margin-top: 15px; 
-            padding: 12px; 
-            background: #fff; 
-            border-left: 4px solid var(--accent-gold); 
-            font-size: 0.9rem; 
-            color: #444; 
-            line-height: 1.5; 
-        }
+        .specs-section { margin-top: 40px; border-top: 1px solid #e2e8f0; padding-top: 30px; }
+        table { width: 100%; border-collapse: collapse; margin-top: 15px; font-size: 0.9rem; }
+        th { background: var(--dark-slate); color: white; padding: 12px; text-align: left; }
+        td { padding: 10px 12px; border-bottom: 1px solid #e2e8f0; }
+        .highlight-val { color: #b45309; font-weight: bold; }
 
-        /* Technical Table Styles */
-        .specs-section {
-            margin-top: 40px;
-            padding-top: 30px;
-            border-top: 1px solid #eee;
-        }
-        .specs-section h3 {
-            color: var(--primary-blue);
-            font-size: 1.2rem;
-            margin-bottom: 15px;
-            text-align: center;
-        }
-        .table-wrapper { overflow-x: auto; }
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            font-size: 0.9rem;
-            text-align: left;
-        }
-        th {
-            background-color: var(--primary-blue);
-            color: white;
-            padding: 12px;
-        }
-        td {
-            padding: 10px 12px;
-            border-bottom: 1px solid #eee;
-        }
-        tr:nth-child(even) { background-color: #fcfcfc; }
-        .highlight-val { color: var(--accent-gold); font-weight: bold; }
-
-        /* Disclaimer Style */
-        .disclaimer-box {
-            margin-top: 20px;
-            background-color: #fff9e6;
-            border-left: 4px solid var(--accent-gold);
-            padding: 15px;
-            font-size: 0.8rem;
-            color: #5d4037;
-            line-height: 1.4;
-        }
-
-        .back-link { 
-            display: block; 
-            text-align: center; 
-            margin-top: 30px; 
-            color: var(--primary-blue); 
-            text-decoration: none; 
-            font-size: 0.9rem; 
-            font-weight: 600;
-        }
-        .back-link:hover { text-decoration: underline; }
-
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        footer { background: var(--dark-slate); color: #94a3b8; text-align: center; padding: 2rem 0; margin-top: 60px; font-size: 0.8rem; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; } }
     </style>
 </head>
 <body>
 
-<div class="calc-container">
-    <h2>🚢 VLSFO Calculator</h2>
-    <p class="subtitle">Operational Cost & Efficiency Estimator</p>
+    <header>
+        <div class="logo" style="font-weight: bold; font-size: 1.5rem; letter-spacing: 1px;">VLSFO.COM</div>
+    </header>
 
-    <div class="input-group">
-        <label>Daily Consumption (MT/Day)</label>
-        <input type="number" id="consumption" placeholder="e.g. 25" step="0.1">
-    </div>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="prices.html">Live Prices</a>
+        <a href="مقالات/article-15.html">Market Insights</a>
+    </nav>
 
-    <div class="input-group">
-        <label>VLSFO Price (USD/MT)</label>
-        <input type="number" id="price" placeholder="e.g. 640">
-    </div>
+    <div class="container">
+        <div class="calc-card">
+            <h1>🚢 VLSFO Efficiency Calculator</h1>
+            <p style="text-align: center; color: #64748b; margin-bottom: 30px;">Estimate Daily Operational Costs & Potential Savings</p>
 
-    <button onclick="calculate()">Calculate Daily Metrics</button>
+            <div class="input-group">
+                <label>Daily Consumption (Metric Tons/Day)</label>
+                <input type="number" id="consumption" placeholder="e.g. 25" step="0.1">
+            </div>
 
-    <div id="result">
-        <span style="font-weight: bold; color: #555;">Estimated Daily Fuel Cost:</span>
-        <span class="cost-val" id="total-cost">$0</span>
-        
-        <div class="smart-tip">
-            <strong>💡 Efficiency Insight:</strong><br>
-            Using <strong>iTAC Nanofilm</strong> coatings on cylinder liners can reduce this consumption by ~5%, potentially saving you <span id="savings" style="color: #27ae60; font-weight: bold;">$0</span> daily. 
-            <br><a href="index.html" style="color: var(--accent-gold); font-weight: bold; text-decoration: none;">View Technical Report →</a>
+            <div class="input-group">
+                <label>Current VLSFO Price (USD/MT)</label>
+                <input type="number" id="price" placeholder="e.g. 640">
+            </div>
+
+            <button onclick="calculate()">Calculate Daily Metrics</button>
+
+            <div id="result">
+                <span style="font-weight: bold; color: var(--dark-slate);">Estimated Daily Fuel Cost:</span>
+                <span class="cost-val" id="total-cost">$0</span>
+                
+                <div style="font-size: 0.9rem; color: #444; border-left: 4px solid var(--accent-gold); padding-left: 10px;">
+                    <strong>💡 Efficiency Insight:</strong><br>
+                    Potential 5% daily savings with advanced engine coatings: <span id="savings" style="color: #16a34a; font-weight: bold;">$0</span>.
+                </div>
+            </div>
+
+            <div class="specs-section">
+                <h2>ISO 8217:2017 Standards</h2>
+                <div style="overflow-x: auto;">
+                    <table>
+                        <thead>
+                            <tr><th>Characteristic</th><th>Unit</th><th>Limit</th><th>Value</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>Sulphur Content</td><td>% (m/m)</td><td>Max</td><td class="highlight-val">0.50</td></tr>
+                            <tr><td>Density @ 15°C</td><td>kg/m³</td><td>Max</td><td>991.0</td></tr>
+                            <tr><td>Flash Point</td><td>°C</td><td>Min</td><td>60.0</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 30px;">
+                <img src="vlsfo-hub.jpg" alt="VLSFO Technical Standards Guide" style="width: 100%; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
+            </div>
         </div>
     </div>
 
-    <div class="specs-section">
-        <h3>VLSFO Standard Specs (ISO 8217:2017)</h3>
-        <div class="table-wrapper">
-            <table>
-                <thead>
-                    <tr>
-                        <th>Characteristic</th>
-                        <th>Unit</th>
-                        <th>Limit</th>
-                        <th>Value</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Sulphur Content</td>
-                        <td>% (m/m)</td>
-                        <td>Max</td>
-                        <td class="highlight-val">0.50</td>
-                    </tr>
-                    <tr>
-                        <td>Density @ 15°C</td>
-                        <td>kg/m³</td>
-                        <td>Max</td>
-                        <td>991.0</td>
-                    </tr>
-                    <tr>
-                        <td>Viscosity @ 50°C</td>
-                        <td>mm²/s</td>
-                        <td>Max</td>
-                        <td>80 - 180</td>
-                    </tr>
-                    <tr>
-                        <td>Flash Point</td>
-                        <td>°C</td>
-                        <td>Min</td>
-                        <td>60.0</td>
-                    </tr>
-                    <tr>
-                        <td>Pour Point</td>
-                        <td>°C</td>
-                        <td>Max</td>
-                        <td>30</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+    <footer>
+        <p>&copy; 2026 VLSFO.COM | Independent Maritime Intelligence Protocol</p>
+    </footer>
 
-        <div class="disclaimer-box">
-            <strong>Disclaimer:</strong> This table is for reference only based on international standards. Actual fuel properties vary. Always refer to your <strong>Bunker Delivery Note (BDN)</strong> for precise batch specifications.
-        </div>
-    </div>
-<div style="text-align: center; margin: 30px 0; padding: 0 10px;">
-    <img src="vlsfo-hub.jpg" alt="VLSFO Technical Guide" style="max-width: 100%; height: auto; border-radius: 12px; box-shadow: 0 10px 25px rgba(0,0,0,0.2);">
-</div>
-
-    <a href="index.html" class="back-link">← Return to VLSFO.COM Terminal</a>
-</div>
-
-<script>
-    function calculate() {
-        const cons = document.getElementById('consumption').value;
-        const prc = document.getElementById('price').value;
-        const resDiv = document.getElementById('result');
-
-        if (cons > 0 && prc > 0) {
-            const dailyCost = cons * prc;
-            const savings = dailyCost * 0.05;
-
-            document.getElementById('total-cost').innerText = '$' + dailyCost.toLocaleString(undefined, {minimumFractionDigits: 2});
-            document.getElementById('savings').innerText = '$' + savings.toLocaleString(undefined, {minimumFractionDigits: 2});
-            
-            resDiv.style.display = 'block';
-        } else {
-            alert("Please enter valid consumption and price values.");
+    <script>
+        function calculate() {
+            const cons = document.getElementById('consumption').value;
+            const prc = document.getElementById('price').value;
+            if (cons > 0 && prc > 0) {
+                const cost = cons * prc;
+                document.getElementById('total-cost').innerText = '$' + cost.toLocaleString();
+                document.getElementById('savings').innerText = '$' + (cost * 0.05).toLocaleString();
+                document.getElementById('result').style.display = 'block';
+            } else {
+                alert("Please enter valid positive numbers.");
+            }
         }
-    }
-</script>
-
+    </script>
 </body>
 </html>
