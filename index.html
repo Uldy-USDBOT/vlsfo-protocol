@@ -84,7 +84,7 @@
         
         /* ===== الهيدر ===== */
         header {
-            padding: 15px 6%;
+            padding: 12px 5%;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -94,6 +94,7 @@
             background: rgba(255, 255, 255, 0.98);
             backdrop-filter: blur(5px);
             z-index: 1000;
+            flex-wrap: wrap;
         }
         
         .logo {
@@ -102,6 +103,7 @@
             color: #000;
             font-size: 1.2rem;
             letter-spacing: -0.5px;
+            white-space: nowrap;
         }
         
         .logo span {
@@ -111,23 +113,46 @@
         nav {
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 6px;
+            flex-wrap: wrap;
         }
 
         .nav-btn {
             background: none;
             color: var(--accent-color);
-            border: none;
-            padding: 3px 6px;
+            border: 1px solid transparent;
+            padding: 5px 10px;
             text-decoration: none;
-            font-weight: 400;
-            font-size: 0.75rem;
+            font-weight: 500;
+            font-size: 0.8rem;
+            border-radius: 4px;
+            transition: background 0.2s, border-color 0.2s;
+            white-space: nowrap;
         }
         
         .nav-btn:hover {
-            text-decoration: underline;
+            background: #f0f4ff;
+            border-color: #c0d0f0;
+            text-decoration: none;
         }
-        
+
+        /* للشاشات الصغيرة جداً، نجعل الأزرار تحت بعض */
+        @media (max-width: 500px) {
+            header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 8px;
+            }
+            nav {
+                width: 100%;
+                justify-content: flex-start;
+            }
+            .nav-btn {
+                font-size: 0.75rem;
+                padding: 4px 8px;
+            }
+        }
+
         /* ===== القسم الرئيسي Hero ===== */
         .hero {
             padding: 80px 8% 60px;
@@ -607,7 +632,9 @@
     <header>
         <a href="/" class="logo">VLSFO<span>.GLOBAL</span></a>
         <nav>
-            <a href="https://vlsfo.xyz" class="nav-btn" target="_blank" rel="noopener noreferrer">Platform →</a>        
+            <a href="https://vlsfo-bunker-brokerage-823962048382.europe-west2.run.app" class="nav-btn" target="_blank" rel="noopener noreferrer">Brokerage</a>
+            <a href="calc.html" class="nav-btn">Calculator</a>
+            <a href="https://vlsfo.xyz" class="nav-btn" target="_blank" rel="noopener noreferrer">Live Prices</a>
         </nav>
     </header>
 
