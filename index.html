@@ -531,10 +531,10 @@
             }
         }
 
-        /* ===== زر منصة الوساطة البارز (أزرق كبير) ===== */
+        /* ===== زر منصة الوساطة البارز (أزرق كبير) - تم تصغيره قليلاً للجوال ===== */
         .brokerage-cta-box {
             text-align: center;
-            padding: 55px 30px;
+            padding: 40px 20px; /* تقليل padding من 55px 30px */
             background: linear-gradient(135deg, #003d80, #0059b3);
             color: #ffffff;
             border-radius: 18px;
@@ -543,32 +543,32 @@
         }
 
         .brokerage-cta-box h2 {
-            font-size: 2.2rem;
-            margin-bottom: 15px;
+            font-size: 1.8rem;  /* تصغير العنوان */
+            margin-bottom: 12px;
             color: #ffffff;
             font-weight: 800;
             letter-spacing: -0.5px;
         }
 
         .brokerage-cta-box p {
-            font-size: 1.15rem;
+            font-size: 1rem;   /* تصغير النص */
             color: #e0eaff;
-            margin-bottom: 30px;
-            max-width: 600px;
+            margin-bottom: 25px;
+            max-width: 550px;
             margin-left: auto;
             margin-right: auto;
-            line-height: 1.6;
+            line-height: 1.5;
         }
 
         .brokerage-cta-btn {
             display: inline-block;
             background: #ffffff;
             color: #003366;
-            padding: 18px 50px;
+            padding: 15px 40px;  /* تصغير الزر */
             border-radius: 50px;
             text-decoration: none;
             font-weight: 800;
-            font-size: 1.3rem;
+            font-size: 1.15rem;  /* تصغير الخط */
             box-shadow: 0 10px 25px rgba(0,0,0,0.2);
             transition: all 0.3s ease;
             border: 3px solid #ffffff;
@@ -582,9 +582,23 @@
         }
 
         .brokerage-cta-sub {
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             color: #b3d4ff;
-            margin-top: 15px;
+            margin-top: 12px;
+        }
+
+        /* تحسينات إضافية للشاشات الصغيرة جداً */
+        @media (max-width: 480px) {
+            .brokerage-cta-box {
+                padding: 30px 15px;
+            }
+            .brokerage-cta-box h2 {
+                font-size: 1.6rem;
+            }
+            .brokerage-cta-btn {
+                padding: 14px 30px;
+                font-size: 1rem;
+            }
         }
     </style>
 </head>
@@ -669,14 +683,14 @@
             </div>
         </article>
 
-        <!-- ===== زر منصة الوساطة البارز (أزرق كبير) ===== -->
+        <!-- ===== زر منصة الوساطة بالإنجليزية مع تصغير الحجم ===== -->
         <div class="brokerage-cta-box">
-            <h2>⚓ منصة الوساطة لوقود السفن منخفض الكبريت</h2>
-            <p>لوحة وساطة احترافية لتداول وقود السفن VLSFO منخفض الكبريت. تواصل مباشرة مع الوسطاء واحصل على أفضل الأسعار والتسليم الفوري.</p>
+            <h2>⚓ VLSFO Bunker Brokerage Platform</h2>
+            <p>Professional brokerage desk for trading Very Low Sulphur Fuel Oil. Connect directly with brokers and secure the best prices with prompt delivery.</p>
             <a href="https://vlsfo-bunker-brokerage-823962048382.europe-west2.run.app" class="brokerage-cta-btn" target="_blank" rel="noopener noreferrer">
-                🚢 دخول منصة الوساطة
+                🚢 Access Brokerage Desk
             </a>
-            <p class="brokerage-cta-sub">VLSFO Bunker Brokerage Platform — أسعار تنافسية وتنفيذ فوري</p>
+            <p class="brokerage-cta-sub">Competitive rates & instant execution</p>
         </div>
 
         <!-- Live Market Terminal Link -->
