@@ -338,31 +338,116 @@
             font-weight: bold;
         }
 
-        /* ===== صندوق الدعوة للإجراء CTA ===== */
-        .cta-box {
+        /* ===== صندوق بطاقة التواصل ===== */
+        .contact-card {
             text-align: center;
-            padding: 60px 30px;
-            background: #003366;
-            color: #ffffff;
+            padding: 50px 30px;
+            background: #ffffff;
+            color: var(--text-dark);
             border-radius: 16px;
             margin: 60px 0;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 10px 30px rgba(0,51,102,0.08);
         }
-        
-        .cta-box h2 {
-            font-size: 2.2rem;
-            margin-bottom: 15px;
+
+        .contact-card h2 {
+            font-size: 2rem;
+            margin-bottom: 12px;
+            color: #003366;
+        }
+
+        .contact-card > p {
+            color: var(--text-muted);
+            max-width: 550px;
+            margin: 0 auto 30px;
+            font-size: 1.05rem;
+        }
+
+        .contact-form {
+            max-width: 500px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+            text-align: left;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 14px 16px;
+            border: 1px solid #dcdcdc;
+            border-radius: 8px;
+            font-family: var(--font-main);
+            font-size: 1rem;
+            color: var(--text-dark);
+            background: var(--bg-secondary);
+            transition: border-color 0.2s, box-shadow 0.2s;
+        }
+
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            outline: none;
+            border-color: #003366;
+            box-shadow: 0 0 0 3px rgba(0,51,102,0.1);
+            background: #ffffff;
+        }
+
+        .contact-form textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .contact-submit-btn {
+            display: inline-block;
+            background: #003366;
             color: #ffffff;
-        }
-        
-        .wa-link {
-            background: #25d366;
-            color: white;
-            padding: 16px 40px;
+            border: none;
+            padding: 16px 30px;
             border-radius: 50px;
             text-decoration: none;
-            font-weight: 800;
-            font-size: 1.1rem;
-            display: inline-block;
+            font-weight: 700;
+            font-size: 1.05rem;
+            cursor: pointer;
+            box-shadow: 0 8px 20px rgba(0,51,102,0.25);
+            transition: transform 0.2s ease, opacity 0.2s ease;
+            font-family: var(--font-main);
+        }
+
+        .contact-submit-btn:hover {
+            transform: scale(1.02);
+            opacity: 0.95;
+        }
+
+        .contact-submit-btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .contact-form-status {
+            font-size: 0.95rem;
+            margin-top: 4px;
+            min-height: 20px;
+        }
+
+        .contact-form-status.success {
+            color: var(--success-color);
+            font-weight: 600;
+        }
+
+        .contact-form-status.error {
+            color: #c0392b;
+            font-weight: 600;
+        }
+
+        @media (max-width: 480px) {
+            .contact-card {
+                padding: 35px 18px;
+            }
+            .contact-card h2 {
+                font-size: 1.6rem;
+            }
         }
 
         /* ===== ملاحظة المحلل ===== */
@@ -732,13 +817,21 @@
             <a href="brokerage.html" style="color: #003366; font-weight: bold; text-decoration: underline;">Global Brokerage Desk</a>
         </p>
 
-        <!-- CTA Box -->
-        <div class="cta-box">
-            <h2>VLSFO Platform for Sale</h2>
-            <p>Premium bunker fuel platform available for immediate acquisition.</p>
-            <a href="https://wa.me/218918883918" class="wa-link" target="_blank" rel="noopener noreferrer">Contact via WhatsApp</a>
+        <!-- Contact Card (replaces the WhatsApp CTA box) -->
+        <div class="contact-card" id="contact">
+            <h2>Get in Touch</h2>
+            <p>Have a question about VLSFO pricing, brokerage, or the platform? Send us a message and we'll get back to you directly.</p>
+
+            <form class="contact-form" id="contactForm" action="https://formspree.io/f/xgogwngv" method="POST">
+                <input type="text" name="name" placeholder="Your Name" required>
+                <input type="email" name="email" placeholder="Your Email" required>
+                <textarea name="message" placeholder="Your Message" required></textarea>
+                <input type="hidden" name="_subject" value="New Contact Form Submission - VLSFO.GLOBAL">
+                <button type="submit" class="contact-submit-btn" id="contactSubmitBtn">Send Message</button>
+                <p class="contact-form-status" id="contactFormStatus"></p>
+            </form>
         </div>
-        
+
         <style>
             .calc-blue-btn {
                 display: inline-block;
@@ -785,6 +878,46 @@
         <a href="/about.html">About</a> | 
         VLSFO.GLOBAL © 2026 | VLSFO Price, News and IMO 2020 Data. All rights reserved.
     </footer>
+
+    <script>
+        // إرسال فورم التواصل عبر Formspree بدون إعادة تحميل الصفحة
+        const contactForm = document.getElementById('contactForm');
+        const contactSubmitBtn = document.getElementById('contactSubmitBtn');
+        const contactFormStatus = document.getElementById('contactFormStatus');
+
+        if (contactForm) {
+            contactForm.addEventListener('submit', async function (e) {
+                e.preventDefault();
+                contactSubmitBtn.disabled = true;
+                contactSubmitBtn.textContent = 'Sending...';
+                contactFormStatus.textContent = '';
+                contactFormStatus.className = 'contact-form-status';
+
+                try {
+                    const response = await fetch(contactForm.action, {
+                        method: 'POST',
+                        body: new FormData(contactForm),
+                        headers: { 'Accept': 'application/json' }
+                    });
+
+                    if (response.ok) {
+                        contactFormStatus.textContent = 'Thank you! Your message has been sent.';
+                        contactFormStatus.classList.add('success');
+                        contactForm.reset();
+                    } else {
+                        contactFormStatus.textContent = 'Something went wrong. Please try again or email us directly.';
+                        contactFormStatus.classList.add('error');
+                    }
+                } catch (err) {
+                    contactFormStatus.textContent = 'Network error. Please try again or email us directly.';
+                    contactFormStatus.classList.add('error');
+                } finally {
+                    contactSubmitBtn.disabled = false;
+                    contactSubmitBtn.textContent = 'Send Message';
+                }
+            });
+        }
+    </script>
 
 </body>
 </html>
