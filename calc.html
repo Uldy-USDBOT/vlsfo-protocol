@@ -4,33 +4,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>VLSFO Fuel Calculator & ISO 8217 Specs | VLSFO.COM</title>
-    <meta name="description" content="Professional VLSFO calculator for maritime fuel consumption, cost estimation, and technical ISO 8217:2017 specifications.">
+    <meta name="description" content="Professional VLSFO calculator for maritime fuel consumption, voyage planning, cost estimation, and technical ISO 8217:2017 specifications.">
     <link rel="canonical" href="https://vlsfo.com/calc.html">
     <meta name="google-adsense-account" content="ca-pub-1927467541081068">
-    
+
     <!-- SoftwareApplication Schema -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "SoftwareApplication",
-      "name": "VLSFO Fuel Calculator",
+      "name": "VLSFO Fuel & Voyage Calculator",
       "operatingSystem": "All",
       "applicationCategory": "BusinessApplication",
       "url": "https://vlsfo.com/calc.html",
-      "description": "Calculates daily maritime fuel costs and potential efficiency savings for VLSFO fuel."
+      "description": "Calculates daily maritime fuel costs, voyage duration, total voyage fuel requirements, and potential efficiency savings for VLSFO fuel."
     }
     </script>
-    
+
     <style>
-        :root { 
-            --primary-blue: #1e40af; 
+        :root {
+            --primary-blue: #1e40af;
             --dark-slate: #1e293b;
             --accent-gold: #fbbf24; /* الذهب المتوافق مع تصميم DOMINZ MARKT */
-            --bg-gray: #f8fafc; 
+            --bg-gray: #f8fafc;
         }
-        
+
         body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: var(--bg-gray); margin: 0; color: #334155; }
-        
+
         header { background: var(--dark-slate); color: white; padding: 1rem 0; text-align: center; border-bottom: 3px solid var(--accent-gold); }
         nav { padding: 10px; background: #0f172a; text-align: center; }
         nav a { color: #cbd5e1; text-decoration: none; margin: 0 15px; font-weight: 500; font-size: 0.9rem; }
@@ -40,28 +40,53 @@
         .calc-card { background: white; padding: 40px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
 
         h1, h2 { color: var(--primary-blue); text-align: center; }
-        
+        h2 { font-size: 1.4rem; margin-top: 0; }
+
+        .section-tabs { display: flex; gap: 10px; margin-bottom: 30px; border-bottom: 2px solid #e2e8f0; }
+        .tab-btn {
+            flex: 1; padding: 12px; background: transparent; color: #64748b; border: none;
+            border-bottom: 3px solid transparent; font-weight: 600; font-size: 0.95rem; cursor: pointer;
+            transition: 0.25s; width: auto; margin-bottom: -2px;
+        }
+        .tab-btn:hover { background: #f1f5f9; color: var(--dark-slate); transform: none; }
+        .tab-btn.active { color: var(--primary-blue); border-bottom-color: var(--accent-gold); }
+
+        .tab-panel { display: none; animation: fadeIn 0.4s; }
+        .tab-panel.active { display: block; }
+
         .input-group { margin-bottom: 20px; }
         label { display: block; margin-bottom: 8px; font-weight: 600; color: var(--dark-slate); }
-        input { 
-            width: 100%; padding: 12px; border: 2px solid #e2e8f0; border-radius: 8px; box-sizing: border-box; 
-            font-size: 1rem; transition: 0.3s; 
+        label .unit-hint { font-weight: 400; color: #94a3b8; font-size: 0.8rem; }
+        input, select {
+            width: 100%; padding: 12px; border: 2px solid #e2e8f0; border-radius: 8px; box-sizing: border-box;
+            font-size: 1rem; transition: 0.3s; font-family: inherit;
         }
-        input:focus { border-color: var(--accent-gold); outline: none; }
-        
-        button { 
-            width: 100%; padding: 15px; background: var(--dark-slate); color: var(--accent-gold); 
-            border: none; border-radius: 8px; font-size: 1.1rem; font-weight: bold; cursor: pointer; 
-            transition: 0.3s; border: 1px solid var(--accent-gold);
-        }
-        button:hover { background: #0f172a; transform: translateY(-2px); }
+        input:focus, select:focus { border-color: var(--accent-gold); outline: none; }
 
-        #result { 
-            margin-top: 25px; padding: 20px; border: 2px dashed var(--accent-gold); border-radius: 8px; 
-            display: none; background: #fffbeb; animation: fadeIn 0.5s; 
+        .input-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+        @media (max-width: 520px) { .input-row { grid-template-columns: 1fr; } }
+
+        button.calc-btn {
+            width: 100%; padding: 15px; background: var(--dark-slate); color: var(--accent-gold);
+            border: 1px solid var(--accent-gold); border-radius: 8px; font-size: 1.1rem; font-weight: bold; cursor: pointer;
+            transition: 0.3s; margin-top: 5px;
+        }
+        button.calc-btn:hover { background: #0f172a; transform: translateY(-2px); }
+
+        #result, #voyage-result {
+            margin-top: 25px; padding: 20px; border: 2px dashed var(--accent-gold); border-radius: 8px;
+            display: none; background: #fffbeb; animation: fadeIn 0.5s;
         }
         .cost-val { color: #16a34a; font-size: 1.8rem; font-weight: bold; display: block; margin: 10px 0; }
-        
+
+        .metric-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin: 15px 0; }
+        @media (max-width: 480px) { .metric-grid { grid-template-columns: 1fr; } }
+        .metric-box { background: white; border-radius: 8px; padding: 14px; border: 1px solid #f0e3b8; }
+        .metric-box .metric-label { font-size: 0.78rem; color: #78716c; text-transform: uppercase; letter-spacing: 0.03em; display: block; margin-bottom: 4px; }
+        .metric-box .metric-value { font-size: 1.25rem; font-weight: bold; color: var(--dark-slate); }
+        .metric-box .metric-value.green { color: #16a34a; }
+        .metric-box .metric-value.gold { color: #b45309; }
+
         .specs-section { margin-top: 40px; border-top: 1px solid #e2e8f0; padding-top: 30px; }
         table { width: 100%; border-collapse: collapse; margin-top: 15px; font-size: 0.9rem; }
         th { background: var(--dark-slate); color: white; padding: 12px; text-align: left; }
@@ -87,28 +112,116 @@
 
     <div class="container">
         <div class="calc-card">
-            <h1>🚢 VLSFO Efficiency Calculator</h1>
-            <p style="text-align: center; color: #64748b; margin-bottom: 30px;">Estimate Daily Operational Costs & Potential Savings</p>
+            <h1>🚢 VLSFO Fuel & Voyage Calculator</h1>
+            <p style="text-align: center; color: #64748b; margin-bottom: 30px;">Estimate Daily Costs, Full Voyage Fuel Requirements & Savings</p>
 
-            <div class="input-group">
-                <label>Daily Consumption (Metric Tons/Day)</label>
-                <input type="number" id="consumption" placeholder="e.g. 25" step="0.1">
+            <div class="section-tabs">
+                <button class="tab-btn active" onclick="switchTab('daily')" id="tab-btn-daily">Daily Cost</button>
+                <button class="tab-btn" onclick="switchTab('voyage')" id="tab-btn-voyage">Voyage Planner</button>
             </div>
 
-            <div class="input-group">
-                <label>Current VLSFO Price (USD/MT)</label>
-                <input type="number" id="price" placeholder="e.g. 640">
+            <!-- ===================== DAILY COST PANEL ===================== -->
+            <div class="tab-panel active" id="panel-daily">
+                <div class="input-group">
+                    <label>Daily Consumption <span class="unit-hint">(Metric Tons/Day)</span></label>
+                    <input type="number" id="consumption" placeholder="e.g. 25" step="0.1">
+                </div>
+
+                <div class="input-group">
+                    <label>Current VLSFO Price <span class="unit-hint">(USD/MT)</span></label>
+                    <input type="number" id="price" placeholder="e.g. 640">
+                </div>
+
+                <button class="calc-btn" onclick="calculate()">Calculate Daily Metrics</button>
+
+                <div id="result">
+                    <span style="font-weight: bold; color: var(--dark-slate);">Estimated Daily Fuel Cost:</span>
+                    <span class="cost-val" id="total-cost">$0</span>
+
+                    <div style="font-size: 0.9rem; color: #444; border-left: 4px solid var(--accent-gold); padding-left: 10px;">
+                        <strong>💡 Efficiency Insight:</strong><br>
+                        Potential 5% daily savings with advanced engine coatings: <span id="savings" style="color: #16a34a; font-weight: bold;">$0</span>.
+                    </div>
+                </div>
             </div>
 
-            <button onclick="calculate()">Calculate Daily Metrics</button>
+            <!-- ===================== VOYAGE PLANNER PANEL ===================== -->
+            <div class="tab-panel" id="panel-voyage">
+                <div class="input-row">
+                    <div class="input-group">
+                        <label>Voyage Distance <span class="unit-hint">(Nautical Miles)</span></label>
+                        <input type="number" id="v-distance" placeholder="e.g. 4200" step="1">
+                    </div>
+                    <div class="input-group">
+                        <label>Vessel Speed <span class="unit-hint">(Knots)</span></label>
+                        <input type="number" id="v-speed" placeholder="e.g. 14" step="0.1">
+                    </div>
+                </div>
 
-            <div id="result">
-                <span style="font-weight: bold; color: var(--dark-slate);">Estimated Daily Fuel Cost:</span>
-                <span class="cost-val" id="total-cost">$0</span>
-                
-                <div style="font-size: 0.9rem; color: #444; border-left: 4px solid var(--accent-gold); padding-left: 10px;">
-                    <strong>💡 Efficiency Insight:</strong><br>
-                    Potential 5% daily savings with advanced engine coatings: <span id="savings" style="color: #16a34a; font-weight: bold;">$0</span>.
+                <div class="input-row">
+                    <div class="input-group">
+                        <label>Daily Consumption at Sea <span class="unit-hint">(MT/Day)</span></label>
+                        <input type="number" id="v-consumption" placeholder="e.g. 25" step="0.1">
+                    </div>
+                    <div class="input-group">
+                        <label>VLSFO Price <span class="unit-hint">(USD/MT)</span></label>
+                        <input type="number" id="v-price" placeholder="e.g. 640">
+                    </div>
+                </div>
+
+                <div class="input-row">
+                    <div class="input-group">
+                        <label>Port / Maneuvering Days <span class="unit-hint">(optional)</span></label>
+                        <input type="number" id="v-port-days" placeholder="e.g. 1" step="0.1" value="0">
+                    </div>
+                    <div class="input-group">
+                        <label>Port Daily Consumption <span class="unit-hint">(MT/Day, optional)</span></label>
+                        <input type="number" id="v-port-consumption" placeholder="e.g. 5" step="0.1" value="0">
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <label>Safety / Reserve Margin <span class="unit-hint">(%, recommended 10-15%)</span></label>
+                    <input type="number" id="v-reserve" placeholder="e.g. 10" step="1" value="10">
+                </div>
+
+                <button class="calc-btn" onclick="calculateVoyage()">Calculate Voyage Estimate</button>
+
+                <div id="voyage-result">
+                    <span style="font-weight: bold; color: var(--dark-slate);">Total Estimated Voyage Fuel Cost:</span>
+                    <span class="cost-val" id="v-total-cost">$0</span>
+
+                    <div class="metric-grid">
+                        <div class="metric-box">
+                            <span class="metric-label">Sea Passage Time</span>
+                            <span class="metric-value" id="v-sea-days">0 days</span>
+                        </div>
+                        <div class="metric-box">
+                            <span class="metric-label">Total Voyage Duration</span>
+                            <span class="metric-value" id="v-total-days">0 days</span>
+                        </div>
+                        <div class="metric-box">
+                            <span class="metric-label">Fuel Needed (Sea + Port)</span>
+                            <span class="metric-value" id="v-fuel-base">0 MT</span>
+                        </div>
+                        <div class="metric-box">
+                            <span class="metric-label">Reserve Fuel</span>
+                            <span class="metric-value gold" id="v-fuel-reserve">0 MT</span>
+                        </div>
+                        <div class="metric-box">
+                            <span class="metric-label">Total Fuel to Bunker</span>
+                            <span class="metric-value" id="v-fuel-total">0 MT</span>
+                        </div>
+                        <div class="metric-box">
+                            <span class="metric-label">Avg. Daily Spend</span>
+                            <span class="metric-value" id="v-daily-spend">$0</span>
+                        </div>
+                    </div>
+
+                    <div style="font-size: 0.9rem; color: #444; border-left: 4px solid var(--accent-gold); padding-left: 10px;">
+                        <strong>💡 Efficiency Insight:</strong><br>
+                        Potential 5% savings on total voyage fuel spend with optimized trim & hull coatings: <span id="v-savings" style="color: #16a34a; font-weight: bold;">$0</span>.
+                    </div>
                 </div>
             </div>
 
@@ -139,17 +252,66 @@
     </footer>
 
     <script>
+        function switchTab(name) {
+            document.getElementById('panel-daily').classList.toggle('active', name === 'daily');
+            document.getElementById('panel-voyage').classList.toggle('active', name === 'voyage');
+            document.getElementById('tab-btn-daily').classList.toggle('active', name === 'daily');
+            document.getElementById('tab-btn-voyage').classList.toggle('active', name === 'voyage');
+        }
+
         function calculate() {
             const cons = document.getElementById('consumption').value;
             const prc = document.getElementById('price').value;
             if (cons > 0 && prc > 0) {
                 const cost = cons * prc;
-                document.getElementById('total-cost').innerText = '$' + cost.toLocaleString();
-                document.getElementById('savings').innerText = '$' + (cost * 0.05).toLocaleString();
+                document.getElementById('total-cost').innerText = '$' + cost.toLocaleString(undefined, {maximumFractionDigits: 0});
+                document.getElementById('savings').innerText = '$' + (cost * 0.05).toLocaleString(undefined, {maximumFractionDigits: 0});
                 document.getElementById('result').style.display = 'block';
             } else {
                 alert("Please enter valid positive numbers.");
             }
+        }
+
+        function calculateVoyage() {
+            const distance = parseFloat(document.getElementById('v-distance').value);
+            const speed = parseFloat(document.getElementById('v-speed').value);
+            const consumption = parseFloat(document.getElementById('v-consumption').value);
+            const price = parseFloat(document.getElementById('v-price').value);
+            const portDays = parseFloat(document.getElementById('v-port-days').value) || 0;
+            const portConsumption = parseFloat(document.getElementById('v-port-consumption').value) || 0;
+            const reservePct = parseFloat(document.getElementById('v-reserve').value) || 0;
+
+            if (!(distance > 0) || !(speed > 0) || !(consumption > 0) || !(price > 0)) {
+                alert("Please fill in distance, speed, consumption and price with valid positive numbers.");
+                return;
+            }
+
+            // Sea passage time in days
+            const seaDays = distance / (speed * 24);
+            const totalDays = seaDays + portDays;
+
+            // Fuel required
+            const seaFuel = seaDays * consumption;
+            const portFuel = portDays * portConsumption;
+            const baseFuel = seaFuel + portFuel;
+            const reserveFuel = baseFuel * (reservePct / 100);
+            const totalFuel = baseFuel + reserveFuel;
+
+            // Costs
+            const totalCost = totalFuel * price;
+            const dailySpend = totalDays > 0 ? totalCost / totalDays : 0;
+            const savings = totalCost * 0.05;
+
+            document.getElementById('v-total-cost').innerText = '$' + totalCost.toLocaleString(undefined, {maximumFractionDigits: 0});
+            document.getElementById('v-sea-days').innerText = seaDays.toFixed(1) + ' days';
+            document.getElementById('v-total-days').innerText = totalDays.toFixed(1) + ' days';
+            document.getElementById('v-fuel-base').innerText = baseFuel.toLocaleString(undefined, {maximumFractionDigits: 1}) + ' MT';
+            document.getElementById('v-fuel-reserve').innerText = reserveFuel.toLocaleString(undefined, {maximumFractionDigits: 1}) + ' MT';
+            document.getElementById('v-fuel-total').innerText = totalFuel.toLocaleString(undefined, {maximumFractionDigits: 1}) + ' MT';
+            document.getElementById('v-daily-spend').innerText = '$' + dailySpend.toLocaleString(undefined, {maximumFractionDigits: 0});
+            document.getElementById('v-savings').innerText = '$' + savings.toLocaleString(undefined, {maximumFractionDigits: 0});
+
+            document.getElementById('voyage-result').style.display = 'block';
         }
     </script>
 </body>
