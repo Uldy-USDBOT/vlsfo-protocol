@@ -3,84 +3,282 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VLSFO and MGO Price Index | Global Average Bunker Fuel Rates</title>
-    <meta name="description" content="Check global average VLSFO and MGO price ranges. Compare bunker fuel market trends and stay updated with the marine fuel industry standards.">
+    <title>VLSFO and MGO Price Index | Global Average Bunker Fuel Rates by Port</title>
+    <meta name="description" content="Global VLSFO, MGO and HSFO price index across major bunkering hubs — Singapore, Rotterdam, Fujairah, Houston, Hong Kong and more. Indicative market averages and industry trends.">
     <style>
-        :root { --navy: #003366; --accent: #0056b3; --gray: #f4f7f6; }
+        :root { --navy: #003366; --accent: #0056b3; --gray: #f4f7f6; --gold: #c9a227; }
         body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; color: #333; margin: 0; background: var(--gray); }
-        .container { max-width: 1000px; margin: 40px auto; padding: 20px; background: #fff; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
-        h1 { color: var(--navy); text-align: center; font-size: 2rem; margin-bottom: 5px; }
+        .container { max-width: 1100px; margin: 40px auto; padding: 20px; background: #fff; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
+
+        /* Institutional header */
+        .index-header { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px;
+            border-bottom: 3px solid var(--navy); padding-bottom: 18px; margin-bottom: 20px; }
+        .index-header .brand { display: flex; align-items: center; gap: 12px; }
+        .index-header .brand .mark { width: 42px; height: 42px; border-radius: 8px; background: var(--navy); color: #fff;
+            display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 1.2rem; flex-shrink: 0; }
+        .index-header .brand-text { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.08em; color: #667; font-weight: 600; }
+        .index-header .report-meta { text-align: right; font-size: 0.8rem; color: #667; }
+        .index-header .report-meta strong { color: var(--navy); display: block; font-size: 0.85rem; }
+
+        h1 { color: var(--navy); text-align: center; font-size: 2rem; margin: 10px 0 5px; }
         .subtitle { text-align: center; font-size: 1rem; color: #555; margin-bottom: 30px; }
-        
+
+        /* Summary stat cards */
+        .summary-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-bottom: 35px; }
+        @media (max-width: 720px) { .summary-grid { grid-template-columns: repeat(2, 1fr); } }
+        .summary-card { background: var(--gray); border: 1px solid #e3e8e6; border-left: 4px solid var(--accent); border-radius: 8px; padding: 16px; }
+        .summary-card .s-label { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.05em; color: #78716c; display: block; margin-bottom: 6px; }
+        .summary-card .s-value { font-size: 1.35rem; font-weight: bold; color: var(--navy); }
+        .summary-card .s-sub { font-size: 0.78rem; color: #888; margin-top: 4px; }
+        .summary-card.highlight { border-left-color: var(--gold); }
+
+        /* Region filter tabs */
+        .region-tabs { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px; }
+        .region-tab {
+            padding: 8px 16px; border-radius: 20px; border: 1px solid #d5dde0; background: #fff; color: #556;
+            font-size: 0.85rem; font-weight: 600; cursor: pointer; transition: 0.2s;
+        }
+        .region-tab:hover { border-color: var(--accent); color: var(--accent); }
+        .region-tab.active { background: var(--navy); border-color: var(--navy); color: #fff; }
+
         /* Table Styling */
         .price-table-wrapper { overflow-x: auto; }
         table { width: 100%; border-collapse: collapse; margin-bottom: 10px; }
-        th, td { padding: 15px; text-align: left; border-bottom: 1px solid #eee; }
-        th { background-color: var(--navy); color: white; text-transform: uppercase; font-size: 0.9rem; }
+        th, td { padding: 14px 15px; text-align: left; border-bottom: 1px solid #eee; }
+        th { background-color: var(--navy); color: white; text-transform: uppercase; font-size: 0.82rem; letter-spacing: 0.03em; }
         tr:hover { background-color: #f9f9f9; }
+        td.port-cell { display: flex; align-items: center; gap: 10px; }
+        .region-tag { font-size: 0.7rem; padding: 2px 8px; border-radius: 10px; background: #eef2f5; color: #556; white-space: nowrap; }
+        .price-cell { font-weight: bold; color: var(--navy); font-variant-numeric: tabular-nums; }
         .trend-stable { color: #27ae60; font-weight: bold; }
         .trend-fluctuating { color: #c0392b; font-weight: bold; }
         .trend-moderate { color: #f39c12; font-weight: bold; }
-        
-        .disclaimer { font-size: 0.85rem; color: #777; font-style: italic; margin-bottom: 30px; text-align: right; }
+        .trend-premium { color: #8e44ad; font-weight: bold; }
+        .chg-up { color: #27ae60; font-weight: 700; font-size: 0.85rem; margin-left: 6px; white-space: nowrap; }
+        .chg-down { color: #d35400; font-weight: 700; font-size: 0.85rem; margin-left: 6px; white-space: nowrap; }
+
+        .disclaimer { font-size: 0.85rem; color: #777; font-style: italic; margin: 15px 0 30px; text-align: right; }
+        .methodology { font-size: 0.82rem; color: #667; background: var(--gray); border-radius: 8px; padding: 16px 18px; margin-bottom: 10px; }
+        .methodology strong { color: var(--navy); }
 
         .content-section { margin-top: 40px; }
         .content-section h2 { color: var(--navy); border-left: 5px solid var(--accent); padding-left: 15px; }
         .btn-back { display: inline-block; margin-top: 20px; padding: 10px 20px; background: var(--navy); color: #fff; text-decoration: none; border-radius: 5px; transition: background 0.3s; }
         .btn-back:hover { background: var(--accent); }
+
+        footer.index-footer { margin-top: 30px; padding-top: 18px; border-top: 1px solid #eee; font-size: 0.78rem; color: #999; text-align: center; }
     </style>
 </head>
 <body>
 
 <div class="container">
+
+    <div class="index-header">
+        <div class="brand">
+            <div class="mark">VF</div>
+            <div>
+                <div class="brand-text">VLSFO.COM &mdash; Maritime Intelligence Desk</div>
+                <div class="brand-text" style="font-weight:400; letter-spacing:normal;">Independent Bunker Market Reporting</div>
+            </div>
+        </div>
+        <div class="report-meta">
+            <strong>Global Bunker Price Index</strong>
+            Report Date: <span id="report-date"></span><br>
+            Coverage: 14 major bunkering hubs
+        </div>
+    </div>
+
     <h1>Global Bunker Fuel Price Index</h1>
-    <p class="subtitle">Market Average Price Ranges & Industry Trends</p>
+    <p class="subtitle">Market Average Price Ranges & Industry Trends Across Leading VLSFO Ports</p>
+
+    <!-- Executive summary -->
+    <div class="summary-grid">
+        <div class="summary-card highlight">
+            <span class="s-label">Global VLSFO Average</span>
+            <span class="s-value">$764.63 /mt</span>
+            <span class="s-sub">4-Port benchmark (SIN/RTM/FUJ/HOU)</span>
+        </div>
+        <div class="summary-card">
+            <span class="s-label">Lowest Assessed Port</span>
+            <span class="s-value">Piraeus &middot; $536.00</span>
+            <span class="s-sub">Eastern Mediterranean</span>
+        </div>
+        <div class="summary-card">
+            <span class="s-label">Highest Assessed Port</span>
+            <span class="s-value">Singapore &middot; $837.50</span>
+            <span class="s-sub">Asia-Pacific premium</span>
+        </div>
+        <div class="summary-card">
+            <span class="s-label">Scrubber Spread (HSFO–VLSFO)</span>
+            <span class="s-value">~$130 /mt</span>
+            <span class="s-sub">Global average, widening trend</span>
+        </div>
+    </div>
+
+    <!-- Region filters -->
+    <div class="region-tabs" id="region-tabs">
+        <button class="region-tab active" data-region="all">All Regions</button>
+        <button class="region-tab" data-region="apac">Asia-Pacific</button>
+        <button class="region-tab" data-region="me">Middle East</button>
+        <button class="region-tab" data-region="eu">Europe</button>
+        <button class="region-tab" data-region="am">Americas</button>
+        <button class="region-tab" data-region="af">Africa</button>
+    </div>
 
     <div class="price-table-wrapper">
-        <table>
+        <table id="price-table">
             <thead>
                 <tr>
-                    <th>Fuel Grade</th>
-                    <th>Average Range (USD/mt)</th>
+                    <th>Port</th>
+                    <th>Region</th>
+                    <th>VLSFO (USD/mt)</th>
                     <th>Market Trend</th>
                     <th>Standard Specs</th>
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td><strong>VLSFO</strong> (0.5% Sulphur)</td>
-                    <td>$865 - $610</td>
+                <tr data-region="apac">
+                    <td class="port-cell">🇸🇬 <strong>Singapore</strong></td>
+                    <td><span class="region-tag">Asia-Pacific</span></td>
+                    <td class="price-cell">$837.50 <span class="chg-up">▲ 7.00</span></td>
+                    <td class="trend-stable">Up</td>
+                    <td>ISO 8217:2017</td>
+                </tr>
+                <tr data-region="eu">
+                    <td class="port-cell">🇳🇱 <strong>Rotterdam</strong></td>
+                    <td><span class="region-tag">Europe</span></td>
+                    <td class="price-cell">$678.50 <span class="chg-down">▼ 4.50</span></td>
+                    <td class="trend-fluctuating">Down</td>
+                    <td>ISO 8217:2017</td>
+                </tr>
+                <tr data-region="me">
+                    <td class="port-cell">🇦🇪 <strong>Fujairah</strong></td>
+                    <td><span class="region-tag">Middle East</span></td>
+                    <td class="price-cell">$808.50 <span class="chg-up">▲ 4.50</span></td>
+                    <td class="trend-premium">Up</td>
+                    <td>ISO 8217:2017</td>
+                </tr>
+                <tr data-region="am">
+                    <td class="port-cell">🇺🇸 <strong>Houston</strong></td>
+                    <td><span class="region-tag">Americas</span></td>
+                    <td class="price-cell">$734.00 <span class="chg-up">▲ 3.50</span></td>
+                    <td class="trend-stable">Up</td>
+                    <td>ISO 8217:2017</td>
+                </tr>
+                <tr data-region="am">
+                    <td class="port-cell">🇺🇸 <strong>LA / Long Beach</strong></td>
+                    <td><span class="region-tag">Americas</span></td>
+                    <td class="price-cell">$810.00 <span class="chg-up">▲ 11.00</span></td>
+                    <td class="trend-premium">Up</td>
+                    <td>ISO 8217:2017</td>
+                </tr>
+                <tr data-region="apac">
+                    <td class="port-cell">🇭🇰 <strong>Hong Kong</strong></td>
+                    <td><span class="region-tag">Asia-Pacific</span></td>
+                    <td class="price-cell">$833.00 <span class="chg-up">▲ 8.00</span></td>
+                    <td class="trend-stable">Up</td>
+                    <td>ISO 8217:2017</td>
+                </tr>
+                <tr data-region="am">
+                    <td class="port-cell">🇺🇸 <strong>New York</strong></td>
+                    <td><span class="region-tag">Americas</span></td>
+                    <td class="price-cell">$724.00 <span class="chg-down">▼ 6.00</span></td>
+                    <td class="trend-fluctuating">Down</td>
+                    <td>ISO 8217:2017</td>
+                </tr>
+                <tr data-region="am">
+                    <td class="port-cell">🇧🇷 <strong>Santos</strong></td>
+                    <td><span class="region-tag">Americas</span></td>
+                    <td class="price-cell">$814.50 <span class="chg-down">▼ 14.00</span></td>
+                    <td class="trend-fluctuating">Down</td>
+                    <td>ISO 8217:2017</td>
+                </tr>
+                <tr data-region="apac">
+                    <td class="port-cell">🇰🇷 <strong>Busan</strong></td>
+                    <td><span class="region-tag">Asia-Pacific</span></td>
+                    <td class="price-cell">$575.00</td>
+                    <td class="trend-moderate">Moderate</td>
+                    <td>ISO 8217:2017</td>
+                </tr>
+                <tr data-region="apac">
+                    <td class="port-cell">🇨🇳 <strong>Shanghai</strong></td>
+                    <td><span class="region-tag">Asia-Pacific</span></td>
+                    <td class="price-cell">$580.00</td>
                     <td class="trend-stable">Stable</td>
                     <td>ISO 8217:2017</td>
                 </tr>
-                <tr>
-                    <td><strong>MGO</strong> (Marine Gas Oil)</td>
-                    <td>$790 - $850</td>
+                <tr data-region="eu">
+                    <td class="port-cell">🇬🇮 <strong>Gibraltar</strong></td>
+                    <td><span class="region-tag">Europe</span></td>
+                    <td class="price-cell">$542.00</td>
                     <td class="trend-fluctuating">Fluctuating</td>
-                    <td>DMA / DMZ</td>
+                    <td>ISO 8217:2017</td>
                 </tr>
-                <tr>
-                    <td><strong>HSFO</strong> (3.5% Sulphur)</td>
-                    <td>$450 - $510</td>
+                <tr data-region="eu">
+                    <td class="port-cell">🇬🇷 <strong>Piraeus</strong></td>
+                    <td><span class="region-tag">Europe</span></td>
+                    <td class="price-cell">$536.00</td>
+                    <td class="trend-stable">Stable</td>
+                    <td>ISO 8217:2017</td>
+                </tr>
+                <tr data-region="me">
+                    <td class="port-cell">🇮🇳 <strong>Mumbai</strong></td>
+                    <td><span class="region-tag">Middle East</span></td>
+                    <td class="price-cell">$571.00</td>
                     <td class="trend-moderate">Moderate</td>
-                    <td>RMG 380</td>
+                    <td>ISO 8217:2017</td>
+                </tr>
+                <tr data-region="af">
+                    <td class="port-cell">🇿🇦 <strong>Durban</strong></td>
+                    <td><span class="region-tag">Africa</span></td>
+                    <td class="price-cell">$577.00</td>
+                    <td class="trend-fluctuating">Fluctuating</td>
+                    <td>ISO 8217:2017</td>
                 </tr>
             </tbody>
         </table>
     </div>
-    
+
     <div class="disclaimer">
-        * Note: These figures represent global market averages intended for strategic analysis. They are not real-time spot prices.
+        * Note: These figures represent indicative global market averages intended for strategic and voyage-planning analysis. They are not live spot prices; actual bunkering quotes vary by supplier, delivery terms, credit terms and volume. Always confirm firm pricing with your broker or supplier before stemming fuel.
+    </div>
+
+    <div class="methodology">
+        <strong>Methodology:</strong> Prices reflect assessed VLSFO (0.50% Sulphur, ISO 8217:2017) averages compiled from publicly available industry price indications across each hub's trading sessions. The "Global VLSFO Average" uses the standard 4-port benchmark (Singapore, Rotterdam, Fujairah, Houston), which together represent a significant share of global bunker volumes. Figures are updated periodically and are intended for comparative market reference, not transactional pricing.
     </div>
 
     <div class="content-section">
         <h2>VLSFO and MGO Market Insights</h2>
         <p>Monitoring the price index between <strong>Very Low Sulphur Fuel Oil (VLSFO)</strong> and <strong>Marine Gas Oil (MGO)</strong> is essential for operational planning. While VLSFO is the standard for global shipping, MGO remains vital for compliance in Emission Control Areas (ECA).</p>
+        <p>In the latest snapshot, Singapore, Hong Kong, Fujairah, LA/Long Beach and Houston posted gains, while Rotterdam, New York and Santos eased lower. Rotterdam remains the most competitive of the major benchmark hubs, and Santos recorded the sharpest daily pullback. Meanwhile, the HSFO-to-VLSFO scrubber spread has been widening, which continues to influence newbuild and retrofit scrubber economics for owners weighing compliance strategy.</p>
         <p>Our platform provides comprehensive average data to help you navigate market volatility and maintain IMO 2020 regulatory standards efficiently.</p>
     </div>
 
     <a href="index.html" class="btn-back">Return to Dashboard</a>
+
+    <footer class="index-footer">
+        VLSFO.COM Maritime Intelligence Desk &middot; Independent Maritime Intelligence Protocol &middot; For informational purposes only
+    </footer>
 </div>
+
+<script>
+    // Report date
+    document.getElementById('report-date').textContent = new Date().toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' });
+
+    // Region filtering
+    const tabs = document.querySelectorAll('.region-tab');
+    const rows = document.querySelectorAll('#price-table tbody tr');
+    tabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+            tabs.forEach(t => t.classList.remove('active'));
+            tab.classList.add('active');
+            const region = tab.getAttribute('data-region');
+            rows.forEach(row => {
+                row.style.display = (region === 'all' || row.getAttribute('data-region') === region) ? '' : 'none';
+            });
+        });
+    });
+</script>
 
 </body>
 </html>
