@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Article 08 — AI in Marine Fuel Analysis, Purification and Voyage Prediction</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <style>
+    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial; line-height:1.6; max-width:900px; margin:32px auto; padding:0 16px; color:#111; }
+    header { text-align:center; margin-bottom:24px; }
+    h1 { margin: 12px 0; font-size:1.9rem; }
+    .meta { color:#555; font-size:0.95rem; margin-bottom:18px; }
+    figure { margin:0 0 18px 0; text-align:center; }
+    figcaption { color:#666; font-size:0.9rem; margin-top:8px; }
+    section { margin-bottom:20px; }
+    h2 { font-size:1.3rem; margin-top:18px; }
+    ul { margin:8px 0 8px 20px; }
+    pre.code { background:#f6f8fa; padding:12px; border-radius:6px; overflow:auto; font-family:monospace; }
+    footer { color:#666; font-size:0.9rem; margin-top:28px; border-top:1px solid #eee; padding-top:12px; }
+    .highlight { background:linear-gradient(90deg,#e6f7ff,#fff); padding:4px 6px; border-radius:4px; }
+    svg { max-width:100%; height:auto; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Article 08 — AI in Marine Fuel Analysis, Purification and Voyage Prediction</h1>
+    <div class="meta">Author: VLSFO Protocol Editorial Team • Article #8 • Date: 2026-08-03</div>
+    <figure>
+      <!-- Embedded illustrative SVG image: replace or keep as a vector graphic -->
+      <svg viewBox="0 0 1200 360" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Illustration: Ship, AI and fuel">
+        <defs>
+          <linearGradient id="g1" x1="0" x2="1">
+            <stop offset="0" stop-color="#0ea5a4"/>
+            <stop offset="1" stop-color="#3b82f6"/>
+          </linearGradient>
+          <linearGradient id="g2" x1="0" x2="1">
+            <stop offset="0" stop-color="#ffcc66"/>
+            <stop offset="1" stop-color="#ff8a65"/>
+          </linearGradient>
+        </defs>
+        <rect width="1200" height="360" rx="12" fill="#f8fafc"/>
+        <!-- Wave baseline -->
+        <path d="M0 270 C150 240 300 300 450 270 C600 240 750 300 900 270 C1050 240 1200 300 1200 300 L1200 360 L0 360 Z" fill="#e6f0ff"/>
+        <!-- Ship -->
+        <g transform="translate(140,100) scale(1.0)">
+          <rect x="0" y="80" width="420" height="50" rx="8" fill="#213547"/>
+          <rect x="40" y="40" width="120" height="60" rx="6" fill="#2b5a76"/>
+          <rect x="170" y="20" width="40" height="30" rx="4" fill="#67e8f9"/>
+          <g transform="translate(320,20)">
+            <rect x="0" y="10" width="70" height="40" rx="6" fill="#0ea5a4"/>
+          </g>
+          <!-- funnels -->
+          <rect x="70" y="40" width="16" height="40" rx="3" fill="#374151"/>
+          <rect x="95" y="35" width="16" height="45" rx="3" fill="#334155"/>
+        </g>
+        <!-- Fuel tank / molecules -->
+        <g transform="translate(620,120)" >
+          <rect x="0" y="0" width="300" height="120" rx="12" fill="url(#g2)"/>
+          <circle cx="60" cy="60" r="18" fill="#fff"/>
+          <circle cx="120" cy="40" r="12" fill="#fff"/>
+          <circle cx="160" cy="80" r="10" fill="#fff"/>
+          <text x="18" y="18" fill="#3b2f2f" font-size="18" font-weight="700">Fuel Lab</text>
+        </g>
+        <!-- AI/Network -->
+        <g transform="translate(520,10)">
+          <rect x="0" y="0" width="220" height="100" rx="10" fill="url(#g1)"/>
+          <text x="18" y="26" fill="#fff" font-size="20" font-weight="700">AI Engine</text>
+          <g fill="#fff" stroke="#fff" stroke-opacity="0.2">
+            <circle cx="38" cy="60" r="6"/>
+            <circle cx="88" cy="60" r="6"/>
+            <circle cx="138" cy="60" r="6"/>
+            <path d="M38 60 L88 60 L138 60" stroke="#ffffff" stroke-width="2" fill="none"/>
+          </g>
+        </g>
+        <!-- Connecting lines -->
+        <path d="M420 140 C480 140 520 120 540 100" stroke="#94a3b8" stroke-width="2" fill="none" stroke-dasharray="6 6"/>
+        <path d="M740 160 C700 160 640 160 580 160" stroke="#94a3b8" stroke-width="2" fill="none" stroke-dasharray="6 6"/>
+      </svg>
+      <figcaption>Illustration: AI-driven analysis and control of ship fuel with voyage prediction systems (vector graphic).</figcaption>
+    </figure>
+  </header>
+
+  <main>
+    <section>
+      <h2>Abstract</h2>
+      <p>
+        This article explores how artificial intelligence (AI) is transforming marine fuel management: from high-resolution analysis and contamination detection, to automated purification control and voyage prediction that optimizes fuel consumption and emissions. We cover the core technologies, data requirements, operational benefits, key risks, and readiness considerations for ship operators, fuel suppliers and regulators.
+      </p>
+    </section>
+
+    <section>
+      <h2>1. Why AI for marine fuel?</h2>
+      <p>
+        Heavy marine fuels such as VLSFO, IFO and residual blends are chemically complex and subject to contaminants (water, sediments, incompatible blends, cat fines). Legacy laboratory testing and manual corrective actions are slow and often reactive. AI enables faster, more granular interpretation of sensor and lab data, real-time control of purification systems, and predictive models that reduce operational risk, downtime and consumption.
+      </p>
+    </section>
+
+    <section>
+      <h2>2. Core capabilities and data sources</h2>
+      <p>AI systems for ship fuel revolve around three capabilities:</p>
+      <ul>
+        <li><strong>Advanced analysis:</strong> spectroscopic signatures (FTIR, NIR), onboard laboratory analyzers, sensor fusion (temperature, density, viscosity) and lab test history to identify contaminants and fuel composition.</li>
+        <li><strong>Automated purification control:</strong> closed-loop optimization of centrifuges, separators, heaters and chemical dosing to maintain fuel quality with minimal human intervention.</li>
+        <li><strong>Voyage and consumption prediction:</strong> ML models combining weather, currents, hull condition, engine performance and fuel quality to forecast consumption, ETA and optimal speed profiles.</li>
+      </ul>
+      <p>Typical data sources include: onboard sensors, bunker delivery notes (BDN), lab certificates (ISO 8217 tests), historical engine logs, AIS, weather and oceanography feeds, and maintenance records.</p>
+    </section>
+
+    <section>
+      <h2>3. Analysis & contaminant detection</h2>
+      <p>
+        Machine learning models (classification/regression) applied to spectroscopy and sensor data can detect anomalies and estimate contaminant concentration. Example approaches:
+      </p>
+      <ul>
+        <li>Supervised models trained on labeled lab samples to map spectra to properties (viscosity, sulfur, water content).</li>
+        <li>Anomaly detection using autoencoders or isolation forests to flag unexpected blends, cat-fines or microbial growth.</li>
+        <li>Transfer learning to adapt shore-based lab models for onboard, lower-SNR sensor data.</li>
+      </ul>
+      <p>Benefits: faster alerts, prioritization of samples for detailed lab testing, and early detection of compatibility problems that can cause filter clogging or engine damage.</p>
+    </section>
+
+    <section>
+      <h2>4. AI-driven purification and process control</h2>
+      <p>
+        Real-time optimization uses model-predictive control (MPC) or reinforcement learning (RL) to tune separations, centrifuge speeds, coalescer settings and additive dosing. Key features:
+      </p>
+      <ul>
+        <li>Predictive setpoint adjustment: maintain target cleanliness while minimizing energy and wear.</li>
+        <li>Adaptive schedules: adjust purifier runtime and maintenance intervals based on predicted contaminant load.</li>
+        <li>Fault detection and automated safe actions (e.g., isolate tank, switch to alternative tank) when models predict imminent filter failure.</li>
+      </ul>
+      <p>When integrated with operator dashboards, these systems enable actionable recommendations and automated corrective routines that reduce fuel-related incidents.</p>
+    </section>
+
+    <section>
+      <h2>5. Voyage prediction and fuel optimization</h2>
+      <p>
+        AI models predict fuel consumption and ETA more accurately than static tables by combining:
+      </p>
+      <ul>
+        <li>Dynamic fuel model inputs: actual fuel quality, engine performance curves, fouling coefficients.</li>
+        <li>Environmental forecasts: wind, waves and currents from meteorological and oceanographic models.</li>
+        <li>Operational constraints: port windows, charterer speed requirements, emission control areas (ECAs).</li>
+      </ul>
+      <p>Outputs can recommend speed profiles, route adjustments, or trim changes to minimize fuel consumption and emissions while meeting schedule constraints.</p>
+    </section>
+
+    <section>
+      <h2>6. Architecture & implementation considerations</h2>
+      <p>Essential elements for reliable deployment:</p>
+      <ul>
+        <li><strong>Data quality & labeling:</strong> curated lab results for supervised training and periodic revalidation.</li>
+        <li><strong>Edge processing:</strong> onboard inference to keep latency low and preserve connectivity costs; cloud aggregation for model retraining.</li>
+        <li><strong>Explainability:</strong> model outputs with confidence intervals and key feature attributions so operators can understand recommendations.</li>
+        <li><strong>Integration:</strong> connect to existing automation systems (PLC/SCADA), maintenance platforms and the vessel’s bridge systems.</li>
+        <li><strong>Security & privacy:</strong> encrypted telemetry, controlled data sharing with fuel suppliers and shoreside teams.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>7. Benefits & measurable outcomes</h2>
+      <ul>
+        <li>Reduced unplanned downtime from fuel-related filter/engine issues.</li>
+        <li>Lower fuel consumption through optimized speed/route decisions—typical savings can range from 1–6% depending on routes and operations.</li>
+        <li>Fewer off-spec bunkers and claims by early detection of incompatibilities.</li>
+        <li>Extended life of separators and filters due to predictive maintenance and optimized operating points.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>8. Risks, limitations & mitigation</h2>
+      <p>
+        AI systems are not a substitute for good fuel management practices. Key risks include:
+      </p>
+      <ul>
+        <li><strong>Model drift:</strong> fuel formulations and engine wear evolve—models require continuous monitoring and periodic retraining.</li>
+        <li><strong>Sensor failures and noisy inputs:</strong> implement sensor health checks and redundant channels where critical.</li>
+        <li><strong>Operational acceptance:</strong> crew trust is essential—provide clear explanations and conservative automation modes.</li>
+      </ul>
+      <p>Mitigations: layered validation (onboard + shore lab), fallback manual processes, and robust telemetry for audit and troubleshooting.</p>
+    </section>
+
+    <section>
+      <h2>9. Regulatory & compliance</h2>
+      <p>
+        AI-driven fuel management must align with maritime regulations and fuel standards (e.g., ISO 8217, MARPOL). Maintain provenance for bunker samples and ensure automated decisions do not breach safety or environmental rules. Automated logs that capture sensor readings, model outputs and actions help meet compliance and claims resolution.
+      </p>
+    </section>
+
+    <section>
+      <h2>10. Roadmap & adoption steps</h2>
+      <ol>
+        <li>Start with pilots: install robust sensors and basic analytics on a few vessels and compare model outputs to lab tests.</li>
+        <li>Iterate: add closed-loop controls for a single subsystem (e.g., separator) and measure stability and savings.</li>
+        <li>Scale: expand to fleet-level forecasting and integrate with voyage planning systems.</li>
+        <li>Governance: establish model governance, data quality KPIs, and periodic re-certification workflows.</li>
+      </ol>
+    </section>
+
+    <section>
+      <h2>Conclusion</h2>
+      <p>
+        AI offers a practical, high-impact path to improve marine fuel reliability, reduce operational costs, and optimize voyage outcomes. With careful attention to data quality, human-in-the-loop controls and regulatory compliance, ship operators and fuel suppliers can harness AI to make fuel safer, cleaner and more predictable.
+      </p>
+    </section>
+
+    <section>
+      <h2>Further reading & references</h2>
+      <ul>
+        <li>ISO 8217 — Specifications for marine fuels</li>
+        <li>Model Predictive Control (MPC) and Reinforcement Learning for industrial process optimization</li>
+        <li>Recent industry pilots on onboard fuel analytics and spectrometry</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer>
+    <div>If you want this file committed to the repository branch <span class="highlight">add/article-08-ai-fuel</span>, I can add it and also include a high-resolution photographic cover (licensed) or keep the inline SVG. Tell me whether to:</div>
+    <ol>
+      <li>Commit this HTML file as-is to add/article-08-ai-fuel (inline SVG)</li>
+      <li>Commit and upload a photographic cover image (you can provide the image or I can add a suggested CC0/Unsplash image link)</li>
+      <li>Make any editorial or technical changes before committing</li>
+    </ol>
+  </footer>
+</body>
+</html>
