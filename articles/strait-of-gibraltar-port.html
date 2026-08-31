@@ -1,129 +1,229 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="مقالة شاملة عن ميناء جبل طارق ودوره في تجارة الوقود البحري والمعاملات الرقمية">
-    <meta name="keywords" content="جبل طارق, ميناء, VLSFO, الوقود البحري, البحر الأبيض المتوسط">
-    <title>ميناء جبل طارق - مركز تحكم عالمي للوقود البحري</title>
+    <meta name="description" content="Comprehensive article about Strait of Gibraltar Port and its role in global maritime fuel trading and digital asset settlements">
+    <meta name="keywords" content="Gibraltar, Port, VLSFO, bunker fuel, Mediterranean, maritime">
+    <title>Strait of Gibraltar Port - Global Maritime Fuel Intelligence Hub</title>
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
+        
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
             line-height: 1.8;
             color: #333;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
-            padding: 20px;
+            background: #fcfcfc;
         }
+        
         .container {
-            max-width: 900px;
+            max-width: 1000px;
             margin: 0 auto;
             background: white;
-            border-radius: 10px;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
-            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
         }
+        
         header {
-            background: linear-gradient(135deg, #1a472a 0%, #2d5f4f 100%);
+            background: linear-gradient(135deg, #003366 0%, #004a99 100%);
             color: white;
-            padding: 50px 30px;
+            padding: 60px 30px;
             text-align: center;
+            border-bottom: 3px solid #003366;
         }
+        
         header h1 {
-            font-size: 2.5em;
-            margin-bottom: 10px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-        }
-        header p {
-            font-size: 1.1em;
-            opacity: 0.9;
-        }
-        main {
-            padding: 50px 30px;
-        }
-        section {
-            margin-bottom: 40px;
-        }
-        h2 {
-            color: #1a472a;
-            font-size: 1.8em;
-            margin-bottom: 20px;
-            border-bottom: 3px solid #667eea;
-            padding-bottom: 10px;
-        }
-        h3 {
-            color: #2d5f4f;
-            font-size: 1.3em;
-            margin: 20px 0 10px 0;
-        }
-        p {
+            font-size: 2.8rem;
             margin-bottom: 15px;
-            line-height: 1.9;
-            color: #555;
+            letter-spacing: -1px;
+            font-weight: 800;
         }
-        .highlight {
+        
+        header p {
+            font-size: 1.1rem;
+            opacity: 0.95;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        nav {
             background: #f0f4ff;
-            border-right: 4px solid #667eea;
-            padding: 20px;
-            margin: 20px 0;
-            border-radius: 5px;
+            padding: 15px 30px;
+            text-align: center;
+            border-bottom: 1px solid #eaeaea;
         }
-        .stats {
+        
+        nav a {
+            color: #003366;
+            text-decoration: none;
+            font-weight: 600;
+            margin: 0 15px;
+            font-size: 0.9rem;
+        }
+        
+        nav a:hover {
+            color: #004a99;
+            text-decoration: underline;
+        }
+        
+        main {
+            padding: 50px 40px;
+        }
+        
+        section {
+            margin-bottom: 50px;
+        }
+        
+        h2 {
+            color: #003366;
+            font-size: 2rem;
+            margin-bottom: 25px;
+            border-bottom: 3px solid #003366;
+            padding-bottom: 15px;
+            letter-spacing: -0.5px;
+        }
+        
+        h3 {
+            color: #004a99;
+            font-size: 1.4rem;
+            margin: 30px 0 15px 0;
+            font-weight: 700;
+        }
+        
+        p {
+            margin-bottom: 18px;
+            line-height: 1.9;
+            color: #444;
+            font-size: 1.05rem;
+        }
+        
+        .highlight-box {
+            background: #f0f7ff;
+            border-left: 5px solid #003366;
+            padding: 25px;
+            margin: 25px 0;
+            border-radius: 5px;
+            box-shadow: 0 2px 8px rgba(0,51,102,0.1);
+        }
+        
+        .highlight-box strong {
+            color: #003366;
+        }
+        
+        .stats-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 20px;
-            margin: 30px 0;
+            margin: 35px 0;
         }
-        .stat-box {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        
+        .stat-card {
+            background: linear-gradient(135deg, #003366 0%, #004a99 100%);
             color: white;
-            padding: 25px;
+            padding: 30px;
             border-radius: 8px;
             text-align: center;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            box-shadow: 0 5px 15px rgba(0,51,102,0.15);
         }
-        .stat-box .number {
-            font-size: 2.2em;
-            font-weight: bold;
+        
+        .stat-card .number {
+            font-size: 2.5rem;
+            font-weight: 800;
             margin-bottom: 10px;
+            display: block;
         }
-        .stat-box .label {
-            font-size: 0.95em;
+        
+        .stat-card .label {
+            font-size: 0.95rem;
             opacity: 0.9;
+            font-weight: 500;
         }
+        
         ul, ol {
             margin: 20px 0 20px 30px;
             line-height: 2;
         }
+        
         li {
-            margin-bottom: 10px;
-            color: #555;
+            margin-bottom: 12px;
+            color: #444;
+            font-size: 1.05rem;
         }
-        footer {
+        
+        li strong {
+            color: #003366;
+        }
+        
+        .info-box {
+            background: #ffffff;
+            border: 2px solid #e0e0e0;
+            padding: 25px;
+            border-radius: 8px;
+            margin: 25px 0;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+        
+        .info-box h3 {
+            margin-top: 0;
+        }
+        
+        .link-section {
             background: #f8f9fa;
-            padding: 30px;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 25px 0;
+            border-left: 4px solid #004a99;
+        }
+        
+        .link-section a {
+            color: #003366;
+            font-weight: 600;
+            text-decoration: none;
+        }
+        
+        .link-section a:hover {
+            text-decoration: underline;
+            color: #004a99;
+        }
+        
+        footer {
+            background: #f0f4ff;
+            padding: 40px 30px;
             text-align: center;
             color: #666;
             border-top: 1px solid #ddd;
         }
-        .link-box {
-            background: #e8f4f8;
-            padding: 15px;
-            border-radius: 5px;
-            margin: 20px 0;
-            border-left: 4px solid #667eea;
+        
+        footer p {
+            margin: 8px 0;
+            font-size: 0.95rem;
         }
+        
+        footer a {
+            color: #003366;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        
+        footer a:hover {
+            text-decoration: underline;
+        }
+        
         @media (max-width: 768px) {
             header h1 {
-                font-size: 2em;
+                font-size: 2rem;
             }
             main {
                 padding: 30px 20px;
+            }
+            h2 {
+                font-size: 1.6rem;
+            }
+            .stats-grid {
+                grid-template-columns: 1fr;
             }
         }
     </style>
@@ -131,142 +231,176 @@
 <body>
     <div class="container">
         <header>
-            <h1>🌊 ميناء جبل طارق</h1>
-            <p>مركز عالمي رائد في تجارة الوقود البحري والمعاملات الرقمية</p>
+            <h1>🌊 Strait of Gibraltar Port</h1>
+            <p>Global Maritime Fuel Intelligence Hub & Digital Asset Settlement Leader</p>
         </header>
         
+        <nav>
+            <a href="/">← Back to Homepage</a>
+            <a href="/prices.html">Live Prices</a>
+            <a href="/calc.html">Calculator</a>
+        </nav>
+        
         <main>
-            <!-- مقدمة عن ميناء جبل طارق -->
+            <!-- Introduction -->
             <section>
-                <h2>مقدمة عامة</h2>
-                <p>يعتبر ميناء جبل طارق (Strait of Gibraltar Port) من أهم الموانئ البحرية العالمية، حيث يقع على نقطة التقاء البحر الأبيض المتوسط مع المحيط الأطلسي. يتمتع هذا الموقع الاستراتيجي بأهمية جيوسياسية واقتصادية كبيرة، مما جعله مركزاً حيوياً لتجارة الوقود البحري (VLSFO) والمعاملات المالية الرقمية.</p>
-                <div class="highlight">
-                    <strong>حقيقة مهمة:</strong> يعبر أكثر من 13% من تجارة العالم البحرية عبر مضيق جبل طارق، مما يجعله أحد أكثر الممرات المائية ازدحاماً في العالم.
+                <h2>Overview</h2>
+                <p>The Strait of Gibraltar Port stands as one of the world's most strategically vital maritime hubs, positioned at the convergence of the Mediterranean Sea and the Atlantic Ocean. This geographic advantage, combined with advanced logistics infrastructure and digital financial capabilities, has established it as a critical center for global VLSFO (Very Low Sulphur Fuel Oil) trading and digital asset settlements.</p>
+                
+                <div class="highlight-box">
+                    <strong>Key Fact:</strong> Over 13% of the world's maritime trade passes through the Strait of Gibraltar, making it one of the most congested waterways globally and a premier bunker fuel distribution point.
                 </div>
             </section>
 
-            <!-- الموقع الجغرافي والأهمية -->
+            <!-- Geographic Location and Strategic Importance -->
             <section>
-                <h2>الموقع الجغرافي والأهمية الاستراتيجية</h2>
-                <h3>الموقع المميز</h3>
-                <p>يقع مضيق جبل طارق على الحدود بين إسبانيا والمغرب، على بعد حوالي 14 كيلومتر فقط من الساحل المغربي. هذا الموقع يوفر:</p>
+                <h2>Geographic Location & Strategic Importance</h2>
+                
+                <h3>Prime Strategic Position</h3>
+                <p>Located at the border between Spain and Morocco, approximately 14 kilometers from the Moroccan coast, the Strait of Gibraltar's unique position offers:</p>
+                
                 <ul>
-                    <li><strong>نقطة عبور استراتيجية:</strong> تربط بين البحر الأبيض المتوسط والمحيط الأطلسي</li>
-                    <li><strong>مركز لوجستي:</strong> تتجمع فيه السفن من جميع أنحاء العالم</li>
-                    <li><strong>نقطة تموين حيوية:</strong> توفر خدمات التزود بالوقود والمياه والمؤن</li>
-                    <li><strong>مركز مالي:</strong> يسهل المعاملات التجارية والاستثمارية</li>
+                    <li><strong>Critical Shipping Crossroads:</strong> Connects the Mediterranean Sea with the Atlantic Ocean</li>
+                    <li><strong>Major Logistics Hub:</strong> Convergence point for vessels from all corners of the globe</li>
+                    <li><strong>Essential Bunkering Facility:</strong> Provides fuel, fresh water, provisions, and marine services</li>
+                    <li><strong>Financial Services Center:</strong> Facilitates commercial and investment transactions</li>
+                    <li><strong>Price Discovery Engine:</strong> Sets global benchmark prices for marine fuels</li>
                 </ul>
                 
-                <div class="stats">
-                    <div class="stat-box">
-                        <div class="number">13%</div>
-                        <div class="label">من التجارة البحرية العالمية</div>
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <span class="number">13%</span>
+                        <span class="label">of Global Maritime Trade</span>
                     </div>
-                    <div class="stat-box">
-                        <div class="number">300+</div>
-                        <div class="label">سفينة يومياً</div>
+                    <div class="stat-card">
+                        <span class="number">300+</span>
+                        <span class="label">Vessels Daily</span>
                     </div>
-                    <div class="stat-box">
-                        <div class="number">14 كم</div>
-                        <div class="label">عرض المضيق الأدنى</div>
+                    <div class="stat-card">
+                        <span class="number">14 km</span>
+                        <span class="label">Minimum Width</span>
                     </div>
                 </div>
             </section>
 
-            <!-- تجارة الوقود البحري -->
+            <!-- VLSFO Trading -->
             <section>
-                <h2>تجارة الوقود البحري (VLSFO)</h2>
-                <h3>ما هو VLSFO؟</h3>
-                <p>VLSFO (Very Low Sulphur Fuel Oil) هو وقود بحري منخفض الكبريت يستخدم في السفن الحديثة. كان لازماً استخدام هذا الوقود اعتباراً من 1 يناير 2020 وفقاً لقوانين منظمة البحرية الدولية (IMO) 2020.</p>
+                <h2>VLSFO Trading & Bunker Fuel Market</h2>
                 
-                <h3>دور ميناء جبل طارق في سوق VLSFO</h3>
+                <h3>What is VLSFO?</h3>
+                <p>VLSFO (Very Low Sulphur Fuel Oil) is a marine bunker fuel containing a maximum sulphur content of 0.50% m/m (mass/mass). Mandated by the International Maritime Organization (IMO) 2020 regulation, VLSFO replaced High Sulphur Fuel Oil and has become the industry standard for compliance with environmental regulations.</p>
+                
+                <h3>Gibraltar's Role in Global VLSFO Markets</h3>
                 <ul>
-                    <li><strong>مركز تزود رئيسي:</strong> يوفر ملايين الأطنان من VLSFO سنوياً</li>
-                    <li><strong>سعر مرجعي عالمي:</strong> تُحدد الأسعار في جبل طارق أسعار السوق العالمية</li>
-                    <li><strong>جودة عالية:</strong> يتمتع بسمعة عالمية لتوفير وقود عالي الجودة</li>
-                    <li><strong>خدمات لوجستية متقدمة:</strong> معدات حديثة لتحميل الوقود بسرعة وأمان</li>
+                    <li><strong>Primary Supply Hub:</strong> Distributes millions of tons of VLSFO annually to vessels worldwide</li>
+                    <li><strong>Price Benchmark:</strong> Gibraltar prices set global reference rates and influence worldwide fuel markets</li>
+                    <li><strong>Quality Assurance:</strong> Renowned for supplying premium-grade VLSFO meeting strict ISO 8217 standards</li>
+                    <li><strong>Advanced Logistics:</strong> Modern bunkering infrastructure enables rapid, secure fuel delivery</li>
+                    <li><strong>Competitive Advantage:</strong> Strategic location reduces delivery times and transportation costs</li>
                 </ul>
 
-                <div class="highlight">
-                    <strong>📊 إحصائية مهمة:</strong> يتم تزويد حوالي 5000+ سفينة شهرياً بالوقود في منطقة جبل طارق، بإجمالي كميات تتجاوز 10 ملايين طن سنوياً.
+                <div class="highlight-box">
+                    <strong>📊 Market Scale:</strong> Approximately 5,000+ vessels are supplied with bunker fuel monthly in the Gibraltar region, totaling over 10 million metric tons of VLSFO annually.
                 </div>
             </section>
 
-            <!-- المعاملات الرقمية والتسويات -->
+            <!-- Digital Transactions & Blockchain -->
             <section>
-                <h2>المعاملات الرقمية والتسويات المالية</h2>
-                <h3>ثورة البلوكتشين</h3>
-                <p>يشهد ميناء جبل طارق تحولاً رقمياً نحو استخدام تقنيات البلوكتشين والمحافظ الرقمية (Digital Wallets) في تسويات المعاملات المالية للوقود البحري.</p>
+                <h2>Digital Transactions & Blockchain Settlements</h2>
+                
+                <h3>The Digital Transformation</h3>
+                <p>The Strait of Gibraltar is undergoing a revolutionary digital transformation, transitioning from traditional banking mechanisms to blockchain-based settlements and digital wallets for VLSFO fuel trading transactions. This shift modernizes the maritime industry and enhances operational efficiency.</p>
 
-                <h3>مميزات المعاملات الرقمية:</h3>
+                <h3>Advantages of Digital Fuel Settlements</h3>
                 <ul>
-                    <li><strong>السرعة:</strong> تسوية فورية للمعاملات دون وسطاء</li>
-                    <li><strong>الشفافية:</strong> سجل آمن وغير قابل للتعديل لجميع المعاملات</li>
-                    <li><strong>الأمان:</strong> تشفير عالي يمنع الاحتيال</li>
-                    <li><strong>خفض التكاليف:</strong> تقليل الرسوم البنكية والإدارية</li>
-                    <li><strong>الامتثال:</strong> سهولة التتبع والامتثال للوائح الدولية</li>
+                    <li><strong>Instant Settlement:</strong> Immediate transaction finalization without intermediary delays</li>
+                    <li><strong>Complete Transparency:</strong> Immutable ledger of all transactions ensuring accountability</li>
+                    <li><strong>Enhanced Security:</strong> Military-grade encryption prevents fraud and unauthorized access</li>
+                    <li><strong>Reduced Costs:</strong> Elimination of bank fees and administrative expenses</li>
+                    <li><strong>Regulatory Compliance:</strong> Automated tracking simplifies international regulatory adherence</li>
+                    <li><strong>24/7 Operations:</strong> Continuous settlement capability without banking hour restrictions</li>
                 </ul>
 
-                <div class="link-box">
-                    <strong>🔐 التأمين الرقمي:</strong> تستخدم العقود الذكية (Smart Contracts) لضمان الحماية الكاملة لجميع الأطراف في المعاملة.
+                <div class="info-box">
+                    <h3>🔐 Smart Contracts & Protection</h3>
+                    <p>Smart contracts (self-executing digital agreements) automatically enforce transaction terms, protecting all parties involved in VLSFO fuel purchases and settlements. These contracts execute instantaneously upon verification of agreed conditions.</p>
                 </div>
             </section>
 
-            <!-- البيئة والاستدامة -->
+            <!-- Sustainability & Environmental -->
             <section>
-                <h2>الاستدامة والمسؤولية البيئية</h2>
-                <p>يلعب ميناء جبل طارق دوراً مهماً في تعزيز الممارسات البيئية المستدامة في صناعة الشحن البحري.</p>
+                <h2>Sustainability & Environmental Responsibility</h2>
+                
+                <h3>Leading Green Maritime Initiative</h3>
+                <p>The Strait of Gibraltar Port actively champions sustainable practices across the marine shipping industry, promoting environmentally responsible fuel standards and operational procedures.</p>
 
-                <h3>المبادرات البيئية:</h3>
+                <h3>Environmental Initiatives</h3>
                 <ol>
-                    <li><strong>تقليل الانبعاثات:</strong> دعم استخدام الوقود منخفض الكبريت (VLSFO)</li>
-                    <li><strong>الوقود الأخضر:</strong> الاستثمار في أنواع وقود بديلة أكثر نظافة</li>
-                    <li><strong>معايير صارمة:</strong> التزام بمعايير الحماية البيئية الدولية</li>
-                    <li><strong>برامج التدريب:</strong> تدريب الموظفين على الممارسات البيئية الحديثة</li>
-                    <li><strong>مراقبة الجودة:</strong> اختبار منتظم لضمان امتثال الوقود للمعايير البيئية</li>
+                    <li><strong>Emission Reduction Programs:</strong> Supports VLSFO adoption to minimize sulphur emissions by 98% compared to traditional HSFO</li>
+                    <li><strong>Alternative Green Fuels:</strong> Investing in LNG (Liquified Natural Gas), biofuels, and hydrogen-based alternatives</li>
+                    <li><strong>Strict Environmental Standards:</strong> Full compliance with IMO 2020, MARPOL, and EU environmental regulations</li>
+                    <li><strong>Staff Training & Development:</strong> Comprehensive programs ensuring adherence to environmental best practices</li>
+                    <li><strong>Quality Monitoring:</strong> Continuous testing and certification of all fuel supplies for environmental compliance</li>
+                    <li><strong>Port Infrastructure:</strong> Investment in waste management, water treatment, and pollution prevention systems</li>
                 </ol>
 
-                <div class="highlight">
-                    <strong>🌱 هدف 2030:</strong> السعي نحو تقليل الانبعاثات الكربونية بنسبة 40% مقارنة بعام 2008.
+                <div class="highlight-box">
+                    <strong>🌱 Vision 2030:</strong> Target reduction of carbon emissions by 40% compared to 2008 baseline levels, aligning with global climate action goals.
                 </div>
             </section>
 
-            <!-- التحديات والفرص -->
+            <!-- Challenges & Opportunities -->
             <section>
-                <h2>التحديات والفرص المستقبلية</h2>
+                <h2>Challenges & Future Opportunities</h2>
                 
-                <h3>التحديات:</h3>
+                <h3>Current Market Challenges</h3>
                 <ul>
-                    <li>التنافس من موانئ أخرى (روتردام، سنغافورة)</li>
-                    <li>التذبذبات في أسعار النفط العالمية</li>
-                    <li>متطلبات الامتثال البيئي المتزايدة</li>
-                    <li>الأمن البحري والقرصنة</li>
+                    <li>Competition from alternative bunkering hubs (Rotterdam, Singapore, Houston)</li>
+                    <li>Volatile global crude oil prices impacting fuel costs</li>
+                    <li>Increasingly stringent environmental compliance requirements</li>
+                    <li>Maritime security concerns and piracy risks</li>
+                    <li>Infrastructure maintenance and modernization investments</li>
                 </ul>
 
-                <h3>الفرص المستقبلية:</h3>
+                <h3>Strategic Growth Opportunities</h3>
                 <ul>
-                    <li>التحول الرقمي والتكنولوجيا المالية</li>
-                    <li>تطوير البنية التحتية والتجهيزات الحديثة</li>
-                    <li>توسيع خدمات الوقود الأخضر</li>
-                    <li>تعزيز دور البلوكتشين في التسويات المالية</li>
-                    <li>جذب استثمارات جديدة في القطاع المالي</li>
+                    <li><strong>Digital Financial Technology:</strong> Expand blockchain and fintech integration for settlements</li>
+                    <li><strong>Infrastructure Modernization:</strong> Deploy next-generation bunkering equipment and automation</li>
+                    <li><strong>Green Fuel Expansion:</strong> Scale production and distribution of sustainable alternative fuels</li>
+                    <li><strong>Blockchain Leadership:</strong> Position as the global standard for maritime fuel digital transactions</li>
+                    <li><strong>Investment Attraction:</strong> Secure funding for technology and infrastructure development</li>
+                    <li><strong>Market Analytics:</strong> Develop AI-powered trading platforms and market intelligence tools</li>
                 </ul>
             </section>
 
-            <!-- الخلاصة -->
+            <!-- Conclusion -->
             <section>
-                <h2>الخلاصة</h2>
-                <p>يمثل ميناء جبل طارق حالياً وفي المستقبل القريب نقطة محورية في الاقتصاد البحري العالمي. بفضل موقعه الاستراتيجي المميز وإمكانياته اللوجستية والمالية، سيستمر في لعب دور رائد في تجارة الوقود البحري والمعاملات الرقمية. مع التطورات التكنولوجية المتسارعة، خاصة في مجال البلوكتشين والعقود الذكية، يتجه الميناء نحو مستقبل أكثر كفاءة وأماناً واستدامة.</p>
+                <h2>Conclusion</h2>
+                <p>The Strait of Gibraltar Port represents a pinnacle of maritime commerce and technological innovation. With its unparalleled geographic location, established VLSFO market dominance, and pioneering digital settlement infrastructure, the port is positioned as a global leader in maritime fuel trading and blockchain-based financial transactions.</p>
                 
-                <div class="highlight">
-                    <strong>النظرة المستقبلية:</strong> سيصبح ميناء جبل طارق في العقد القادم مركزاً رائداً عالمياً للمعاملات الرقمية والتسويات البلوكتشينية في صناعة الشحن البحري.
+                <p>As the shipping industry navigates the energy transition and digital revolution, the Strait of Gibraltar Port will continue to evolve, integrating advanced technologies, sustainability practices, and financial innovation. The convergence of traditional maritime expertise with cutting-edge blockchain solutions creates a unique competitive advantage that will define the future of global marine fuel commerce.</p>
+
+                <div class="highlight-box">
+                    <strong>Future Vision:</strong> By 2030, the Strait of Gibraltar Port will establish itself as the world's premier center for digital maritime fuel transactions, serving as the reference point for VLSFO pricing, blockchain settlement standards, and sustainable shipping practices globally.
+                </div>
+            </section>
+
+            <!-- Related Links -->
+            <section>
+                <div class="link-section">
+                    <h3>📚 Related Articles</h3>
+                    <p><a href="/index.html">← Return to Main Content Hub</a></p>
+                    <p><a href="/prices.html">View Live VLSFO Prices</a></p>
+                    <p><a href="/blockchain-settlement.html">Blockchain Solutions in Maritime Fuel Trading</a></p>
                 </div>
             </section>
         </main>
 
         <footer>
-            <p>&copy; 2026 VLSFO Protocol - Global Maritime Fuel Intelligence</p>
-            <p>للمزيد من المعلومات، يرجى زيارة الموقع الرسمي</p>
+            <p><strong>VLSFO Protocol - Global Maritime Fuel Intelligence</strong></p>
+            <p>Strait of Gibraltar Port Article | Published: August 31, 2026</p>
+            <p><a href="mailto:contact@vlsfo.com">contact@vlsfo.com</a></p>
+            <p>&copy; 2026 VLSFO.GLOBAL | All rights reserved.</p>
         </footer>
     </div>
 </body>
