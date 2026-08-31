@@ -4,7 +4,7 @@
   <!-- الصفحة الرئيسية -->
   <url>
     <loc>https://vlsfo.com/</loc>
-    <lastmod>2026-07-14</lastmod>
+    <lastmod>2026-08-31</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -61,6 +61,14 @@
   <url>
     <loc>https://vlsfo.com/articles/green-fuel-transition.html</loc>
     <lastmod>2026-07-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- مقال: ميناء جبل طارق -->
+  <url>
+    <loc>https://vlsfo.com/articles/strait-of-gibraltar-port.html</loc>
+    <lastmod>2026-08-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
